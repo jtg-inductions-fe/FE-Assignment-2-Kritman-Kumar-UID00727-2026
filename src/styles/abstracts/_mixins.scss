@@ -1,0 +1,19 @@
+@use './breakpoints' as bp;
+
+@mixin tablet {
+  @media (min-width: #{bp.$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{bp.$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: #{bp.$breakpoint-desktop-xl}) {
+    @content;
+  }
+}

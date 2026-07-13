@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+body.light-theme {
+  background-color: $background;
+  color: $text-primary;
+}

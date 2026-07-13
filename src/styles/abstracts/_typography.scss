@@ -1,0 +1,29 @@
+@use 'functions' as fn;
+
+$font-family-primary: 'Inter', sans-serif;
+
+// ---------------------------------------
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ---------------------------------------
+$font-size-xs: fn.rem(12px);
+$font-size-sm: fn.rem(13px);
+$font-size-md: fn.rem(14px);
+$font-size-lg: 1rem;
+$font-size-xl: fn.rem(20px);
+
+// ---------------------------------------
+$font-size-display-mobile: fn.rem(30px);
+$font-size-display-desktop: fn.rem(48px);
+
+// ---------------------------------------
+$line-height-xs: fn.rem(18px);
+$line-height-sm: fn.rem(20px);
+$line-height-md: fn.rem(21px);
+$line-height-lg: fn.rem(24px);
+$line-height-xl: fn.rem(30px);
+$line-height-display: fn.rem(62.5px);
+$line-height-body: 150%;

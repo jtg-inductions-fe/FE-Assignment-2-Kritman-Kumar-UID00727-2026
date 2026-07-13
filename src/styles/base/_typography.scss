@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+.text-display {
+  font-family: $font-family-primary;
+  font-size: $font-size-display-mobile;
+  font-weight: $font-weight-bold;
+  line-height: 40px;
+  letter-spacing: 0;
+
+  @include desktop {
+    font-size: $font-size-display-desktop;
+    line-height: $line-height-display;
+  }
+}
+
+.text-heading {
+  font-family: $font-family-primary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-xl;
+  letter-spacing: 0;
+}
+
+.text-title {
+  font-family: $font-family-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-lg;
+  letter-spacing: 0;
+}
+
+.text-subtitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-lg;
+  letter-spacing: 0;
+}
+
+.text-body {
+  font-family: $font-family-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-body;
+  letter-spacing: 0;
+}
+
+.text-body-medium {
+  font-family: $font-family-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-lg;
+  letter-spacing: 0;
+}
+
+.text-label {
+  font-family: $font-family-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-sm;
+  letter-spacing: 0;
+}
+
+.text-label-semibold {
+  font-family: $font-family-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-md;
+  letter-spacing: 0;
+}
+
+.text-caption {
+  font-family: $font-family-primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-xs;
+  letter-spacing: 0;
+}
+
+.text-caption-semibold {
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-xs;
+  letter-spacing: 0;
+}
