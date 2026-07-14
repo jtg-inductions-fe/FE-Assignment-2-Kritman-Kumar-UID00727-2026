@@ -1,0 +1,35 @@
+/// Injects a media query block targeting screen widths from the specified breakpoint and larger.
+/// @group Responsive
+/// @param {String | Number} $breakpoint - The minimum width value (e.g., 'md' or 768px).
+/// @content The CSS rules to apply when the viewport meets or exceeds the breakpoint width.
+@mixin media-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+/// Injects a media query block targeting screen widths up to the specified breakpoint.
+/// @group Responsive
+/// @param {String | Number} $breakpoint - The maximum width value (e.g., 'sm' or 480px).
+/// @content The CSS rules to apply when the viewport is smaller than or equal to the breakpoint width.
+@mixin media-down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/// Flexible Layout Mixin
+/// Generates a flexible box layout container with quick configuration options.
+/// @param {String} $direction [row] - Direction of main flex axis (row, row-reverse, column, column-reverse)
+/// @param {String} $justify [flex-start] - Alignment along main axis (flex-start, center, space-between, etc.)
+/// @param {String} $align [stretch] - Alignment along cross axis (stretch, center, flex-start, flex-end)
+/// @param {String} $wrap [nowrap] - Wrap behavior of flex items (nowrap, wrap, wrap-reverse)
+/// @param {Length} $gap [0] - Spacing size between flex items (px, rem, em, %, etc.)
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+}
