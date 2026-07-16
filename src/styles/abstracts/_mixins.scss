@@ -18,6 +18,15 @@
   }
 }
 
+/// Applies styles between two specific width breakpoints.
+/// @param {Length} $breakpoint-start - Minimum screen width (exclusive).
+/// @param {Length} $breakpoint-end - Maximum screen width (exclusive).
+@mixin media-between($breakpoint-start, $breakpoint-end) {
+  @media ($breakpoint-start < width < $breakpoint-end) {
+    @content;
+  }
+}
+
 /// Flexible Layout Mixin
 /// Generates a flexible box layout container with quick configuration options.
 /// @param {String} $direction [row] - Direction of main flex axis (row, row-reverse, column, column-reverse)
