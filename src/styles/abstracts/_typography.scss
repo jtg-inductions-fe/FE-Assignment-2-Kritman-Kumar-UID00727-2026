@@ -1,83 +1,79 @@
 @use './variables' as *;
 @use './mixins' as *;
 @use './breakpoints' as *;
+@use './functions' as *;
 
 .text-display {
   font-size: $font-size-display-mobile;
-  font-weight: $weight-700;
-  line-height: 40px;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tightest;
   letter-spacing: 0;
 
   @include media-up($breakpoint: $breakpoint-desktop) {
     font-size: $font-size-display-desktop;
-    line-height: $line-height-display;
+    line-height: $line-height-tightest;
   }
-}
-
-.test {
-  font-size: 5rem;
-  font-weight: 800;
 }
 
 .text-heading {
   font-size: $font-size-xl;
-  font-weight: $weight-700;
-  line-height: $line-height-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-loose;
   letter-spacing: 0;
 }
 
 .text-title {
   font-size: $font-size-lg;
-  font-weight: $weight-700;
-  line-height: $line-height-lg;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-relaxed;
   letter-spacing: 0;
 }
 
 .text-subtitle {
   font-size: $font-size-lg;
-  font-weight: $weight-600;
-  line-height: $line-height-lg;
+  font-weight: $font-weight-semi-Bold;
+  line-height: $line-height-relaxed;
   letter-spacing: 0;
 }
 
 .text-body {
   font-size: $font-size-lg;
-  font-weight: $weight-400;
-  line-height: $line-height-body;
+  font-weight: $font-weight-thin;
+  line-height: $line-height-relaxed;
   letter-spacing: 0;
 }
 
 .text-body-medium {
   font-size: $font-size-lg;
-  font-weight: $weight-500;
-  line-height: $line-height-lg;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-relaxed;
   letter-spacing: 0;
 }
 
 .text-label {
   font-size: $font-size-md;
-  font-weight: $weight-500;
-  line-height: $line-height-sm;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-relaxed;
   letter-spacing: 0;
 }
 
 .text-label-semibold {
   font-size: $font-size-md;
-  font-weight: $weight-600;
-  line-height: $line-height-md;
+  font-weight: $font-weight-semi-Bold;
+  line-height: $line-height-relaxed;
   letter-spacing: 0;
 }
 
 .text-caption {
   font-size: $font-size-xs;
-  font-weight: $weight-500;
-  line-height: $line-height-xs;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
   letter-spacing: 0;
 }
 
 .text-caption-semibold {
   font-size: $font-size-sm;
-  font-weight: $weight-600;
-  line-height: $line-height-xs;
+  font-weight: $font-weight-semi-Bold;
+  line-height: $line-height-tight;
   letter-spacing: 0;
 }

@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as v;
+@use '../abstracts/variables' as *;
 
 html {
-  font-family: v.$font-family-primary;
+  font-family: $font-family-primary;
 }
