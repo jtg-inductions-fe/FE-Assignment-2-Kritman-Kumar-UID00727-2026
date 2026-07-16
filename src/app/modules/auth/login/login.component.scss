@@ -1,0 +1,49 @@
+@use '../../../../styles/abstracts' as *;
+
+.login {
+  @include flex($justify: center, $align: center);
+  height: 100dvh;
+
+  &__container {
+    box-shadow: $shadow-sm;
+    border-radius: $radius-sm;
+    padding: 12px;
+    width: 95%;
+    max-width: 400px;
+    min-width: 280px;
+    @include flex($direction: column, $gap: 12px);
+  }
+
+  &__header {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    color: $text-primary;
+  }
+
+  &__subtitle {
+    color: $text-secondary;
+  }
+
+  &__form {
+    @include flex($direction: column, $gap: 12px);
+  }
+
+  &__btn {
+    min-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: $shadow-sm;
+  }
+
+  &__btn:hover {
+    background-color: $link-hover;
+  }
+
+  &__error {
+    color: $error;
+    text-align: center;
+  }
+}

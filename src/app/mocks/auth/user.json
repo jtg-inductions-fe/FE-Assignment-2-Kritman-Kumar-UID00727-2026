@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "name": "Kritman Rao",
+    "email": "kr@gmail.com",
+    "password": "kritman",
+    "role": "admin"
+  },
+  {
+    "id": "2",
+    "name": "John",
+    "email": "jhon.brooks@example.com",
+    "password": "kritman",
+    "role": "owner"
+  },
+  {
+    "id": 3,
+    "email": "olivia.gomez@example.com",
+    "password": "kritman",
+    "role": "admin"
+  },
+  {
+    "id": "usr_404",
+    "name": "Emma Watson",
+    "email": "emma.watson@example.com",
+    "password": "$2b$12$Wq9jA2...hashed...",
+    "role": "owner"
+  },
+  {
+    "id": 5,
+    "name": "Sophia Martinez",
+    "email": "sophia.martinez@example.com",
+    "password": "$2b$12$Xr0kB3...hashed...",
+    "role": "admin"
+  },
+  {
+    "id": 6,
+    "email": "jackson.lee@example.com",
+    "password": "$2b$12$Ys1lC4...hashed...",
+    "role": "admin"
+  },
+  {
+    "id": "usr_707",
+    "name": "Mia Jenkins",
+    "email": "mia.jenkins@example.com",
+    "password": "$2b$12$Zt2mD5...hashed...",
+    "role": "owner"
+  },
+  {
+    "id": 8,
+    "name": "Lucas Vance",
+    "email": "lucas.vance@example.com",
+    "password": "$2b$12$Au3nE6...hashed...",
+    "role": "admin"
+  },
+  {
+    "id": 9,
+    "email": " Isabella Cross",
+    "password": "$2b$12$Bv4oF7...hashed...",
+    "role": "owner"
+  },
+  {
+    "id": "usr_1010",
+    "name": "Ethan Hunt",
+    "email": "ethan.hunt@example.com",
+    "password": "$2b$12$Cw5pG8...hashed...",
+    "role": "admin"
+  }
+]
