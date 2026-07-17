@@ -1,0 +1,28 @@
+@use '../../../../styles/abstracts/' as *;
+
+.header {
+  @include flex($justify: space-between);
+  padding: pxToRem(16px);
+
+  &__logo {
+    display: none;
+  }
+
+  &__profile {
+    background: none;
+    border: none;
+    width: pxToRem(32px);
+    aspect-ratio: 1/1;
+    border-radius: $radius-full;
+  }
+
+  @include media-up($breakpoint: $breakpoint-tablet) {
+    &__logo {
+      display: block;
+    }
+
+    &__hamburger-btn {
+      display: none;
+    }
+  }
+}
