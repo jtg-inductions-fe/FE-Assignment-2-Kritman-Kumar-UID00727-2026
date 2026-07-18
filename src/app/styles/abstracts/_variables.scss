@@ -3,12 +3,12 @@
 $font-family-primary: 'Inter', sans-serif;
 
 // radius
-$radius-xs: 4px;
-$radius-sm: 8px;
-$radius-md: 12px;
-$radius-lg: 16px;
-$radius-xl: 20px;
-$radius-full: 9999px;
+$radius-xs: pxToRem(4);
+$radius-sm: pxToRem(8);
+$radius-md: pxToRem(pxToRem(12));
+$radius-lg: pxToRem(16);
+$radius-xl: pxToRem(20);
+$radius-full: pxToRem(9999);
 
 // box-shadow
 $shadow-sm:
@@ -18,9 +18,9 @@ $shadow-sm:
 
 // font weight
 $font-weight-thin: 100;
-$font-weight-light: 200;
-$font-weight-regular: 300;
-$font-weight-thin: 400;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semi-Bold: 600;
 $font-weight-bold: 700;
@@ -28,13 +28,13 @@ $font-weight-extra-bold: 800;
 $font-weight-black: 900;
 
 // font size
-$font-size-xs: pxToRem(12px);
-$font-size-sm: pxToRem(13px);
-$font-size-md: pxToRem(14px);
-$font-size-lg: pxToRem(16px);
-$font-size-xl: pxToRem(20px);
-$font-size-display-mobile: pxToRem(30px);
-$font-size-display-desktop: pxToRem(48px);
+$font-size-xs: pxToRem(12);
+$font-size-sm: pxToRem(13);
+$font-size-md: pxToRem(14);
+$font-size-lg: pxToRem(16);
+$font-size-xl: pxToRem(20);
+$font-size-display-mobile: pxToRem(30);
+$font-size-display-desktop: pxToRem(48);
 
 // line height
 $line-height-none: 1;

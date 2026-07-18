@@ -22,7 +22,7 @@
 /// @param {String} $align [stretch] - Cross alignment (center, stretch).
 /// @param {String} $wrap [nowrap] - Wrap items (wrap, nowrap).
 /// @param {Length} $gap [0] - Item spacing (px, rem).
-@mixin lex-layout(
+@mixin flex-box(
   $direction: row,
   $justify-content: flex-start,
   $align-items: stretch,

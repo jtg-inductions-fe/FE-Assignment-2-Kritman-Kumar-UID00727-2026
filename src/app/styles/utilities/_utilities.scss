@@ -1,0 +1,64 @@
+@use '../abstracts/' as *;
+@use 'spacing' as *;
+
+.container {
+  max-width: $breakpoint-mobile;
+  padding: 0 pxToRem(16);
+  background-color: $primary;
+
+  @include media-up($breakpoint: $breakpoint-tablet) {
+    max-width: $breakpoint-tablet;
+    padding: 0 pxToRem(16);
+    background-color: $ochre-spice;
+  }
+
+  @include media-up($breakpoint: $breakpoint-desktop) {
+    max-width: $breakpoint-desktop;
+    padding: 0 pxToRem(32);
+    background-color: rgb(42, 52, 147);
+  }
+
+  @include media-up($breakpoint: $breakpoint-desktop-xl) {
+    max-width: $breakpoint-desktop-xl;
+    background-color: rgb(136, 20, 127);
+    padding: 0 pxToRem(64);
+  }
+}
+
+@each $key, $value in $spacers {
+  .p-#{$key} {
+    padding: $value;
+  }
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .m-#{$key} {
+    margin: $value;
+  }
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+  .mx-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+}

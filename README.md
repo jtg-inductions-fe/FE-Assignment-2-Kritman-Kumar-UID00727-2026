@@ -51,13 +51,13 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js ^16.14.0 || ^18.10.0
 - Yarn
 
 ### Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/jtg-inductions-fe/FE-Assignment-2-Kritman-Kumar-UID00727-2026.git
 cd restaurant-admin-dashboard
 ```
 

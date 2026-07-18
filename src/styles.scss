@@ -1,7 +1,1 @@
-@use './styles/abstracts';
-@use './styles/vendors';
-@use './styles/base';
-@use './styles/layout';
-@use './styles/components';
-@use './styles/utilities';
-@use './styles/themes';
+@use './app/styles/index.scss';
