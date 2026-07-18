@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SidebarService } from '@app/core/services/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   appLogoSrc = 'assets/icons/logo.png';
   profileSrc = 'assets/profile.png';
+
+  private sidebarService = inject(SidebarService);
+
+  handleMenuClick() {
+    this.sidebarService.toggleClick$.next();
+  }
 }

@@ -1,9 +1,8 @@
 @use '../styles/abstracts/' as *;
 
-.app {
-  min-width: 280px;
-  height: 100dvh;
+.app-layout {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: pxToRem(70px) 1fr;
+  grid-template-rows: auto 1fr;
+
+  height: 100vh;
 }
