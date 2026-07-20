@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from '@shared/components/header/header.component';
 
@@ -14,7 +13,6 @@ import { HeaderComponent } from '@shared/components/header/header.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule,
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
