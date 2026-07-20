@@ -2,16 +2,18 @@
 
 .login {
   @include flex($justify: center, $align: center);
+
   height: 100dvh;
 
   &__container {
+    @include flex($direction: column, $gap: 12px);
+
     box-shadow: $shadow-sm;
     border-radius: $radius-sm;
-    padding: 12px;
+    padding: pxToRem(12px);
     width: 95%;
-    max-width: 400px;
-    min-width: 280px;
-    @include flex($direction: column, $gap: 12px);
+    max-width: pxToRem(400px);
+    min-width: pxToRem(280px);
   }
 
   &__header {
@@ -28,18 +30,16 @@
   }
 
   &__form {
-    @include flex($direction: column, $gap: 12px);
+    @include flex($direction: column);
+
+    gap: pxToRem(12px);
   }
 
   &__btn {
-    min-height: 35px;
+    min-height: pxToRem(35px);
     text-align: center;
     text-transform: uppercase;
     box-shadow: $shadow-sm;
-  }
-
-  &__btn:hover {
-    background-color: $link-hover;
   }
 
   &__error {
