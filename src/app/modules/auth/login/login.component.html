@@ -1,68 +1,65 @@
 <main class="login">
   <div class="login__container">
     <hgroup class="login__header">
-      <h1 class="text-heading login__title">Restaurant Portal</h1>
-      <p class="text-caption login__subtitle">Log in to manage orders, menus, and stats.</p>
+      <h1 class="text-heading login__title">
+        {{ ui.title }}
+      </h1>
+
+      <p class="text-subtitle login__subtitle">
+        {{ ui.subtitle }}
+      </p>
     </hgroup>
 
-    <form class="login__form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline" class="login__input-grp">
-        <mat-label class="login__lable">Email Address</mat-label>
-        <input
-          matInput
-          placeholder="email"
-          class="login__input"
-          formControlName="email"
-          [ngClass]="{ 'is-invalid': f['email'].touched && f['email'].errors }"
-        />
-        <mat-error *ngIf="f['email'].hasError('required')">Email is required</mat-error>
-        <mat-error *ngIf="f['email'].hasError('email')">Please enter a valid email</mat-error>
+    <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onLogInFormSubmit()">
+      <mat-form-field appearance="outline" class="login__input-group">
+        <mat-label>{{ ui.emailLabel }}</mat-label>
+
+        <input matInput type="email" formControlName="email" autocomplete="email" />
+
+        <mat-error *ngIf="email.touched && email.invalid">
+          {{ emailError }}
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="login__input-grp" appearance="outline">
-        <mat-label class="login__lable">Password</mat-label>
+      <mat-form-field appearance="outline" class="login__input-group">
+        <mat-label>{{ ui.passwordLabel }}</mat-label>
+
         <input
-          class="login__input"
           matInput
-          autocomplete="off"
-          placeholder="Password"
-          [type]="hide ? 'password' : 'text'"
           formControlName="password"
-          [ngClass]="{ 'is-invalid': f['password'].touched && f['password'].errors }"
+          autocomplete="current-password"
+          [type]="hidePassword() ? 'password' : 'text'"
         />
+
         <button
-          type="button"
           mat-icon-button
           matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
+          type="button"
+          (click)="togglePasswordVisibility()"
+          [attr.aria-label]="hidePassword() ? 'Show password' : 'Hide password'"
         >
-          <mat-icon class="login__password-icon">
-            {{ hide ? 'visibility_off' : 'visibility' }}
+          <mat-icon>
+            {{ hidePassword() ? 'visibility_off' : 'visibility' }}
           </mat-icon>
         </button>
 
-        <mat-error *ngIf="f['password'].hasError('required') || message"
-          >Password is required {{ message }}
-        </mat-error>
-
-        <mat-error *ngIf="f['password'].hasError('minlength')">
-          Password must be at least 6 characters
+        <mat-error *ngIf="password.touched && password.invalid">
+          {{ passwordError }}
         </mat-error>
       </mat-form-field>
+
+      <p class="login__error" *ngIf="serverError()">
+        {{ serverError() }}
+      </p>
 
       <button
         mat-raised-button
         color="primary"
         class="login__btn"
-        type="submit"
-        [disabled]="userForm.invalid || loading"
+        [disabled]="loginForm.invalid || isLoading()"
       >
-        {{ loading ? 'Signing in...' : 'Login' }}
+        {{ isLoading() ? ui.loadingButton : ui.submitButton }}
       </button>
     </form>
-    <mat-progress-bar *ngIf="loading" mode="indeterminate"> </mat-progress-bar>
-    <p class="login__error" *ngIf="message">{{ message }}</p>
   </div>
 </main>

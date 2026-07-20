@@ -1,10 +1,13 @@
 import { Id, Role } from '../types/user.type';
 
-export interface AuthUser {
+export interface BaseUser {
   id: Id;
-  // name is optional for future perspective
   name?: string;
   email: string;
+  profileImgUrl?: string;
+}
+
+export interface AuthUser extends BaseUser {
   password: string;
   role: Role;
 }
