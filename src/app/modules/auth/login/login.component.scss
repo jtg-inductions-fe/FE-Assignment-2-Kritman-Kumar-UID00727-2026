@@ -3,19 +3,16 @@
 .login {
   @include flex-box($justify-content: center, $align-items: center);
 
-  height: 100dvh;
+  height: 100%;
 
   &__container {
     @include flex-box($direction: column);
 
-    gap: 12px;
-
-    box-shadow: $shadow-sm;
-    border-radius: $radius-sm;
+    gap: pxToRem(12);
     padding: pxToRem(12);
-    width: 95%;
-    max-width: pxToRem(400);
     min-width: pxToRem(280);
+    border-radius: $radius-sm;
+    box-shadow: $shadow-sm;
   }
 
   &__header {
@@ -47,5 +44,11 @@
   &__error {
     color: $error;
     text-align: center;
+  }
+
+  @include media-up($breakpoint: $breakpoint-tablet) {
+    &__container {
+      min-width: pxToRem(400);
+    }
   }
 }

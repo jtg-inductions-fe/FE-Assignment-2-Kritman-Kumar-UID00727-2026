@@ -7,11 +7,18 @@
   padding: pxToRem(10);
   box-shadow: $shadow-sm;
   border-radius: $radius-sm;
+  position: relative;
+
+  &__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
   &__user {
     @include flex-box($align-items: center);
 
-    gap: 16px;
+    gap: pxToRem(16);
   }
 
   &__user-name {

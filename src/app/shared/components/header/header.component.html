@@ -7,13 +7,13 @@
 
   <button
     mat-icon-button
-    *ngIf="user && !isProfileCardOpen"
+    *ngIf="user() && !isProfileCardOpen"
     class="header__profile-card-trigger"
     type="button"
     (click)="handleProfileIconClick()"
   >
-    <app-avatar [user]="user" />
+    <app-avatar [user]="user()" />
   </button>
 
-  <app-profile-cart *ngIf="isProfileCardOpen" (handleProfileIconClick)="handleProfileIconClick()" />
+  <app-profile-cart *ngIf="isProfileCardOpen" (closeProfileCart)="handleProfileIconClick()" />
 </header>

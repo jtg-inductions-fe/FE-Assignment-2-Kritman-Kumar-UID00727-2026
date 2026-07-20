@@ -1,5 +1,5 @@
 <button mat-raised-button [type]="type" class="button" [ngClass]="variant">
   <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
 
-  <span>{{ label }}</span>
+  <span *ngIf="label">{{ label }}</span>
 </button>

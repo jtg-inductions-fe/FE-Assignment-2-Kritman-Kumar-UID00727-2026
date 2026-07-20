@@ -2,16 +2,18 @@
   {
     "id": 1,
     "name": "Kritman Rao",
-    "email": "kr@gmail.com",
+    "email": "kritmanrao@gmail.com",
     "password": "kritman",
-    "role": "admin"
+    "role": "admin",
+    "profileImgUrl": "assets/profile.png"
   },
   {
     "id": "2",
     "name": "John",
     "email": "jhon.brooks@example.com",
     "password": "kritman",
-    "role": "owner"
+    "role": "owner",
+    "profileImgUrl": "assets/profile.png"
   },
   {
     "id": 3,

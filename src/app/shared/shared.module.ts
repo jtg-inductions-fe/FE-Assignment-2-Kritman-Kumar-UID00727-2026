@@ -10,14 +10,14 @@ import { AvatarComponent } from './components/avatar/avatar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { LogoutComponent } from './components/profile-cart/profile-cart.component';
+import { ProfileCartComponent } from './components/profile-card/profile-card.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     AvatarComponent,
     LogoComponent,
-    AvatarComponent,
-    LogoutComponent,
+    ProfileCartComponent,
     ButtonComponent,
   ],
   imports: [

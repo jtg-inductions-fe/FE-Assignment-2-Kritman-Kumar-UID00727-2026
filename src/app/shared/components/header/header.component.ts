@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { UserService } from '@app/core/services/user.service';
-import { AuthUser } from '@app/shared/models/auth.model';
+import { Component, computed, inject } from '@angular/core';
+import { UserService } from '@core/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -10,17 +9,11 @@ import { AuthUser } from '@app/shared/models/auth.model';
 export class HeaderComponent {
   private readonly userService = inject(UserService);
 
-  // readonly user = this.userService.getUser();
-  isProfileCardOpen = true;
+  readonly user = computed(() => {
+    return this.userService.user();
+  });
 
-  user: AuthUser = {
-    id: 1,
-    name: 'Kritman Rao',
-    email: 'kr@gmail.com',
-    password: 'kritman',
-    role: 'admin',
-    profileImgUrl: 'assets/profile.png',
-  };
+  isProfileCardOpen = false;
 
   handleProfileIconClick() {
     this.isProfileCardOpen = !this.isProfileCardOpen;
