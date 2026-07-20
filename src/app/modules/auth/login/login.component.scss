@@ -1,20 +1,21 @@
-@use '../../../../styles/abstracts' as *;
+@use '../../../styles/abstracts' as *;
 
 .login {
-  max-width: 2500px;
-  @include flex($justify: center, $align: center);
+  @include flex-box($justify-content: center, $align-items: center);
 
   height: 100dvh;
 
   &__container {
-    @include flex($direction: column, $gap: 12px);
+    @include flex-box($direction: column);
+
+    gap: 12px;
 
     box-shadow: $shadow-sm;
     border-radius: $radius-sm;
-    padding: pxToRem(12px);
+    padding: pxToRem(12);
     width: 95%;
-    max-width: pxToRem(400px);
-    min-width: pxToRem(280px);
+    max-width: pxToRem(400);
+    min-width: pxToRem(280);
   }
 
   &__header {
@@ -31,13 +32,13 @@
   }
 
   &__form {
-    @include flex($direction: column);
+    @include flex-box($direction: column);
 
-    gap: pxToRem(12px);
+    gap: pxToRem(12);
   }
 
   &__btn {
-    min-height: pxToRem(35px);
+    min-height: pxToRem(35);
     text-align: center;
     text-transform: uppercase;
     box-shadow: $shadow-sm;

@@ -1,16 +1,7 @@
-*,
-*::before,
-*::after,
-:host,
-:host-context(*) {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-  tab-size: 4;
 }
 
 body,
@@ -21,31 +12,18 @@ app-root {
   text-rendering: optimizeLegibility;
 }
 
-router-outlet {
-  display: none;
-}
-
-router-outlet + * {
-  display: block;
-}
-
 img,
-picture,
-video,
-canvas,
 svg {
   display: block;
-  max-width: 100%;
 }
+
 input,
 button,
-textarea,
 select {
   font: inherit;
 }
 
-ol,
-ul[role='list'] {
+ul {
   list-style: none;
 }
 
