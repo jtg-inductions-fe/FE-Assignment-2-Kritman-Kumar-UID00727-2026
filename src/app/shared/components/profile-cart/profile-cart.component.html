@@ -1,0 +1,12 @@
+<article class="profile-cart">
+  <div class="profile-cart__user">
+    <app-avatar [user]="user" />
+    <div class="profile-cart__user-info">
+      <h2 class="text-subtitle profile-cart__user-name">{{ user.name }}</h2>
+      <p class="text-caption profile-cart__user-email">{{ user.email }}</p>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+  <app-button class="" (click)="logOutRequested()" [label]="logoutUi.buttonLabel" />
+</article>

@@ -1,9 +1,9 @@
-@use '../styles/abstracts/' as *;
+@use './styles/abstracts/' as *;
 
 .app {
   min-width: 280px;
   height: 100dvh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: pxToRem(70px) 1fr;
+  grid-template-rows: pxToRem(70) 1fr;
 }
