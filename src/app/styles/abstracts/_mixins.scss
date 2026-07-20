@@ -18,8 +18,8 @@
 
 /// Simple flexbox setup.
 /// @param {String} $direction [row] - Direction (row, column).
-/// @param {String} $justify [flex-start] - Main alignment (center, space-between).
-/// @param {String} $align [stretch] - Cross alignment (center, stretch).
+/// @param {String} $justify-content [flex-start] - Main alignment (center, space-between).
+/// @param {String} $align-items [stretch] - Cross alignment (center, stretch).
 /// @param {String} $wrap [nowrap] - Wrap items (wrap, nowrap).
 /// @param {Length} $gap [0] - Item spacing (px, rem).
 @mixin flex-box(
@@ -30,7 +30,7 @@
 ) {
   display: flex;
   flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
+  justify-content: $justify-content;
+  align-items: $align-items;
   flex-wrap: $wrap;
 }

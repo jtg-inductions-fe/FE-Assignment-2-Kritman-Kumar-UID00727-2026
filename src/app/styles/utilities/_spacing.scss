@@ -1,17 +1,19 @@
-$space-none: 0px;
-$space-2: 2px;
-$space-4: 4px;
-$space-8: 8px;
-$space-12: 12px;
-$space-16: 16px;
-$space-20: 20px;
-$space-24: 24px;
-$space-32: 32px;
-$space-40: 40px;
-$space-48: 48px;
-$space-64: 64px;
-$space-80: 80px;
-$space-96: 96px;
+@use '../abstracts/' as *;
+
+$space-none: 0;
+$space-2: pxToRem(2);
+$space-4: pxToRem(4);
+$space-8: pxToRem(8);
+$space-12: pxToRem(12);
+$space-16: pxToRem(16);
+$space-20: pxToRem(20);
+$space-24: pxToRem(24);
+$space-32: pxToRem(32);
+$space-40: pxToRem(40);
+$space-48: pxToRem(48);
+$space-64: pxToRem(64);
+$space-80: pxToRem(80);
+$space-96: pxToRem(96);
 
 // Spacing Map
 $spacers: (
