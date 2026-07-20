@@ -1,15 +1,28 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, scan } from 'rxjs';
+import { computed,Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SidebarService {
-  toggleClick$ = new BehaviorSubject<void>(undefined);
+  private readonly sidebarOpenSignal = signal(true);
 
-  public isToggled$ = this.toggleClick$.pipe(scan((state) => !state, false));
+  readonly isSidebarOpen = this.sidebarOpenSignal.asReadonly();
 
-  public onToggle(): void {
-    this.toggleClick$.next();
+  readonly isSidebarClosed = computed(() => !this.sidebarOpenSignal());
+
+  openSidebar(): void {
+    this.sidebarOpenSignal.set(true);
+  }
+
+  closeSidebar() {
+    this.sidebarOpenSignal.set(false);
+  }
+
+  toggleSideBar() {
+    this.sidebarOpenSignal.update((isOpen) => !isOpen);
+  }
+
+  setSidebarState(isOpen: boolean): void {
+    this.sidebarOpenSignal.set(isOpen);
   }
 }

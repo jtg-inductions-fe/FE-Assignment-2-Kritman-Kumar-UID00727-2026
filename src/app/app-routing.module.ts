@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { authGuard } from '@core/guards/auth.guard';
-import { LoginComponent } from '@modules/auth/login/login.component';
-import { DashboardComponent } from '@modules/dashboard/dashboard.component';
-import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
+import { MainLayoutComponent } from '@shared/components/main-layout/main-layout.component';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
+
   {
     path: '',
-    canActivate: [authGuard],
+    loadChildren: () => import('@modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+
+  {
+    path: '',
     component: MainLayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent,
+        loadChildren: () =>
+          import('@modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
         path: '',
@@ -30,7 +35,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })

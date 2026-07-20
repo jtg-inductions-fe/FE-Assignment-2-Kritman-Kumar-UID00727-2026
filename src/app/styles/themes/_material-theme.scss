@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+@use '../abstracts' as *;
+
+@include mat.core();
+
+$restaurant-dashboard-primary: mat.define-palette($primary-palette, 500);
+
+$restaurant-dashboard-accent: mat.define-palette(mat.$teal-palette);
+
+$restaurant-dashboard-warn: mat.define-palette(mat.$red-palette);
+
+$restaurant-dashboard-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $restaurant-dashboard-primary,
+      accent: $restaurant-dashboard-accent,
+      warn: $restaurant-dashboard-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($restaurant-dashboard-theme);

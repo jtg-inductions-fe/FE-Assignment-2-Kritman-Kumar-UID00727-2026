@@ -1,0 +1,71 @@
+@use '../abstracts/' as *;
+@use 'spacing' as *;
+
+.container {
+  max-width: $breakpoint-mobile;
+  padding: 0 pxToRem(16);
+  margin: 0 auto;
+
+  @include media-up($breakpoint: $breakpoint-tablet) {
+    max-width: $breakpoint-tablet;
+    padding: 0 pxToRem(16);
+  }
+
+  @include media-up($breakpoint: $breakpoint-desktop) {
+    padding: 0 pxToRem(32);
+  }
+
+  @include media-up($breakpoint: $breakpoint-desktop-xl) {
+    max-width: $breakpoint-desktop-xl;
+    padding: 0 pxToRem(64);
+  }
+}
+
+@each $key, $value in $spacers {
+  .p-#{$key} {
+    padding: $value;
+  }
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .m-#{$key} {
+    margin: $value;
+  }
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+  .mx-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+}
+
+.primary {
+  background: $primary !important;
+  color: $white !important;
+}
+
+.outline {
+  background: $white !important;
+  color: $primary !important;
+  border: 1px solid $primary !important;
+}

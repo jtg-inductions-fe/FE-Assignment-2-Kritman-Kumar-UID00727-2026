@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { SidebarService } from '@app/core/services/sidebar.service';
+import { Component, computed, inject } from '@angular/core';
+import { SidebarService } from '@core/services/sidebar.service';
+import { UserService } from '@core/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,20 @@ import { SidebarService } from '@app/core/services/sidebar.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  appLogoSrc = 'assets/icons/logo.png';
-  profileSrc = 'assets/profile.png';
-
   private sidebarService = inject(SidebarService);
+  private readonly userService = inject(UserService);
 
-  handleMenuClick() {
-    this.sidebarService.toggleClick$.next();
+  isProfileCardOpen = false;
+
+  readonly user = computed(() => {
+    return this.userService.user();
+  });
+
+  handleProfileIconClick(): void {
+    this.isProfileCardOpen = !this.isProfileCardOpen;
+  }
+
+  toggleSidebar(): void {
+    this.sidebarService.toggleSideBar();
   }
 }

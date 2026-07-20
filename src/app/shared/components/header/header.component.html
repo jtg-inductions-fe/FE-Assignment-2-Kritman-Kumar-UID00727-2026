@@ -1,16 +1,24 @@
 <header class="header">
-  <a routerLink="/" class="header__logo"> <img [src]="appLogoSrc" alt="app logo" /></a>
+  <app-logo class="header__logo" />
 
   <button
     mat-icon-button
-    (click)="handleMenuClick()"
     class="header__hamburger-btn"
     aria-label="hamburger menu"
+    (click)="toggleSidebar()"
   >
     <mat-icon>menu</mat-icon>
   </button>
 
-  <button class="header__profile">
-    <img [src]="profileSrc" alt="profile icon" />
+  <button
+    mat-icon-button
+    *ngIf="user() && !isProfileCardOpen"
+    class="header__profile-card-trigger"
+    type="button"
+    (click)="handleProfileIconClick()"
+  >
+    <app-avatar [user]="user()" />
   </button>
+
+  <app-profile-cart *ngIf="isProfileCardOpen" (closeProfileCart)="handleProfileIconClick()" />
 </header>

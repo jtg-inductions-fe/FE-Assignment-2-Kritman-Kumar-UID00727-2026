@@ -1,5 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { SidebarService } from '@app/core/services/sidebar.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SidebarService } from '@core/services/sidebar.service';
+
+import { BREAKPOINT } from './break-point.constant';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,7 +11,22 @@ import { SidebarService } from '@app/core/services/sidebar.service';
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent {
-  private sidebarService = inject(SidebarService);
+  private readonly sidebarService = inject(SidebarService);
+  private readonly breakpointObserver = inject(BreakpointObserver);
+  private readonly destroyRef = inject(DestroyRef);
 
-  isToggled$ = this.sidebarService.isToggled$;
+  readonly sidebarState = computed(() => this.sidebarService.isSidebarOpen());
+
+  readonly isMobile = signal(false);
+
+  constructor() {
+    this.breakpointObserver
+      .observe(`(max-width: ${BREAKPOINT.TABLET_BREAKPOINT})`)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(({ matches }) => {
+        this.isMobile.set(matches);
+
+        this.sidebarService.setSidebarState(!matches);
+      });
+  }
 }

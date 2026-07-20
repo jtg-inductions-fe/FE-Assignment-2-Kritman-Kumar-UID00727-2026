@@ -1,0 +1,7 @@
+@use '../../../styles/abstracts/' as *;
+
+.avatar {
+  width: pxToRem(40);
+  height: pxToRem(40);
+  border-radius: $radius-full;
+}

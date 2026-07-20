@@ -1,12 +1,25 @@
+@use '../../../styles/abstracts/' as *;
+@use '../../../styles/utilities' as *;
+
 .main-layout {
-  display: flex;
-  height: 100%;
+  height: calc(100dvh - pxToRem(80));
+  padding: $space-8;
 
   &__drawer {
-    width: 300px;
+    width: pxToRem(260);
+    background-color: rgb(24, 36, 68);
+  }
+
+  &__content {
+    height: 100%;
+    background-color: rgb(95, 95, 95);
   }
 
   &__main {
+    height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
+    padding: pxToRem(24);
+    box-sizing: border-box;
   }
 }

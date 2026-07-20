@@ -1,95 +1,108 @@
-import {
-  FormGroup,
-  FormControl,
-  ReactiveFormsModule,
-  Validators,
-  AbstractControl,
-} from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-import { NgIf, NgClass } from '@angular/common';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { Component, inject, signal } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { AuthService } from '@app/core/services/auth.service';
+import { APP_ROUTES } from '@shared/constants/routes.constants';
+import { finalize } from 'rxjs/operators';
+
+import {
+  AUTH_FORM,
+  AUTH_SUBMIT_MESSAGES,
+  AUTH_UI,
+  AUTH_VALIDATION_MESSAGES,
+} from '../auth.constants';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: true,
-  imports: [
-    MatInputModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDividerModule,
-    NgIf,
-    NgClass,
-    MatProgressBarModule,
-  ],
 })
-export class LoginComponent implements OnInit {
-  hide = true;
-  validUser = true;
-  message: null | string = '';
-  loading = false;
+export class LoginComponent {
+  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
 
-  userForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+  readonly isLoading = signal(false);
+  readonly serverError = signal('');
+  readonly hidePassword = signal(true);
+
+  readonly ui = AUTH_UI.login;
+
+  readonly loginForm = this.fb.nonNullable.group({
+    email: ['', [Validators.required, Validators.email]],
+
+    password: ['', [Validators.required, Validators.minLength(AUTH_FORM.passwordMinLength)]],
   });
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-  ) {}
-
-  ngOnInit() {
-    this.userForm.valueChanges.subscribe(() => {
-      this.validUser = true;
-      this.message = '';
-    });
+  get email() {
+    return this.loginForm.controls.email;
   }
 
-  get f(): { [key: string]: AbstractControl } {
-    return this.userForm.controls;
+  get password() {
+    return this.loginForm.controls.password;
   }
 
-  onSubmit(): void {
-    if (this.userForm.invalid) {
-      this.userForm.markAllAsTouched();
+  get emailError(): string {
+    if (this.email.hasError('required')) {
+      return AUTH_VALIDATION_MESSAGES.email.required;
+    }
+
+    if (this.email.hasError('email')) {
+      return AUTH_VALIDATION_MESSAGES.email.email;
+    }
+
+    return '';
+  }
+
+  get passwordError(): string {
+    if (this.password.hasError('required')) {
+      return AUTH_VALIDATION_MESSAGES.password.required;
+    }
+
+    if (this.password.hasError('minlength')) {
+      return AUTH_VALIDATION_MESSAGES.password.minlength;
+    }
+
+    return '';
+  }
+
+  togglePasswordVisibility(): void {
+    this.hidePassword.update((value) => !value);
+  }
+
+  onLogInFormSubmit(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+
       return;
     }
 
-    this.loading = true;
-    this.message = '';
+    this.isLoading.set(true);
+    this.serverError.set('');
 
-    const { email, password } = this.userForm.getRawValue();
+    const { email, password } = this.loginForm.getRawValue();
 
-    this.authService.login(email!, password!).subscribe({
-      next: (success) => {
-        this.loading = false;
+    this.authService
+      .login(email, password)
+      .pipe(
+        finalize(() => {
+          this.isLoading.set(false);
+        }),
+      )
+      .subscribe({
+        next: (success) => {
+          if (!success) {
+            this.serverError.set(AUTH_SUBMIT_MESSAGES.invalidCredentials);
 
-        if (!success) {
-          this.validUser = false;
-          this.message = 'Invalid email or password';
-          console.log(this.message);
-          return;
-        }
+            return;
+          }
 
-        this.router.navigate(['/dashboard']);
-      },
-      error: () => {
-        this.loading = false;
-        this.validUser = false;
-        this.message = 'Something went wrong. Please try again.';
-      },
-    });
+          this.router.navigate([APP_ROUTES.DASHBOARD]);
+        },
+
+        error: () => {
+          this.serverError.set(AUTH_SUBMIT_MESSAGES.serverError);
+        },
+      });
   }
 }

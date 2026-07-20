@@ -1,29 +1,32 @@
-import { Injectable } from '@angular/core';
-import { AuthUser } from '@app/shared/models/auth.model';
-import { Observable, of } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
+import { inject, Injectable } from '@angular/core';
+import { map, tap } from 'rxjs/operators';
 
-import users from '@app/mocks/auth/user.json';
+import { MockAuthRepository } from '../repositories/mock-auth.repository';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly mockUsers: AuthUser[] = users as AuthUser[];
+  private readonly repository = inject(MockAuthRepository);
+  private readonly userService = inject(UserService);
 
-  user: AuthUser | null = null;
-
-  login(email: string, password: string): Observable<boolean> {
-    const user = this.mockUsers.find((u) => u.email === email && u.password === password);
-
-    this.user = user ? user : null;
-
-    return of(!!user).pipe(delay(1500));
+  login(email: string, password: string) {
+    return this.repository.login(email, password).pipe(
+      tap((user) => {
+        if (user) {
+          this.userService.setUser(user);
+        }
+      }),
+      map((user) => !!user),
+    );
   }
 
-  isLoggedIn() {
-    // return this.user ? true : null;
+  logout(): void {
+    this.userService.clearUser();
+  }
 
-    return true; // for now it true for development.
+  isLoggedIn(): boolean {
+    return this.userService.isLoggedIn();
   }
 }

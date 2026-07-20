@@ -57,7 +57,7 @@ export class SidebarComponent {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
-      level: level,
+      level,
     };
   };
 

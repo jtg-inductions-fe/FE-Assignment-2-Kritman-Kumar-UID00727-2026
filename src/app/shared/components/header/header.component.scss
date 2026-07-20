@@ -1,20 +1,18 @@
-@use '../../../../styles/abstracts/' as *;
+@use '../../../styles/abstracts/' as *;
 
 .header {
-  @include flex($justify: space-between);
+  @include flex-box($justify-content: space-between);
 
-  padding: pxToRem(16px);
-
+  padding: pxToRem(16);
   &__logo {
     display: none;
   }
 
-  &__profile {
-    background: none;
-    border: none;
-    width: pxToRem(32px);
-    aspect-ratio: 1/1;
-    border-radius: $radius-full;
+  &__profile-card-trigger {
+    @include flex-box($justify-content: center, $align-items: center);
+
+    width: pxToRem(40);
+    height: pxToRem(40);
   }
 
   @include media-up($breakpoint: $breakpoint-tablet) {

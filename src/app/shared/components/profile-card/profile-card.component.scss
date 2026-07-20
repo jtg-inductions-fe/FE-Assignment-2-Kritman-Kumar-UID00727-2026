@@ -1,0 +1,31 @@
+@use '../../../styles/abstracts/' as *;
+
+.profile-cart {
+  display: grid;
+  gap: pxToRem(10);
+  min-width: pxToRem(250);
+  padding: pxToRem(10);
+  box-shadow: $shadow-sm;
+  border-radius: $radius-sm;
+  position: relative;
+
+  &__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__user {
+    @include flex-box($align-items: center);
+
+    gap: pxToRem(16);
+  }
+
+  &__user-name {
+    color: $text-primary;
+  }
+
+  &__user-email {
+    color: $text-secondary;
+  }
+}
