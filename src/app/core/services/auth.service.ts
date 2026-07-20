@@ -1,15 +1,14 @@
-import { Injectable, inject } from '@angular/core';
+import { inject,Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
 
-import { UserService } from './user.service';
 import { MockAuthRepository } from '../repositories/mock-auth.repository';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private readonly repository = inject(MockAuthRepository);
-
   private readonly userService = inject(UserService);
 
   login(email: string, password: string) {
@@ -19,7 +18,6 @@ export class AuthService {
           this.userService.setUser(user);
         }
       }),
-
       map((user) => !!user),
     );
   }

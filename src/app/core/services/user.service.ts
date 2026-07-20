@@ -1,30 +1,21 @@
-import { Injectable } from '@angular/core';
-
+import { computed, Injectable, signal } from '@angular/core';
 import { AuthUser } from '@app/shared/models/auth.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private currentUser: AuthUser | null = null;
-
+  private readonly userSignal = signal<AuthUser | null>(null);
+  readonly user = this.userSignal.asReadonly();
+  readonly isLoggedIn = computed(() => this.userSignal() !== null);
+  readonly role = computed(() => this.userSignal()?.role ?? null);
   setUser(user: AuthUser): void {
-    this.currentUser = user;
+    this.userSignal.set(user);
   }
-
-  getUser(): AuthUser | null {
-    return this.currentUser;
-  }
-
-  getRole(): string | null {
-    return this.currentUser?.role ?? null;
-  }
-
-  isLoggedIn(): boolean {
-    return !!this.currentUser;
-  }
-
   clearUser(): void {
-    this.currentUser = null;
+    this.userSignal.set(null);
+  }
+  getUser(): AuthUser | null {
+    return this.userSignal();
   }
 }
