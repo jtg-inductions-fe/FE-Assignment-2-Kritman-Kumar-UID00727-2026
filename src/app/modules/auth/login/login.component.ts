@@ -1,12 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '@app/core/services/auth.service';
+import { APP_ROUTES } from '@shared/constants/routes.constants';
 import { finalize } from 'rxjs/operators';
 
-import { AuthService } from '@app/core/services/auth.service';
-import { AUTH_FORM, AUTH_SUBMIT_MESSAGES, AUTH_VALIDATION_MESSAGES } from '../auth.constants';
-import { APP_ROUTES } from '@shared/constants/routes.constants';
-import { AUTH_UI } from '../auth.constants';
+import {
+  AUTH_FORM,
+  AUTH_SUBMIT_MESSAGES,
+  AUTH_UI,
+  AUTH_VALIDATION_MESSAGES,
+} from '../auth.constants';
 
 @Component({
   selector: 'app-login',

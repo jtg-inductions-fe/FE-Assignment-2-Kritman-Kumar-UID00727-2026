@@ -1,4 +1,4 @@
-import { inject,Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
 
 import { MockAuthRepository } from '../repositories/mock-auth.repository';

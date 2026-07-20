@@ -8,13 +8,11 @@
   &__container {
     @include flex-box($direction: column);
 
-    gap: 12px;
+    gap: pxToRem(12);
 
     box-shadow: $shadow-sm;
     border-radius: $radius-sm;
     padding: pxToRem(12);
-    width: 95%;
-    max-width: pxToRem(400);
     min-width: pxToRem(280);
   }
 
@@ -47,5 +45,11 @@
   &__error {
     color: $error;
     text-align: center;
+  }
+
+  @include media-up($breakpoint: $breakpoint-tablet) {
+    &__container {
+      min-width: pxToRem(400);
+    }
   }
 }
