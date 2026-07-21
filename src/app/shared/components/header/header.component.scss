@@ -4,12 +4,14 @@
   @include flex-box($justify-content: space-between);
 
   padding: pxToRem(16);
+  border-bottom: 1px solid $border;
+
   &__logo {
     display: none;
   }
 
   &__profile-card-trigger {
-    @include flex-box($justify-content: center, $align-items: center);
+    @include flex-box(center, center);
 
     width: pxToRem(40);
     height: pxToRem(40);

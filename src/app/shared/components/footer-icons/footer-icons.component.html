@@ -1,0 +1,7 @@
+<ul class="footer-icons">
+  <li class="footer-icons__item" *ngFor="let icon of icons">
+    <button mat-icon-button [ariaLabel]="icon.name + 'icon'">
+      <mat-icon class="footer-icons__icon">{{ icon.name }}</mat-icon>
+    </button>
+  </li>
+</ul>

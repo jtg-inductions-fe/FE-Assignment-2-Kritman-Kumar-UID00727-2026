@@ -1,6 +1,17 @@
-export interface SideBarLink {
+export interface SidebarItem {
+  id: string | number;
   label: string;
-  icon?: string;
-  badge?: string;
-  children?: SideBarLink[];
+  icon: string;
+  route?: string;
+  badge?: number;
+  children?: SidebarItem[];
+}
+
+export interface SidebarConfig {
+  navigation: SidebarItem[];
+  account: SidebarItem[];
+}
+
+export interface SidebarControlIcon {
+  name: string;
 }

@@ -1,4 +1,4 @@
-import { AuthUser } from '@app/shared/models/auth.model';
+import { AuthUser } from '@shared/models/auth.model';
 import { Observable } from 'rxjs';
 
 export abstract class AuthRepository {

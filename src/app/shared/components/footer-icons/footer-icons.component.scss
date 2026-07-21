@@ -1,0 +1,12 @@
+@use '../../../styles/abstracts/' as *;
+@use '../../../styles/utilities/' as *;
+
+.footer-icons {
+  @include flex-box($justify-content: center, $align-items: center);
+
+  padding: $space-8 $space-16;
+
+  &__icon {
+    color: $text-primary;
+  }
+}
