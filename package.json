@@ -1,10 +1,6 @@
 {
   "name": "restaurant-dashboard",
   "version": "0.0.0",
-  "engines": {
-    "node": "18.20.8",
-    "yarn": "1.22.22"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
