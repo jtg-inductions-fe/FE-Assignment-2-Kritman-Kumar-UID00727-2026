@@ -2,26 +2,12 @@
 @use 'spacing' as *;
 
 .container {
-  max-width: $breakpoint-mobile;
-  padding: 0 pxToRem(16);
+  margin: 0 auto;
+  padding-inline: $space-8;
   background-color: $primary;
 
-  @include media-up($breakpoint: $breakpoint-tablet) {
-    max-width: $breakpoint-tablet;
-    padding: 0 pxToRem(16);
-    background-color: $ochre-spice;
-  }
-
-  @include media-up($breakpoint: $breakpoint-desktop) {
-    max-width: $breakpoint-desktop;
-    padding: 0 pxToRem(32);
-    background-color: rgb(42, 52, 147);
-  }
-
   @include media-up($breakpoint: $breakpoint-desktop-xl) {
-    max-width: $breakpoint-desktop-xl;
-    background-color: rgb(136, 20, 127);
-    padding: 0 pxToRem(64);
+    max-width: $breakpoint-desktop-xxl;
   }
 }
 
