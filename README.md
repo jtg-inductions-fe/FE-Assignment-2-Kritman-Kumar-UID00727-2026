@@ -133,4 +133,4 @@ This project is currently under active development. New features and improvement
 
 ## 👨‍💻 Author
 
-Developed by **Kritmaan Kumar Rao**.
+Developed by **Kritman Kumar Rao**.

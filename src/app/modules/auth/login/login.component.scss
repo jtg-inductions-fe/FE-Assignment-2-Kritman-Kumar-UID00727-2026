@@ -1,19 +1,19 @@
 @use '../../../styles/abstracts' as *;
+@use '../../../styles/utilities/' as *;
 
 .login {
-  @include flex-box($justify-content: center, $align-items: center);
+  @include flex-box(center, center);
 
   height: 100dvh;
 
   &__container {
     @include flex-box($direction: column);
 
-    gap: pxToRem(12);
-
+    min-width: pxToRem(280);
+    gap: $space-16;
     box-shadow: $shadow-sm;
     border-radius: $radius-sm;
-    padding: pxToRem(12);
-    min-width: pxToRem(280);
+    padding: $space-16;
   }
 
   &__header {
@@ -32,11 +32,10 @@
   &__form {
     @include flex-box($direction: column);
 
-    gap: pxToRem(12);
+    gap: $space-16;
   }
 
   &__btn {
-    min-height: pxToRem(35);
     text-align: center;
     text-transform: uppercase;
     box-shadow: $shadow-sm;
