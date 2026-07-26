@@ -1,0 +1,60 @@
+@use '../.././../styles/abstracts/' as *;
+@use '../.././../styles/utilities/' as *;
+
+.customer-list {
+  padding: $space-24;
+  box-shadow: $shadow-sm;
+  border-radius: $radius-lg;
+
+  &__not-found {
+    @include flex-box(center, center, column);
+
+    min-height: pxToRem(180);
+    padding: $space-24;
+    text-align: center;
+    background-color: $surface;
+    border: 1px dashed $border;
+    border-radius: $radius-sm;
+  }
+
+  &__not-found-message {
+    margin: 0;
+    color: $text-secondary;
+  }
+
+  &__container {
+    padding: $space-24;
+    max-height: pxToRem(500);
+    overflow-y: auto;
+  }
+
+  &__user {
+    @include flex-box(space-between, center);
+
+    width: 100%;
+    gap: $space-16;
+  }
+
+  &__user:not(:first-child) {
+    border-top: 1px solid $border;
+  }
+
+  &__user-body {
+    @include flex-box($align-items: center);
+
+    gap: $space-16;
+    padding: $space-8 0;
+  }
+
+  &__user-name {
+    color: $text-primary;
+  }
+
+  &__user-email {
+    color: $text-secondary;
+  }
+
+  &__amount {
+    color: $text-primary;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="dishes-list">
+  <h1 class="text-heading dishes-list__title">Top Selling Dishes</h1>
+  <div *ngIf="!topDishes || !topDishes.length" class="dishes-list__not-found">
+    <p class="text-body dishes-list__not-found-message">
+      No top-selling dishes available at the moment.
+    </p>
+  </div>
+  <ul class="dishes-list__list">
+    <li *ngFor="let dish of topDishes" class="dishes-list__item">
+      <div class="dishes-list__item-info">
+        <h2 class="text-subtitle dishes-list__dish-name">{{ dish.name }}</h2>
+        <p class="text-caption dishes-list__dish-restaurant">{{ dish.restaurantName }}</p>
+      </div>
+      <div>
+        <span class="text-subtitle dishes-list__orders"> {{ dish.TotalOrder }} </span>
+        <span class="dishes-list__orders--text-secondary">orders</span>
+      </div>
+    </li>
+  </ul>
+</div>

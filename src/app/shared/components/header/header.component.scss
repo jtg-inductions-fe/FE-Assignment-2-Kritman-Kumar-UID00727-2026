@@ -17,7 +17,7 @@
     height: pxToRem(40);
   }
 
-  @include media-up($breakpoint: $breakpoint-tablet) {
+  @include media-up($breakpoint: $breakpoint-desktop) {
     &__logo {
       display: block;
     }

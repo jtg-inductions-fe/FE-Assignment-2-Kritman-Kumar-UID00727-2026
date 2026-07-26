@@ -1,6 +1,5 @@
 <header class="header">
   <app-logo class="header__logo" />
-
   <button
     mat-icon-button
     class="header__hamburger-btn"
@@ -9,7 +8,6 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-
   <button
     mat-icon-button
     *ngIf="user() && !isProfileCardOpen"
@@ -17,8 +15,7 @@
     type="button"
     (click)="handleProfileIconClick()"
   >
-    <app-avatar [user]="user()" />
+    <app-avatar [name]="user()?.name" [profileImgUrl]="user()?.profileImgUrl" />
   </button>
-
   <app-profile-cart *ngIf="isProfileCardOpen" (closeProfileCart)="handleProfileIconClick()" />
 </header>

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "501",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "101",
+    "customerName": "Albert Wright",
+    "amount": 38884.5,
+    "status": "pending",
+    "items": [
+      {
+        "id": "1001",
+        "name": "Margherita Pizza",
+        "restaurantId": "1",
+        "customerId": "101",
+        "TotalOrder": "1",
+        "idVeg": true
+      },
+      {
+        "id": "1002",
+        "name": "Garlic Bread",
+        "restaurantId": "1",
+        "customerId": "101",
+        "TotalOrder": "1",
+        "idVeg": true
+      },
+      {
+        "id": "1010",
+        "name": "Coca-Cola",
+        "restaurantId": "1",
+        "customerId": "101",
+        "TotalOrder": "2",
+        "idVeg": true
+      }
+    ]
+  },
+  {
+    "id": "502",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "103",
+    "customerName": "Neil Sims",
+    "amount": 1203.0,
+    "status": "Completed",
+    "items": [
+      {
+        "id": "1003",
+        "name": "Pepperoni Pizza",
+        "restaurantId": "1",
+        "customerId": "103",
+        "TotalOrder": "1",
+        "idVeg": false
+      },
+      {
+        "id": "1011",
+        "name": "Diet Soda",
+        "restaurantId": "1",
+        "customerId": "103",
+        "TotalOrder": "1",
+        "idVeg": true
+      }
+    ]
+  },
+  {
+    "id": "503",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "104",
+    "customerName": "Bonnie Green",
+    "amount": 12203.5,
+    "status": "Completed",
+    "items": [
+      {
+        "id": "1004",
+        "name": "Truffle Pasta",
+        "restaurantId": "2",
+        "customerId": "104",
+        "TotalOrder": "1",
+        "idVeg": true
+      },
+      {
+        "id": "1005",
+        "name": "Chicken Alfredo",
+        "restaurantId": "2",
+        "customerId": "104",
+        "TotalOrder": "1",
+        "idVeg": false
+      },
+      {
+        "id": "1012",
+        "name": "Sprite",
+        "restaurantId": "2",
+        "customerId": "104",
+        "TotalOrder": "2",
+        "idVeg": true
+      }
+    ]
+  },
+  {
+    "id": "504",
+    "restaurantId": "3",
+    "restaurantName": "Sushi Zen",
+    "customerId": "102",
+    "customerName": "Dave Miller",
+    "amount": 3210,
+    "status": "pending",
+    "items": [
+      {
+        "id": "1006",
+        "name": "Veggie Burger",
+        "restaurantId": "3",
+        "customerId": "102",
+        "TotalOrder": "2",
+        "idVeg": true
+      },
+      {
+        "id": "1007",
+        "name": "Crispy Chicken Slider",
+        "restaurantId": "3",
+        "customerId": "102",
+        "TotalOrder": "1",
+        "idVeg": false
+      },
+      {
+        "id": "1013",
+        "name": "Iced Tea",
+        "restaurantId": "3",
+        "customerId": "102",
+        "TotalOrder": "3",
+        "idVeg": true
+      }
+    ]
+  },
+  {
+    "id": "505",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "110",
+    "customerName": "Marco Esposito",
+    "amount": 3210,
+    "status": "pending",
+    "items": [
+      {
+        "id": "1003",
+        "name": "Pepperoni Pizza",
+        "restaurantId": "1",
+        "customerId": "110",
+        "TotalOrder": "1",
+        "idVeg": false
+      },
+      {
+        "id": "1010",
+        "name": "Coca-Cola",
+        "restaurantId": "1",
+        "customerId": "110",
+        "TotalOrder": "1",
+        "idVeg": true
+      }
+    ]
+  },
+  {
+    "id": "506",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "111",
+    "customerName": "Austin Miller",
+    "amount": 322310,
+    "status": "cancelled",
+    "items": [
+      {
+        "id": "1008",
+        "name": "BBQ Chicken Wings",
+        "restaurantId": "2",
+        "customerId": "111",
+        "TotalOrder": "2",
+        "idVeg": false
+      },
+      {
+        "id": "1012",
+        "name": "Sprite",
+        "restaurantId": "2",
+        "customerId": "111",
+        "TotalOrder": "1",
+        "idVeg": true
+      }
+    ]
+  }
+]

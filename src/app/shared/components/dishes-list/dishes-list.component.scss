@@ -1,0 +1,62 @@
+@use '../.././../styles/abstracts/' as *;
+@use '../.././../styles/utilities/' as *;
+
+.dishes-list {
+  padding: $space-24;
+  box-shadow: $shadow-sm;
+  border-radius: $radius-lg;
+
+  &__not-found {
+    @include flex-box(center, center, column);
+
+    min-height: pxToRem(180);
+    padding: $space-24;
+    text-align: center;
+    background-color: $surface;
+    border: 1px dashed $border;
+    border-radius: $radius-sm;
+  }
+
+  &__list {
+    padding: $space-24;
+    max-height: pxToRem(500);
+    overflow-y: auto;
+  }
+
+  &__not-found-message {
+    margin: 0;
+    color: $text-secondary;
+  }
+
+  &__title {
+    color: $text-primary;
+  }
+
+  &__item {
+    @include flex-box(space-between, center);
+
+    width: 100%;
+    gap: $space-16;
+    padding: $space-8 0;
+  }
+
+  &__item:not(:first-child) {
+    border-top: 1px solid $border;
+  }
+
+  &__orders--text-secondary {
+    color: $icon-secondary;
+  }
+
+  &__dish-name {
+    color: $text-primary;
+  }
+
+  &__dish-restaurant {
+    color: $text-secondary;
+  }
+
+  &__amount {
+    color: $text-primary;
+  }
+}

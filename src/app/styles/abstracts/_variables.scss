@@ -10,7 +10,10 @@ $radius-lg: pxToRem(16);
 $radius-xl: pxToRem(20);
 $radius-full: pxToRem(9999);
 
-// box-shadow
+// scrollbar
+$scrollbar-thin: pxToRem(6);
+
+// box-shadow #00000099
 $shadow-sm:
   0 1px 5px 0 rgba(0, 0, 0, 0.12),
   0 2px 2px 0 rgba(0, 0, 0, 0.14),

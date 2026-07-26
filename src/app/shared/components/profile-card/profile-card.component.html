@@ -4,7 +4,7 @@
   </button>
 
   <div class="profile-cart__user">
-    <app-avatar [user]="user()" />
+    <app-avatar [name]="user()?.name" [profileImgUrl]="user()?.profileImgUrl" />
     <div class="profile-cart__user-info">
       <h2 class="text-subtitle profile-cart__user-name">{{ user()?.name }}</h2>
       <p class="text-caption profile-cart__user-email">{{ user()?.email }}</p>

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ButtonType } from '@shared/types/button-type.type';
-import { ButtonVariant } from '@shared/types/button-variant.type';
 
 @Component({
   selector: 'app-button',
@@ -9,7 +8,7 @@ import { ButtonVariant } from '@shared/types/button-variant.type';
 })
 export class ButtonComponent {
   @Input() label = '';
-  @Input() variant: ButtonVariant = 'primary';
+  @Input() color = 'primary';
   @Input() icon?: string;
   @Input() type: ButtonType = 'button';
 }

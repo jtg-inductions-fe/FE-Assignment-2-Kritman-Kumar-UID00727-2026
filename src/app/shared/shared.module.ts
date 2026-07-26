@@ -5,16 +5,22 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 import { MatTreeModule } from '@angular/material/tree';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CardComponent } from './components/card/card.component';
+import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { DishesListComponent } from './components/dishes-list/dishes-list.component';
 import { FooterIconsComponent } from './components/footer-icons/footer-icons.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { OrderTableComponent } from './components/order-table/order-table.component';
 import { ProfileCartComponent } from './components/profile-card/profile-card.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
@@ -30,6 +36,10 @@ import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.
     SidebarComponent,
     SidebarLinksComponent,
     FooterIconsComponent,
+    CardComponent,
+    CustomerListComponent,
+    DishesListComponent,
+    OrderTableComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +53,17 @@ import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.
     MatSidenavModule,
     MatTreeModule,
     MatRippleModule,
+    MatListModule,
+    MatTableModule,
   ],
-  exports: [HeaderComponent, AvatarComponent],
+  exports: [
+    HeaderComponent,
+    AvatarComponent,
+    ButtonComponent,
+    CardComponent,
+    CustomerListComponent,
+    DishesListComponent,
+    OrderTableComponent,
+  ],
 })
 export class SharedModule {}

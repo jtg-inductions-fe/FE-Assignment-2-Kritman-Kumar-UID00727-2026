@@ -69,3 +69,22 @@
   color: $primary !important;
   border: 1px solid $primary !important;
 }
+
+.text-ellipsis {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  line-height: 1.4;
+  height: auto;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #fde8e8 !important;
+  --mdc-snackbar-supporting-text-color: #e02424 !important;
+
+  .mat-mdc-button {
+    color: #e02424 !important;
+  }
+}

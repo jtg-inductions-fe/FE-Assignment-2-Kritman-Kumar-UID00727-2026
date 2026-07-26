@@ -1,0 +1,3 @@
+export const TABLE = {
+  COLUMNS_NAME: ['ORDER ID', 'RESTAURANT', 'CUSTOMER', 'ITEMS', 'AMOUNT', 'STATUS', 'ACTIONS'],
+};

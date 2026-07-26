@@ -9,7 +9,7 @@
   line-height: $line-height-tightest;
   letter-spacing: 0;
 
-  @include media-up($breakpoint: $breakpoint-desktop) {
+  @include media-up($breakpoint: $breakpoint-desktop-xl) {
     font-size: $font-size-display-desktop;
     line-height: $line-height-tightest;
   }

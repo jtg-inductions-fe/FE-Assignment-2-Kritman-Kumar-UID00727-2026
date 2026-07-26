@@ -1,0 +1,76 @@
+<div class="dashboard">
+  <section class="dashboard__toolbar">
+    <hgroup class="dashboard__hgroup">
+      <h1 class="text-display dashboard__title">Overview Dashboard</h1>
+      <p *ngIf="userRole() === USER_ROLE.ADMIN" class="text-label dashboard__description">
+        {{ DASHBOARD.ADMIN_PAGE_DESCRIPTION }}
+      </p>
+      <p *ngIf="userRole() === USER_ROLE.OWNER" class="text-label dashboard__description">
+        {{ DASHBOARD.OWNER_PAGE_DESCRIPTION }}
+      </p>
+    </hgroup>
+    <form *ngIf="userRole() === USER_ROLE.ADMIN">
+      <mat-form-field
+        subscriptSizing="dynamic"
+        appearance="outline"
+        color="accent"
+        class="dashboard__filter"
+      >
+        <mat-label> View Dashboard As </mat-label>
+        <input
+          matInput
+          type="text"
+          aria-label="filter"
+          [formControl]="restaurantsFilterControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="handleFilterValueChanged($event)"
+        >
+          <mat-option *ngFor="let option of restaurantsFilteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </section>
+  <section>
+    <ul class="dashboard__stats">
+      <li *ngFor="let stat of stats" class="dashboard__stats-item">
+        <app-card
+          [title]="stat.title"
+          [description]="stat.description"
+          [color]="stat.color"
+          [icon]="stat.icon"
+        />
+      </li>
+    </ul>
+  </section>
+  <section class="dashboard__report">
+    <hgroup class="dashboard__report-heading">
+      <h1 class="text-title dashboard__report-title">Report Generator</h1>
+      <p class="text-caption dashboard__report-description">
+        Generate performance reports for the selected restaurant context.
+      </p>
+    </hgroup>
+    <div class="dashboard__report-action">
+      <button mat-stroked-button outline color="primary">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Top 10 Ordered Items</span>
+      </button>
+      <button mat-raised-button color="primary">
+        <mat-icon>more_vert</mat-icon>
+        <span>Frequently Bought Together</span>
+      </button>
+    </div>
+  </section>
+  <section class="dashboard__list-container">
+    <app-customer-list [customerList]="topCustomersList" class="dashboard__customer-list" />
+    <app-dishes-list [topDishes]="topMenuItems" class="dashboard__dishes-list" />
+  </section>
+  <section *ngIf="userRole() === USER_ROLE.OWNER">
+    <app-order-table [ActiveOrderTableList]="activeOrders" />
+  </section>
+</div>

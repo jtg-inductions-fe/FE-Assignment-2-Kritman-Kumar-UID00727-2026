@@ -1,0 +1,18 @@
+<div
+  class="card"
+  [ngClass]="{
+    'card--primary': CARD_COLOR.PRIMARY === color,
+    'card--secondary': CARD_COLOR.SECONDARY === color,
+    'card--info': CARD_COLOR.INFO === color,
+    'card--warning': CARD_COLOR.WARNING === color,
+  }"
+>
+  <div class="card__heading">
+    <h3 class="text-caption-semibold card__title">{{ title }}</h3>
+    <span *ngIf="description" class="text-heading card__text"> {{ description }} </span>
+  </div>
+
+  <div class="card__icon-wrapper">
+    <mat-icon *ngIf="icon" class=""> {{ icon }} </mat-icon>
+  </div>
+</div>

@@ -21,7 +21,7 @@ export class MainLayoutComponent {
 
   constructor() {
     this.breakpointObserver
-      .observe(`(max-width: ${BREAKPOINT.TABLET_BREAKPOINT})`)
+      .observe(`(max-width: ${BREAKPOINT.DESKTOP_BREAKPOINT})`)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(({ matches }) => {
         this.isMobile.set(matches);

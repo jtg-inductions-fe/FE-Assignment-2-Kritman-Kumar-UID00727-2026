@@ -1,71 +1,52 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Kritman Rao",
     "email": "kritmanrao@gmail.com",
     "password": "kritman",
     "role": "admin",
-    "profileImgUrl": "assets/profile.png"
+    "profileImgUrl": "assets/profile.png",
+    "restaurantId": 0
   },
   {
     "id": "2",
     "name": "John",
-    "email": "jhon.brooks@example.com",
+    "email": "owner1@restaurant.com",
     "password": "kritman",
     "role": "owner",
-    "profileImgUrl": "assets/profile.png"
+    "profileImgUrl": "assets/profile.png",
+    "restaurantId": "1"
   },
   {
     "id": 3,
-    "email": "olivia.gomez@example.com",
-    "password": "kritman",
-    "role": "admin"
-  },
-  {
-    "id": "usr_404",
     "name": "Emma Watson",
-    "email": "emma.watson@example.com",
+    "email": "owner2@restaurant.com",
     "password": "$2b$12$Wq9jA2...hashed...",
-    "role": "owner"
+    "role": "owner",
+    "restaurantId": "2"
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "Sophia Martinez",
-    "email": "sophia.martinez@example.com",
+    "email": "burger_queen@gmail.com",
     "password": "$2b$12$Xr0kB3...hashed...",
-    "role": "admin"
+    "role": "owner",
+    "restaurantId": "2"
   },
   {
-    "id": 6,
-    "email": "jackson.lee@example.com",
+    "id": "6",
+    "name": "sushi's friend",
+    "email": "owner3@restaurant.com",
     "password": "$2b$12$Ys1lC4...hashed...",
-    "role": "admin"
+    "role": "owner",
+    "restaurantId": "3"
   },
   {
-    "id": "usr_707",
+    "id": 7,
     "name": "Mia Jenkins",
-    "email": "mia.jenkins@example.com",
+    "email": "sushi_master@gmail.com",
     "password": "$2b$12$Zt2mD5...hashed...",
-    "role": "owner"
-  },
-  {
-    "id": 8,
-    "name": "Lucas Vance",
-    "email": "lucas.vance@example.com",
-    "password": "$2b$12$Au3nE6...hashed...",
-    "role": "admin"
-  },
-  {
-    "id": 9,
-    "email": " Isabella Cross",
-    "password": "$2b$12$Bv4oF7...hashed...",
-    "role": "owner"
-  },
-  {
-    "id": "usr_1010",
-    "name": "Ethan Hunt",
-    "email": "ethan.hunt@example.com",
-    "password": "$2b$12$Cw5pG8...hashed...",
-    "role": "admin"
+    "role": "owner",
+    "restaurantId": "3"
   }
 ]
