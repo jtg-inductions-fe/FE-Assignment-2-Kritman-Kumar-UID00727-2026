@@ -1,0 +1,24 @@
+@use '../.././../styles/abstracts/' as *;
+@use '../.././../styles//utilities/' as *;
+
+.footer {
+  @include flex-box(space-between, center);
+
+  box-shadow: $shadow-sm;
+  border-radius: $radius-lg;
+  padding: $space-48 $space-32;
+
+  &__text {
+    color: $text-secondary;
+  }
+
+  &__links {
+    @include flex-box(center, center);
+
+    gap: $space-24;
+  }
+
+  &__links-icon--hover:hover {
+    color: $primary;
+  }
+}

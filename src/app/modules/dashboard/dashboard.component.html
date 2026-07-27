@@ -70,6 +70,11 @@
     <app-customer-list [customerList]="topCustomersList" class="dashboard__customer-list" />
     <app-dishes-list [topDishes]="topMenuItems" class="dashboard__dishes-list" />
   </section>
+
+  <div *ngIf="userRole() === USER_ROLE.ADMIN">
+    <app-footer />
+  </div>
+
   <section *ngIf="userRole() === USER_ROLE.OWNER">
     <app-order-table [ActiveOrderTableList]="activeOrders" />
   </section>
