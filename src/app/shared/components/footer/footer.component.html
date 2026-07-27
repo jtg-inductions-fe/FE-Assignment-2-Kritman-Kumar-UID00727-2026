@@ -1,17 +1,14 @@
 <footer class="footer">
-  <p class="text-label footer__text">&copy; 2021 Themesberg, LLC. All rights reserved.</p>
-  <div class="footer__links">
-    <a href="https://www.facebook.com" class="footer__links-icon--hover">
-      <mat-icon>facebook</mat-icon>
-    </a>
-    <a href="https://www.x.com" class="footer__links-icon--hover">
-      <mat-icon>close</mat-icon>
-    </a>
-    <a href="https://www.github.com" class="footer__links-icon--hover">
-      <mat-icon>commit</mat-icon>
-    </a>
-    <a href="https://www.wikipedia.com" class="footer__links-icon--hover">
-      <mat-icon>sports_basketball</mat-icon>
-    </a>
-  </div>
+  <p class="text-label footer__text">
+    &copy; {{ currentYear }}
+    {{ FOOTER_COPYRIGHT_TEXT }}
+  </p>
+
+  <ul class="footer__social-links">
+    <li *ngFor="let socialLink of SOCIAL_LINKS_CONFIG">
+      <a class="footer__social-link" [href]="socialLink.url">
+        <img class="footer__social-link-logo" [src]="socialLink.logoPath" [alt]="socialLink.name" />
+      </a>
+    </li>
+  </ul>
 </footer>
