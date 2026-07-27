@@ -1,0 +1,8 @@
+@use './config' as *;
+
+/// Converts pixel values to rem units.
+/// @param {Number} $value - The pixel value to convert.
+/// @return {Number} The calculated rem value.
+@function pxToRem($value) {
+  @return calc($value / $base-font-size) * 1rem;
+}

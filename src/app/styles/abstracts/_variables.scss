@@ -1,0 +1,46 @@
+@use './functions' as *;
+
+$font-family-primary: 'Inter', sans-serif;
+
+// radius
+$radius-xs: pxToRem(4);
+$radius-sm: pxToRem(8);
+$radius-md: pxToRem(12);
+$radius-lg: pxToRem(16);
+$radius-xl: pxToRem(20);
+$radius-full: pxToRem(9999);
+
+// box-shadow
+$shadow-sm:
+  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+  0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+// font weight
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-Bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+// font size
+$font-size-xs: pxToRem(12);
+$font-size-sm: pxToRem(13);
+$font-size-md: pxToRem(14);
+$font-size-lg: pxToRem(16);
+$font-size-xl: pxToRem(20);
+$font-size-display-mobile: pxToRem(30);
+$font-size-display-desktop: pxToRem(48);
+
+// line height
+$line-height-none: 1;
+$line-height-tightest: 1.29;
+$line-height-tighter: 1.33;
+$line-height-tight: 1.38;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.7;
+$line-height-loose: 1.8;
