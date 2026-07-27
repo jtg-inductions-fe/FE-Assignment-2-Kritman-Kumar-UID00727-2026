@@ -1,0 +1,42 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.error-boundary {
+  @include flex-box(center, center, $direction: column);
+
+  height: 100%;
+  text-align: center;
+
+  &__illustration {
+    max-height: pxToRem(400);
+
+    @include media-up($breakpoint-desktop) {
+      min-height: pxToRem(460);
+    }
+  }
+
+  &__body {
+    @include flex-box(center, center, $direction: column);
+
+    gap: $space-20;
+    max-width: pxToRem(320);
+
+    @include media-up($breakpoint-tablet) {
+      max-height: pxToRem(500);
+      max-width: pxToRem(600);
+    }
+
+    @include media-up($breakpoint-desktop) {
+      max-width: max-content;
+    }
+  }
+
+  &__description {
+    color: $text-secondary;
+  }
+
+  &__button {
+    padding: $space-8 $space-16;
+    border-radius: $radius-md;
+  }
+}

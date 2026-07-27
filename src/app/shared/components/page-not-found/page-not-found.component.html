@@ -1,0 +1,20 @@
+<div class="page-not-found">
+  <figure class="page-not-found__illustration-wrapper">
+    <img
+      class="page-not-found__illustration"
+      [src]="pageNotFoundIllustrationPath"
+      alt="Page not found illustration"
+    />
+  </figure>
+  <div class="page-not-found__body">
+    <h2 class="text-display page-not-found__heading">Page not found</h2>
+    <p class="text-body page-not-found__description">
+      Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell
+      us.
+    </p>
+
+    <a routerLink="/" mat-raised-button class="text-label page-not-found__button" color="primary">
+      Go back home
+    </a>
+  </div>
+</div>

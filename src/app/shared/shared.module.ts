@@ -32,6 +32,8 @@ import { FooterActionsComponent } from './components/footer-actions/footer-icons
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ErrorBoundaryComponent } from './components/error-boundary/error-boundary.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CardComponent,
     RestaurantFormComponent,
     FooterComponent,
+    PageNotFoundComponent,
+    ErrorBoundaryComponent,
   ],
   imports: [
     CommonModule,
@@ -96,6 +100,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CardComponent,
     RestaurantFormComponent,
     FooterComponent,
+    ErrorBoundaryComponent,
+    PageNotFoundComponent,
   ],
 })
 export class SharedModule {}
