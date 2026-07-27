@@ -1,0 +1,103 @@
+@use '../../../styles/abstracts/' as *;
+@use '../../../styles/utilities/' as *;
+
+.restaurants-list {
+  padding: $space-16;
+
+  &__header-container {
+    @include flex-box(space-between, flex-start);
+
+    margin-bottom: $space-16;
+  }
+
+  &__title {
+    color: $text-primary;
+  }
+
+  &__description {
+    color: $text-secondary;
+  }
+
+  &__actions {
+    @include flex-box($align-items: center);
+  }
+
+  &__add-button {
+    padding-inline: $space-16;
+    border-radius: $radius-md;
+  }
+
+  &__table-container {
+    padding: $space-16;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+  }
+
+  &__table {
+    width: 100%;
+    min-width: $breakpoint-tablet;
+  }
+
+  &__restaurant-name {
+    color: $text-primary;
+  }
+
+  &__owners {
+    @include flex-box($wrap: wrap);
+
+    gap: $space-4;
+  }
+
+  & .text-caption-semibold {
+    color: $text-secondary;
+  }
+
+  &__owner {
+    @include flex-box($align-items: center);
+
+    padding: $space-4 $space-8;
+    border-radius: $radius-lg;
+    color: $text-primary;
+  }
+
+  &__actions-header {
+    text-align: right;
+  }
+
+  &__actions-cell {
+    text-align: right;
+  }
+
+  &__edit-button {
+    padding-inline: $space-12;
+    border-radius: $radius-sm;
+  }
+
+  &__paginator {
+    border-top: 1px solid $border;
+  }
+
+  &__empty-state {
+    @include flex-box(center, center, column);
+
+    min-height: pxToRem(300);
+    padding: $space-32;
+    border-radius: $radius-lg;
+    text-align: center;
+    border: 1px dotted $border;
+  }
+
+  &__empty-title {
+    color: $text-primary;
+  }
+
+  &__empty-description {
+    color: $text-secondary;
+  }
+}
+
+.mat-mdc-row {
+  .mat-mdc-cell {
+    padding: $space-12 $space-20;
+  }
+}

@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
@@ -11,7 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { CardComponent } from './components/card/card.component';
@@ -24,11 +28,9 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
 import { SidebarNavGroupComponent } from './components/sidebar-nav-group/sidebar-nav-group.component';
 import { FooterActionsComponent } from './components/footer-actions/footer-icons.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DishesListComponent,
     OrderTableComponent,
     CardComponent,
+    RestaurantFormComponent,
   ],
   imports: [
     CommonModule,
@@ -66,6 +69,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     RouterLinkActive,
     MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
   ],
   exports: [
     AvatarComponent,
@@ -86,6 +92,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatTooltipModule,
     CardComponent,
+    RestaurantFormComponent,
   ],
 })
 export class SharedModule {}

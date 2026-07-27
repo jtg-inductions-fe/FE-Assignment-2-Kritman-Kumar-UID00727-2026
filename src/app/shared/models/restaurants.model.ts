@@ -5,3 +5,9 @@ export interface Restaurant {
   address: string;
   isActive: boolean;
 }
+
+export interface RestaurantView {
+  name: string;
+  address: string;
+  owners: string[];
+}

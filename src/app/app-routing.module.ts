@@ -27,8 +27,13 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: APP_ROUTES.DASHBOARD,
         pathMatch: 'full',
+      },
+      {
+        path: APP_ROUTES.RESTAURANTS,
+        loadChildren: () =>
+          import('@modules/restaurants/restaurants.module').then((m) => m.RestaurantsModule),
       },
     ],
   },

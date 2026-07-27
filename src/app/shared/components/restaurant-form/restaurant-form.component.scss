@@ -1,0 +1,30 @@
+@use '../../../styles/abstracts/' as *;
+@use '../../../styles/utilities/' as *;
+
+.restaurant-form {
+  @include flex-box($direction: column);
+
+  gap: $space-20;
+  padding: $space-16;
+
+  &__field {
+    width: 100%;
+  }
+
+  &__hint {
+    margin: pxToRem(-8) 0 0 $space-12;
+
+    color: $text-secondary;
+  }
+
+  &__chip--primary {
+    background-color: $primary;
+  }
+
+  &__actions {
+    @include flex-box(flex-end, center);
+
+    gap: $space-8;
+    margin-top: $space-16;
+  }
+}
