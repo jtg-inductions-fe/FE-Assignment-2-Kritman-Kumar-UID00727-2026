@@ -1,5 +1,5 @@
 export const appUi = {
-  appLogUrl: 'assets/icons/logo.png',
+  appLogUrl: 'assets/logos/logo.png',
 } as const;
 
 export enum USER_ROLE {

@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject,OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -65,7 +65,9 @@ export class DashboardComponent implements OnInit {
   }
 
   private configureFilter(): void {
-    if (this.userRole() !== USER_ROLE.ADMIN) {return;}
+    if (this.userRole() !== USER_ROLE.ADMIN) {
+      return;
+    }
 
     this.restaurantsFilterControl.setValue(this.DASHBOARD.DEFAULT_RESTAURANT_FILTER);
 

@@ -30,6 +30,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
 import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ErrorBoundaryComponent } from './components/error-boundary/error-boundary.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { FooterComponent } from './components/footer/footer.component';
     OrderTableComponent,
     RestaurantFormComponent,
     FooterComponent,
+    PageNotFoundComponent,
+    ErrorBoundaryComponent,
   ],
   imports: [
     CommonModule,
@@ -77,6 +81,8 @@ import { FooterComponent } from './components/footer/footer.component';
     OrderTableComponent,
     RestaurantFormComponent,
     FooterComponent,
+    ErrorBoundaryComponent,
+    PageNotFoundComponent,
   ],
 })
 export class SharedModule {}
