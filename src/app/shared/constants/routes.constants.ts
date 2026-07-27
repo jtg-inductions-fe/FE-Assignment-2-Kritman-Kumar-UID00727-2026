@@ -3,4 +3,5 @@ export const APP_ROUTES = {
   AUTH: 'auth',
   DASHBOARD: 'dashboard',
   RESTAURANTS: 'restaurants',
+  UNAUTHORIZED: 'unauthorized',
 } as const;

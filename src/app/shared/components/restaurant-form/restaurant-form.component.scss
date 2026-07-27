@@ -27,4 +27,9 @@
     gap: $space-8;
     margin-top: $space-16;
   }
+
+  &__owner-chip {
+    --mdc-chip-elevated-container-color: #{$primary-600};
+    --mdc-chip-label-text-color: #{$white};
+  }
 }

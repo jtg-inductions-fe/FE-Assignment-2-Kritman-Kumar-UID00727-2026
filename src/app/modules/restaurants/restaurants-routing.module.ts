@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ViewAllRestaurantsComponent } from './view-all-restaurants/view-all-restaurants.component';
-import { RESTAURANT_ROUTS } from './restaurants.constant';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
 import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
+import { RESTAURANT_ROUTS } from './restaurants.constant';
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
     component: AddRestaurantComponent,
   },
   {
-    path: `${RESTAURANT_ROUTS.EDIT_RESTAURANT}/:id`,
+    path: `${RESTAURANT_ROUTS.EDIT_RESTAURANT}/:restaurantId`,
     component: EditRestaurantComponent,
   },
 ];

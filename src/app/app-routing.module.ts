@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { authGuard } from '@core/guards/auth.guard';
 import { MainLayoutComponent } from '@shared/components/main-layout/main-layout.component';
+
+import { roleGuard } from './core/guards/role/role.guard';
 import { APP_ROUTES } from './shared/constants/routes.constants';
+import { USER_ROLE } from './shared/constants/app.constants';
 
 const routes: Routes = [
   {
@@ -32,6 +35,10 @@ const routes: Routes = [
       },
       {
         path: APP_ROUTES.RESTAURANTS,
+        canActivate: [roleGuard],
+        data: {
+          role: USER_ROLE.ADMIN,
+        },
         loadChildren: () =>
           import('@modules/restaurants/restaurants.module').then((m) => m.RestaurantsModule),
       },
@@ -40,7 +47,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

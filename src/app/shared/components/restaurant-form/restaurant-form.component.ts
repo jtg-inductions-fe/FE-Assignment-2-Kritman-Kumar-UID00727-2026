@@ -10,9 +10,9 @@ import {
 import { FormBuilder, Validators } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
-import { RESTAURANT_FORM, RESTAURANT_VALIDATION_MESSAGES } from './restaurant-form.constants';
-
 import { RestaurantView } from '@shared/models/restaurants.model';
+
+import { RESTAURANT_FORM, RESTAURANT_VALIDATION_MESSAGES } from './restaurant-form.constants';
 
 @Component({
   selector: 'app-restaurant-form',
@@ -25,7 +25,6 @@ export class RestaurantFormComponent {
 
   @Input() isEditMode = false;
   @Input() isLoading = false;
-
   @Input()
   set userDetails(value: RestaurantView | undefined) {
     if (!value) {
