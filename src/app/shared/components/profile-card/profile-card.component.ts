@@ -24,7 +24,7 @@ export class ProfileCartComponent {
 
   logOutRequested() {
     this.authService.logout();
-    this.router.navigate([APP_ROUTES.LOGIN]);
+    this.router.navigate([APP_ROUTES.AUTH]);
     this.closeProfileCart.emit();
   }
 }

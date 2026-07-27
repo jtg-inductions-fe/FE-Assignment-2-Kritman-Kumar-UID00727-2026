@@ -1,0 +1,45 @@
+<form class="restaurant-form" [formGroup]="restaurantForm" (ngSubmit)="submitForm()">
+  <mat-form-field subscriptSizing="dynamic" class="restaurant-form__field" appearance="outline">
+    <mat-label>Restaurant Name</mat-label>
+    <input matInput formControlName="name" placeholder="e.g., Pizza Palace" />
+    <mat-error *ngIf="name.touched && name.invalid">
+      {{ nameError }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field subscriptSizing="dynamic" class="restaurant-form__field" appearance="outline">
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="address" placeholder="e.g., 123 Pepperoni Rd, Naples" />
+    <mat-error *ngIf="address.touched && address.invalid">
+      {{ addressError }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field subscriptSizing="dynamic" class="restaurant-form__field" appearance="outline">
+    <mat-label>Owners (emails)</mat-label>
+    <mat-chip-grid #chipGrid>
+      <mat-chip-row *ngFor="let owner of owners.value" (removed)="removeOwnerEmail(owner)">
+        {{ owner }}
+        <button matChipRemove type="button" aria-label="Remove owner">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input
+        placeholder="Type owner email and press Enter"
+        [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="[ENTER, COMMA]"
+        (keydown.enter)="addOwnerEmail($event)"
+        (keydown.comma)="addOwnerEmail($event)"
+      />
+    </mat-chip-grid>
+    <mat-error *ngIf="owners.touched && owners.invalid">
+      {{ ownersError }}
+    </mat-error>
+  </mat-form-field>
+  <p class="restaurant-form__hint">Add emails of users who own/manage this restaurant.</p>
+  <div class="restaurant-form__actions">
+    <button mat-stroked-button type="button" color="primary" (click)="cancel.emit()">CANCEL</button>
+    <button mat-flat-button type="submit" color="primary" [disabled]="isLoading">
+      <mat-icon>save</mat-icon>
+      {{ isEditMode ? 'SAVE CHANGES' : 'CREATE RESTAURANT' }}
+    </button>
+  </div>
+</form>

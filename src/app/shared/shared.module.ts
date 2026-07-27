@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
@@ -9,7 +12,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatTreeModule } from '@angular/material/tree';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -24,6 +28,7 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
 import { ProfileCartComponent } from './components/profile-card/profile-card.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
+import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,7 @@ import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.
     CustomerListComponent,
     DishesListComponent,
     OrderTableComponent,
+    RestaurantFormComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +61,9 @@ import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.
     MatRippleModule,
     MatListModule,
     MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
   ],
   exports: [
     HeaderComponent,
@@ -64,6 +73,7 @@ import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.
     CustomerListComponent,
     DishesListComponent,
     OrderTableComponent,
+    RestaurantFormComponent,
   ],
 })
 export class SharedModule {}

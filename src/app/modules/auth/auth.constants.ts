@@ -1,9 +1,12 @@
+export const AUTH_ROUTS = {
+  LOGIN: 'login',
+};
+
 export const AUTH_VALIDATION_MESSAGES = {
   email: {
     required: 'Email is required',
     email: 'Please enter a valid email address',
   },
-
   password: {
     required: 'Password is required',
     minlength: 'Password must be at least 6 characters',

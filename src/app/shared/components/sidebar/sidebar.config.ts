@@ -13,7 +13,7 @@ export const sidebarLinks: SidebarConfig = {
       id: crypto.randomUUID(),
       label: 'Restaurants',
       icon: 'restaurant',
-      route: '/restaurant',
+      route: '/restaurants',
     },
 
     {

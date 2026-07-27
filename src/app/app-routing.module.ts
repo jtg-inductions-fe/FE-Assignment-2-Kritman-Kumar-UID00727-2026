@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from '@core/guards/auth.guard';
 import { MainLayoutComponent } from '@shared/components/main-layout/main-layout.component';
+import { APP_ROUTES } from './shared/constants/routes.constants';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: APP_ROUTES.AUTH,
     loadChildren: () => import('@modules/auth/auth.module').then((m) => m.AuthModule),
   },
 
@@ -15,14 +16,19 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: 'dashboard',
+        path: APP_ROUTES.DASHBOARD,
         loadChildren: () =>
           import('@modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: APP_ROUTES.DASHBOARD,
         pathMatch: 'full',
+      },
+      {
+        path: APP_ROUTES.RESTAURANTS,
+        loadChildren: () =>
+          import('@modules/restaurants/restaurants.module').then((m) => m.RestaurantsModule),
       },
     ],
   },

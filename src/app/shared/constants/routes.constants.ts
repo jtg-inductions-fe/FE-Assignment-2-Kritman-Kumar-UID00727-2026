@@ -1,5 +1,6 @@
 export const APP_ROUTES = {
   HOME: '',
-  LOGIN: '/login',
-  DASHBOARD: '/dashboard',
+  AUTH: 'auth',
+  DASHBOARD: 'dashboard',
+  RESTAURANTS: 'restaurants',
 } as const;

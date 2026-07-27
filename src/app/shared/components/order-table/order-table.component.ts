@@ -1,5 +1,5 @@
-import { Component, inject,Input, OnChanges, SimpleChanges } from '@angular/core';
-import { OrderService } from '@core/services/order/order.service';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
 import { MenuItem, Order } from '@shared/models/order.model';
 import { Status } from '@shared/types/status.type';
 
@@ -12,8 +12,6 @@ import { TableOrderItem } from './order-table.model';
   styleUrls: ['./order-table.component.scss'],
 })
 export class OrderTableComponent implements OnChanges {
-  private orderService = inject(OrderService);
-
   @Input() ActiveOrderTableList: Order[] = [];
 
   readonly TABLE = TABLE;

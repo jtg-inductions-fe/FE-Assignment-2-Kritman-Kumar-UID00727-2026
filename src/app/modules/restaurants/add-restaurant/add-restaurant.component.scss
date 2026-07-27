@@ -1,0 +1,28 @@
+@use '../../../styles/abstracts/' as *;
+@use '../../../styles/utilities/' as *;
+
+.add-restaurant {
+  padding: $space-16;
+
+  &__back-button {
+    margin-bottom: $space-16;
+  }
+
+  &__header {
+    margin-bottom: $space-16;
+  }
+
+  &__title {
+    color: $text-primary;
+  }
+
+  &__description {
+    padding-block: $space-2;
+    color: $text-secondary;
+  }
+
+  &__card {
+    padding: $space-16;
+    border-radius: $radius-lg;
+  }
+}
