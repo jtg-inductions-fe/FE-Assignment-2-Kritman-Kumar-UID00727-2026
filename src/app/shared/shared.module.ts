@@ -29,6 +29,7 @@ import { ProfileCartComponent } from './components/profile-card/profile-card.com
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
 import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RestaurantFormComponent } from './components/restaurant-form/restaurant
     DishesListComponent,
     OrderTableComponent,
     RestaurantFormComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -74,6 +76,7 @@ import { RestaurantFormComponent } from './components/restaurant-form/restaurant
     DishesListComponent,
     OrderTableComponent,
     RestaurantFormComponent,
+    FooterComponent,
   ],
 })
 export class SharedModule {}
