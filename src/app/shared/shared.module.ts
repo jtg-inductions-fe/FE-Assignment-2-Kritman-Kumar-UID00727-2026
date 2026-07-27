@@ -31,6 +31,7 @@ import { FooterActionsComponent } from './components/footer-actions/footer-icons
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { RestaurantFormComponent } from './components/restaurant-form/restaurant
     OrderTableComponent,
     CardComponent,
     RestaurantFormComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +95,7 @@ import { RestaurantFormComponent } from './components/restaurant-form/restaurant
     MatTooltipModule,
     CardComponent,
     RestaurantFormComponent,
+    FooterComponent,
   ],
 })
 export class SharedModule {}
