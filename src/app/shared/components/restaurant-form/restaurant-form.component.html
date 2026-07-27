@@ -16,7 +16,11 @@
   <mat-form-field subscriptSizing="dynamic" class="restaurant-form__field" appearance="outline">
     <mat-label>Owners (emails)</mat-label>
     <mat-chip-grid #chipGrid>
-      <mat-chip-row *ngFor="let owner of owners.value" (removed)="removeOwnerEmail(owner)">
+      <mat-chip-row
+        class="restaurant-form__owner-chip"
+        *ngFor="let owner of owners.value"
+        (removed)="removeOwnerEmail(owner)"
+      >
         {{ owner }}
         <button matChipRemove type="button" aria-label="Remove owner">
           <mat-icon>cancel</mat-icon>

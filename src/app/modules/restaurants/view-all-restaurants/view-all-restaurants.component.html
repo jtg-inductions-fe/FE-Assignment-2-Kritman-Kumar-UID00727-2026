@@ -7,7 +7,12 @@
       </p>
     </hgroup>
     <div class="restaurants-list__actions">
-      <button mat-flat-button color="primary" class="restaurants-list__add-button">
+      <button
+        mat-flat-button
+        color="primary"
+        class="restaurants-list__add-button"
+        (click)="addNewRestaurant()"
+      >
         <mat-icon>add</mat-icon>
         Add Restaurant
       </button>

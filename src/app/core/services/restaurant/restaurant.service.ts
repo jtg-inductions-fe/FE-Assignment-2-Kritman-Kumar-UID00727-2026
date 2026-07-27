@@ -1,5 +1,7 @@
+import { DestroyRef, inject, Injectable } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -11,37 +13,58 @@ import { Restaurant } from '@shared/models/restaurants.model';
 })
 export class RestaurantService {
   private readonly http = inject(HttpClient);
+  private readonly destroyRef = inject(DestroyRef);
 
   private readonly restaurants$ = new BehaviorSubject<Restaurant[]>([]);
 
   readonly allRestaurants$ = this.restaurants$.asObservable();
 
   loadAllRestaurants(): void {
-    this.http.get<Restaurant[]>(RESTAURANTS_URL).subscribe({
-      next: (restaurants) => {
-        this.restaurants$.next(restaurants);
-      },
-      error: (error) => {
-        console.error('Failed to fetch restaurants:', error);
-      },
-    });
+    this.http
+      .get<Restaurant[]>(RESTAURANTS_URL)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (restaurants) => {
+          this.restaurants$.next(restaurants);
+        },
+        error: (error) => {
+          console.error('Failed to fetch restaurants:', error);
+        },
+      });
   }
 
   getAllRestaurant(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(RESTAURANTS_URL);
   }
 
+  getRestaurantById(restaurantId: string): Restaurant | null {
+    const restaurant = this.restaurants$
+      .getValue()
+      .find((currRestaurant) => currRestaurant.id === restaurantId);
+
+    return restaurant || null;
+  }
+
   getRestaurantsSnapshot(): Restaurant[] {
     return this.restaurants$.getValue();
   }
 
-  /*  todo when user api is provided
+  // TODO : setup http post method
+  addNewRestaurant(newRestaurant: Restaurant): void {
+    const currentList = this.getRestaurantsSnapshot();
 
-  getRestaurantById(restaurantId: string) {}
+    this.restaurants$.next([...currentList, newRestaurant]);
+  }
 
-  addNewRestaurant(newRestaurant: Restaurant): void {}
+  editRestaurant(updatedRestaurant: Restaurant): void {
+    const currentList = this.getRestaurantsSnapshot();
 
-  editRestaurant(restaurant: Restaurant) {}
+    const updatedList = currentList.map((currRestaurant) =>
+      currRestaurant.id === updatedRestaurant.id
+        ? { ...currRestaurant, ...updatedRestaurant }
+        : currRestaurant,
+    );
 
-  */
+    this.restaurants$.next([...updatedList]);
+  }
 }

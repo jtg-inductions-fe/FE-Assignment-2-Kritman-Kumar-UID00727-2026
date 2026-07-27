@@ -1,28 +1,28 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatTableDataSource } from '@angular/material/table';
-import { Subscription } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-import { RestaurantService } from '@app/core/services/restaurant/restaurant.service';
-import { RESTAURANT_CONFIG } from '../restaurants.constant';
-import { Restaurant } from '@app/shared/models/restaurants.model';
+import { MatTableDataSource } from '@angular/material/table';
+
+import { RestaurantService } from '@core/services/restaurant/restaurant.service';
+import { Restaurant } from '@shared/models/restaurants.model';
+import { RESTAURANT_CONFIG, RESTAURANT_ROUTS } from '../restaurants.constant';
 
 @Component({
   selector: 'app-view-all-restaurants',
   templateUrl: './view-all-restaurants.component.html',
   styleUrls: ['./view-all-restaurants.component.scss'],
 })
-export class ViewAllRestaurantsComponent implements OnInit, OnDestroy {
+export class ViewAllRestaurantsComponent implements OnInit {
   private readonly restaurantService = inject(RestaurantService);
   private readonly router = inject(Router);
-
-  private restaurantSub!: Subscription;
+  private readonly destroyRef = inject(DestroyRef);
 
   restaurantsList = new MatTableDataSource<Restaurant>([]);
   restaurantsColumns = RESTAURANT_CONFIG.COLUMNS;
 
   ngOnInit(): void {
-    this.restaurantSub = this.restaurantService.allRestaurants$.subscribe({
+    this.restaurantService.allRestaurants$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (restaurants) => {
         this.restaurantsList.data = restaurants;
       },
@@ -33,13 +33,15 @@ export class ViewAllRestaurantsComponent implements OnInit, OnDestroy {
     }
   }
 
-  editRestaurant(restaurant: Restaurant): void {
-    this.router.navigate([`/restaurants/edit/${restaurant.id}`]);
+  addNewRestaurant() {
+    this.router.navigate([RESTAURANT_ROUTS.RESTAURANTS, RESTAURANT_ROUTS.ADD_RESTAURANT]);
   }
 
-  ngOnDestroy(): void {
-    if (this.restaurantSub) {
-      this.restaurantSub.unsubscribe();
-    }
+  editRestaurant(restaurant: Restaurant): void {
+    this.router.navigate([
+      RESTAURANT_ROUTS.RESTAURANTS,
+      RESTAURANT_ROUTS.EDIT_RESTAURANT,
+      restaurant.id,
+    ]);
   }
 }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { DestroyRef, inject,Injectable } from '@angular/core';
+import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ORDERS_URL } from '@shared/constants/api.constants';
 import { Order } from '@shared/models/order.model';
@@ -18,13 +18,14 @@ export class OrderService {
   }
 
   getAllOrdersByRestaurantId(restaurantId: string): Observable<Order[]> {
-    // todo we will change the url when real api is available
+    // TODO: we will change the url when real api is available
+
     return this.http.get<Order[]>(ORDERS_URL).pipe(
       takeUntilDestroyed(this.destroyRef),
       map((orders) => orders.filter((order) => order.restaurantId.toString() === restaurantId)),
     );
   }
 
-  // todo when api is provided.
+  // TODO: setup http get method .
   // updateOrderStatusById(orderId: string, status: Status) {}
 }

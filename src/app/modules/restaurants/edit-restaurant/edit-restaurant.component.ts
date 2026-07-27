@@ -1,26 +1,57 @@
 import { Location } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { RestaurantView } from '@shared/models/restaurants.model';
+import { RestaurantService } from '@core/services/restaurant/restaurant.service';
+import { Restaurant, RestaurantView } from '@shared/models/restaurants.model';
+
+import { RESTAURANT_ROUTS } from '../restaurants.constant';
 
 @Component({
   selector: 'app-edit-restaurant',
   templateUrl: './edit-restaurant.component.html',
   styleUrls: ['./edit-restaurant.component.scss'],
 })
-export class EditRestaurantComponent {
+export class EditRestaurantComponent implements OnInit {
   private readonly location = inject(Location);
+  private readonly restaurantService = inject(RestaurantService);
+  private readonly router = inject(Router);
+
+  @Input() restaurantId!: string;
 
   userDetails: RestaurantView = {
-    name: 'kritman',
-    address: 'bihar Bagaha 2',
-    owners: ['kritman@gamil.com', 'kritman1@gmail.com'],
+    name: '',
+    address: '',
+    owners: [],
   };
 
-  updateRestaurant(restaurant: RestaurantView): void {
-    console.log('Updated restaurant:', restaurant);
+  ngOnInit(): void {
+    this.getRestaurantById();
+  }
 
-    // TODO: Call update restaurant API
+  private getRestaurantById() {
+    if (!this.restaurantId) {
+      return;
+    }
+
+    const restaurantResponse = this.restaurantService.getRestaurantById(this.restaurantId);
+
+    if (restaurantResponse) {
+      this.userDetails.name = restaurantResponse.name;
+      this.userDetails.address = restaurantResponse.address;
+      this.userDetails.owners = restaurantResponse.owners;
+    }
+  }
+
+  updateRestaurant(restaurant: RestaurantView): void {
+    const updatedRestaurant: Restaurant = {
+      ...restaurant,
+      isActive: true,
+      id: this.restaurantId,
+    };
+
+    this.restaurantService.editRestaurant(updatedRestaurant);
+    this.router.navigate([RESTAURANT_ROUTS.RESTAURANTS]);
   }
 
   goBack(): void {
