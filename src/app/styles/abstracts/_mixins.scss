@@ -19,8 +19,8 @@
 /// Simple flexbox setup.
 /// @param {String} $justify-content [flex-start] - Main alignment (center, space-between).
 /// @param {String} $align-items [stretch] - Cross alignment (center, stretch).
-/// @param {String} $wrap [nowrap] - Wrap items (wrap, nowrap).
 /// @param {String} $direction [row] - Direction (row, column).
+/// @param {String} $wrap [nowrap] - Wrap items (wrap, nowrap).
 @mixin flex-box(
   $justify-content: flex-start,
   $align-items: stretch,

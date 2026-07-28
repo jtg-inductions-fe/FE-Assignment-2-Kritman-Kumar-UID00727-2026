@@ -37,12 +37,12 @@ A scalable **Restaurant Admin Dashboard** built with **Angular 16**, following e
 src/
 ├── app/
 │   ├── core/
-│   ├── features/
+│   ├── modules/
 │   ├── mocks/
 │   └── shared/
+│   └── styles/
 │
 ├── assets/
-└── styles/
 ```
 
 ---
@@ -51,7 +51,7 @@ src/
 
 ### Prerequisites
 
-- Node.js ^16.14.0 || ^18.10.0
+- Node.js ^16.14.0 || ^v20.20.2
 - Yarn
 
 ### Clone the Repository
@@ -112,7 +112,7 @@ yarn build
 app/
 ├── core/        # Singleton services, guards, interceptors, models, constants
 ├── shared/      # Reusable components, directives, pipes, layouts, types
-├── features/    # Feature modules
+├── modules/    # modules
 └── mocks/       # Mock JSON data
 ```
 
