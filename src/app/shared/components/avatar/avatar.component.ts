@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./avatar.component.scss'],
 })
 export class AvatarComponent {
-  @Input() avatarImgUrl: string | undefined = '';
-  @Input() label?: string = '';
+  @Input() avatarUrl = '';
+  @Input() label?: string;
 }

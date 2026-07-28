@@ -12,15 +12,15 @@
     [matMenuTriggerFor]="menu"
     class="header__avatar"
   >
-    <app-avatar [avatarImgUrl]="$user()?.profileImgUrl" [label]="$user()?.name" />
+    <app-avatar [avatarUrl]="$user()?.profileImgUrl || ''" [label]="$user()!.name" />
   </button>
   <mat-menu #menu="matMenu">
-    <div class="header__profile">
+    <div class="header__profile" *ngIf="$isUserLoggedIn()">
       <div class="header__user">
-        <app-avatar [avatarImgUrl]="$user()?.profileImgUrl" [label]="$user()?.name" />
+        <app-avatar [avatarUrl]="$user()?.profileImgUrl || ''" [label]="$user()?.name" />
         <div class="header__user-info">
-          <h2 class="text-subtitle header__user-name">{{ $user()?.name }}</h2>
-          <p class="text-caption header__user-email">{{ $user()?.email }}</p>
+          <h2 class="text-subtitle header__user-name">{{ $user()!.name }}</h2>
+          <p class="text-caption header__user-email">{{ $user()!.email }}</p>
         </div>
       </div>
       <mat-divider></mat-divider>
