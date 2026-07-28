@@ -18,7 +18,7 @@ export class SidebarNavGroupComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.userService.$role() === USER_ROLE.ADMIN) {
-      this.sidebarNavigationLinks = sidebarLinks.ownerNavigation;
+      this.sidebarNavigationLinks = sidebarLinks.adminNavigation;
     } else {
       this.sidebarNavigationLinks = sidebarLinks.ownerNavigation;
     }
