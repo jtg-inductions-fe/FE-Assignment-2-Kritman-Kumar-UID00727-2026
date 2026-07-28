@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { appUi } from '@shared/constants/app.constants';
 
 @Component({
   selector: 'app-logo',
@@ -7,5 +6,5 @@ import { appUi } from '@shared/constants/app.constants';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent {
-  appLogoUrl = appUi.appLogUrl;
+  readonly logoImagePath = 'assets/logos/logo.svg';
 }

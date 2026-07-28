@@ -1,19 +1,30 @@
 <header class="header">
-  <app-logo class="header__logo" />
-
+  <a routerLink="/" class="header__logo-link">
+    <app-logo class="header__logo" />
+  </a>
   <button mat-icon-button class="header__hamburger-btn" aria-label="hamburger menu">
     <mat-icon>menu</mat-icon>
   </button>
-
   <button
+    *ngIf="$isUserLoggedIn()"
     mat-icon-button
-    *ngIf="user() && !isProfileCardOpen"
-    class="header__profile-card-trigger"
-    type="button"
-    (click)="handleProfileIconClick()"
+    matTooltip="Profile Menu"
+    [matMenuTriggerFor]="menu"
+    class="header__avatar"
   >
-    <app-avatar [user]="user()" />
+    <app-avatar [avatarImgUrl]="$user()?.profileImgUrl" [label]="$user()?.name" />
   </button>
-
-  <app-profile-cart *ngIf="isProfileCardOpen" (closeProfileCart)="handleProfileIconClick()" />
+  <mat-menu #menu="matMenu">
+    <div class="header__profile">
+      <div class="header__user">
+        <app-avatar [avatarImgUrl]="$user()?.profileImgUrl" [label]="$user()?.name" />
+        <div class="header__user-info">
+          <h2 class="text-subtitle header__user-name">{{ $user()?.name }}</h2>
+          <p class="text-caption header__user-email">{{ $user()?.email }}</p>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-raised-button color="primary" (click)="handleLogout()">Log Out</button>
+    </div>
+  </mat-menu>
 </header>

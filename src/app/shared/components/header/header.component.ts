@@ -1,5 +1,7 @@
-import { Component, computed, inject } from '@angular/core';
-import { UserService } from '@core/services/user.service';
+import { Component, inject } from '@angular/core';
+
+import { AuthService } from '@core/services/auth/auth.service';
+import { UserService } from '@core/services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +10,12 @@ import { UserService } from '@core/services/user.service';
 })
 export class HeaderComponent {
   private readonly userService = inject(UserService);
+  private readonly authService = inject(AuthService);
 
-  readonly user = computed(() => {
-    return this.userService.user();
-  });
+  readonly $isUserLoggedIn = this.userService.$isLoggedIn;
+  readonly $user = this.userService.$user;
 
-  isProfileCardOpen = false;
-
-  handleProfileIconClick() {
-    this.isProfileCardOpen = !this.isProfileCardOpen;
+  handleLogout() {
+    this.authService.logout();
   }
 }

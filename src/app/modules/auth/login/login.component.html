@@ -23,6 +23,7 @@
         <button
           mat-icon-button
           matSuffix
+          [matTooltip]="$hidePassword() ? 'Show' : 'Hide'"
           type="button"
           (click)="togglePasswordVisibility()"
           [attr.aria-label]="$hidePassword() ? 'Show password' : 'Hide password'"

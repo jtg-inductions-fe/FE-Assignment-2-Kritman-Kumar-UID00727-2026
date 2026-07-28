@@ -1,4 +1,4 @@
-import { Component, inject, DestroyRef, signal } from '@angular/core';
+import { Component, inject, DestroyRef, signal, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -8,8 +8,8 @@ import { finalize } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '@core/services/auth/auth.service';
-import { APP_ROUTES } from '@shared/constants/routes.constants';
 import { MAT_ACTION_CLOSE, MAT_SNACK_BAR_CONFIG } from '@shared/constants/app.constants';
+import { APP_ROUTES } from '@shared/constants/routes.constants';
 import { AUTH_FORM, AUTH_SUBMIT_MESSAGES, AUTH_VALIDATION_MESSAGES } from '../auth.constants';
 
 @Component({
@@ -17,16 +17,22 @@ import { AUTH_FORM, AUTH_SUBMIT_MESSAGES, AUTH_VALIDATION_MESSAGES } from '../au
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
-  private matSnackBar = inject(MatSnackBar);
-
+export class LoginComponent implements OnInit {
+  private readonly authService = inject(AuthService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly loginFormBuilder = inject(FormBuilder);
   private readonly router = inject(Router);
-  private readonly authService = inject(AuthService);
+
+  private matSnackBar = inject(MatSnackBar);
 
   readonly $isLoading = signal(false);
   readonly $hidePassword = signal(true);
+
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate([APP_ROUTES.DASHBOARD]);
+    }
+  }
 
   readonly loginForm = this.loginFormBuilder.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],

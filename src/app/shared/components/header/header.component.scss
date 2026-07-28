@@ -1,22 +1,46 @@
-@use '../../../styles/abstracts/' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .header {
-  @include flex-box($justify-content: space-between);
+  @include flex-box(space-between);
 
-  padding: pxToRem(16);
-  &__logo {
+  padding: $space-16;
+  border: 1px solid $border;
+
+  &__logo-link {
     display: none;
   }
 
-  &__profile-card-trigger {
-    @include flex-box($justify-content: center, $align-items: center);
+  &__avatar {
+    @include flex-box(center, center, column);
 
-    width: pxToRem(40);
-    height: pxToRem(40);
+    border: $radius-full;
   }
 
-  @include media-up($breakpoint: $breakpoint-tablet) {
-    &__logo {
+  &__profile {
+    @include flex-box($direction: column);
+
+    gap: $space-12;
+    padding-inline: $space-16;
+    border-radius: $radius-sm;
+  }
+
+  &__user {
+    @include flex-box($align-items: center);
+
+    gap: $space-16;
+  }
+
+  &__user-name {
+    color: $text-primary;
+  }
+
+  &__user-email {
+    color: $text-secondary;
+  }
+
+  @include media-up($breakpoint-desktop) {
+    &__logo-link {
       display: block;
     }
 

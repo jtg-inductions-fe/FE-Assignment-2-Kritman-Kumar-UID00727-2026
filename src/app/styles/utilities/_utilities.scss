@@ -47,14 +47,3 @@
     margin-bottom: $value;
   }
 }
-
-.primary {
-  background: $primary !important;
-  color: $white !important;
-}
-
-.outline {
-  background: $white !important;
-  color: $primary !important;
-  border: 1px solid $primary !important;
-}

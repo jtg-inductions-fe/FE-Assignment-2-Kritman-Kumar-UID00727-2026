@@ -1,9 +1,12 @@
-@use './styles/abstracts/' as *;
+@use 'abstracts' as *;
 
 .app {
+  @include flex-box($direction: column);
+
   min-width: pxToRem(280);
   height: 100dvh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: pxToRem(70) 1fr;
+
+  &__body {
+    flex: 1;
+  }
 }
