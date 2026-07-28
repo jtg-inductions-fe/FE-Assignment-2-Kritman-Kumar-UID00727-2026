@@ -4,9 +4,8 @@
 .container {
   margin: 0 auto;
   padding-inline: $space-8;
-  background-color: $primary;
 
-  @include media-up($breakpoint: $breakpoint-desktop-xl) {
+  @include media-up($breakpoint-desktop-xl) {
     max-width: $breakpoint-desktop-xxl;
   }
 }
