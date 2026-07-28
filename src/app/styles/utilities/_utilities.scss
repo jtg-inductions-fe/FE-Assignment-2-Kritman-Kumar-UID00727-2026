@@ -2,22 +2,11 @@
 @use 'spacing' as *;
 
 .container {
-  max-width: $breakpoint-mobile;
-  padding: 0 pxToRem(16);
   margin: 0 auto;
+  padding-inline: $space-8;
 
-  @include media-up($breakpoint: $breakpoint-tablet) {
-    max-width: $breakpoint-tablet;
-    padding: 0 pxToRem(16);
-  }
-
-  @include media-up($breakpoint: $breakpoint-desktop) {
-    padding: 0 pxToRem(32);
-  }
-
-  @include media-up($breakpoint: $breakpoint-desktop-xl) {
-    max-width: $breakpoint-desktop-xl;
-    padding: 0 pxToRem(64);
+  @include media-up($breakpoint-desktop-xl) {
+    max-width: $breakpoint-desktop-xxl;
   }
 }
 
@@ -57,15 +46,4 @@
     margin-top: $value;
     margin-bottom: $value;
   }
-}
-
-.primary {
-  background: $primary !important;
-  color: $white !important;
-}
-
-.outline {
-  background: $white !important;
-  color: $primary !important;
-  border: 1px solid $primary !important;
 }

@@ -1,6 +1,8 @@
-import { Component, computed, inject } from '@angular/core';
-import { SidebarService } from '@core/services/sidebar.service';
-import { UserService } from '@core/services/user.service';
+import { Component, inject } from '@angular/core';
+
+import { AuthService } from '@core/services/auth/auth.service';
+import { UserService } from '@core/services/user/user.service';
+import { SidebarService } from '@core/services/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +10,18 @@ import { UserService } from '@core/services/user.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  private sidebarService = inject(SidebarService);
   private readonly userService = inject(UserService);
+  private readonly authService = inject(AuthService);
+  private readonly sidebarService = inject(SidebarService);
 
-  isProfileCardOpen = false;
+  readonly $isUserLoggedIn = this.userService.$isLoggedIn;
+  readonly $user = this.userService.$user;
 
-  readonly user = computed(() => {
-    return this.userService.user();
-  });
-
-  handleProfileIconClick(): void {
-    this.isProfileCardOpen = !this.isProfileCardOpen;
+  toggleSidebar() {
+    this.sidebarService.toggleSideBar();
   }
 
-  toggleSidebar(): void {
-    this.sidebarService.toggleSideBar();
+  handleLogout() {
+    this.authService.logout();
   }
 }

@@ -1,8 +1,8 @@
-@use '../../../styles/abstracts/' as *;
-@use '../../../styles/utilities' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .main-layout {
-  height: calc(100dvh - pxToRem(80));
+  height: 100%;
 
   &__content {
     height: 100%;
@@ -12,7 +12,7 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: pxToRem(24);
+    padding: $space-24;
     box-sizing: border-box;
   }
 }

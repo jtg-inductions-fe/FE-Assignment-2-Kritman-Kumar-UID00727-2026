@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": "Kritman Rao",
+    "email": "kritmanrao@gmail.com",
+    "password": "kritman",
+    "role": 0,
+    "profileImgUrl": "assets/profile.png",
+    "restaurantId": "0"
+  },
+  {
+    "id": "2",
+    "name": "John",
+    "email": "owner1@restaurant.com",
+    "password": "kritman",
+    "role": 1,
+    "profileImgUrl": "assets/profile.png",
+    "restaurantId": "1"
+  },
+  {
+    "id": 3,
+    "name": "Emma Watson",
+    "email": "owner2@restaurant.com",
+    "password": "$2b$12$Wq9jA2...hashed...",
+    "role": 1,
+    "restaurantId": "2"
+  },
+  {
+    "id": "5",
+    "name": "Sophia Martinez",
+    "email": "burger_queen@gmail.com",
+    "password": "$2b$12$Xr0kB3...hashed...",
+    "role": 1,
+    "restaurantId": "2"
+  },
+  {
+    "id": "6",
+    "name": "sushi's friend",
+    "email": "owner3@restaurant.com",
+    "password": "$2b$12$Ys1lC4...hashed...",
+    "role": 1,
+    "restaurantId": "3"
+  },
+  {
+    "id": 7,
+    "name": "Mia Jenkins",
+    "email": "sushi_master@gmail.com",
+    "password": "$2b$12$Zt2mD5...hashed...",
+    "role": 1,
+    "restaurantId": "3"
+  }
+]

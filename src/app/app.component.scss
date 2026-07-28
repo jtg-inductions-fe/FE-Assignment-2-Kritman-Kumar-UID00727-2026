@@ -1,7 +1,12 @@
-@use './styles/abstracts/' as *;
+@use 'abstracts' as *;
 
-.app-layout {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  height: 100vh;
+.app {
+  @include flex-box($direction: column);
+
+  min-width: pxToRem(280);
+  height: 100dvh;
+
+  &__body {
+    flex: 1;
+  }
 }

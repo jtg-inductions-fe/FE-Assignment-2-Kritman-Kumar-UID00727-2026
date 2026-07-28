@@ -11,7 +11,7 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "prettier"
       ],
-      "plugins": ["unused-imports", "simple-import-sort"],
+      "plugins": ["unused-imports"],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -21,7 +21,6 @@
             "style": "camelCase"
           }
         ],
-
         "@angular-eslint/component-selector": [
           "error",
           {
@@ -53,11 +52,7 @@
             "argsIgnorePattern": "^_",
             "varsIgnorePattern": "^_"
           }
-        ],
-
-        "simple-import-sort/imports": "error",
-
-        "simple-import-sort/exports": "error"
+        ]
       }
     },
     {

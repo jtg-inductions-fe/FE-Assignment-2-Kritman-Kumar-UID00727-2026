@@ -1,6 +1,6 @@
-@use '../../../styles/abstracts/' as *;
+@use 'abstracts' as *;
 
-.image-logo {
+.logo {
   width: pxToRem(40);
   height: pxToRem(40);
 }

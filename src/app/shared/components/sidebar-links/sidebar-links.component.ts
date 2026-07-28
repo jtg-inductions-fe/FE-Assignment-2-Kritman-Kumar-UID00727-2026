@@ -1,7 +1,9 @@
-import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, Input, OnInit } from '@angular/core';
+import { NestedTreeControl } from '@angular/cdk/tree';
+
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { SidebarItem } from '@shared/models/sidebar.model';
+
+import { SidebarNavItem } from '@shared/models/sidebar.model';
 
 @Component({
   selector: 'app-sidebar-links',
@@ -9,14 +11,14 @@ import { SidebarItem } from '@shared/models/sidebar.model';
   styleUrls: ['./sidebar-links.component.scss'],
 })
 export class SidebarLinksComponent implements OnInit {
-  @Input() sidebarLinks: SidebarItem[] = [];
+  @Input() sidebarNavItems: SidebarNavItem[] = [];
 
-  treeControl = new NestedTreeControl<SidebarItem>((node) => node.children);
-  dataSource = new MatTreeNestedDataSource<SidebarItem>();
+  treeControl = new NestedTreeControl<SidebarNavItem>((node) => node.children);
+  dataSource = new MatTreeNestedDataSource<SidebarNavItem>();
 
   ngOnInit() {
-    this.dataSource.data = this.sidebarLinks;
+    this.dataSource.data = this.sidebarNavItems;
   }
 
-  hasChild = (_: number, node: SidebarItem) => !!node.children && node.children.length > 0;
+  hasChild = (_: number, node: SidebarNavItem) => !!node.children && node.children.length > 0;
 }

@@ -1,31 +1,23 @@
 export const AUTH_VALIDATION_MESSAGES = {
-  email: {
-    required: 'Email is required',
-    email: 'Please enter a valid email address',
+  EMAIL: {
+    REQUIRED: 'Email is required',
+    INVALID_EMAIL: 'Please enter a valid email address',
   },
-
-  password: {
-    required: 'Password is required',
-    minlength: 'Password must be at least 6 characters',
+  PASSWORD: {
+    REQUIRED: 'Password is required',
+    INVALID_PASSWORD: 'Password must be at least 6 characters',
   },
 } as const;
 
 export const AUTH_SUBMIT_MESSAGES = {
-  invalidCredentials: 'Invalid email or password',
-  serverError: 'Something went wrong. Please try again.',
+  INVALID_CREDENTIALS: 'Invalid email or password',
+  SERVER_ERROR: 'Something went wrong. Please try again.',
 } as const;
 
 export const AUTH_FORM = {
-  passwordMinLength: 6,
+  PASSWORD_MINIMUM_LENGTH: 6,
 } as const;
 
-export const AUTH_UI = {
-  login: {
-    title: 'Restaurant Portal',
-    subtitle: 'Log in to manage orders, menus, and stats.',
-    submitButton: 'Login',
-    loadingButton: 'Signing in...',
-    emailLabel: 'Email Address',
-    passwordLabel: 'Password',
-  },
-} as const;
+export const AUTH_ROUT = {
+  LOGIN: 'login',
+};

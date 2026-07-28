@@ -21,7 +21,6 @@
 /// @param {String} $align-items [stretch] - Cross alignment (center, stretch).
 /// @param {String} $direction [row] - Direction (row, column).
 /// @param {String} $wrap [nowrap] - Wrap items (wrap, nowrap).
-/// @param {Length} $gap [0] - Item spacing (px, rem).
 @mixin flex-box(
   $justify-content: flex-start,
   $align-items: stretch,
@@ -29,8 +28,8 @@
   $wrap: nowrap
 ) {
   display: flex;
-  flex-direction: $direction;
   justify-content: $justify-content;
   align-items: $align-items;
+  flex-direction: $direction;
   flex-wrap: $wrap;
 }
