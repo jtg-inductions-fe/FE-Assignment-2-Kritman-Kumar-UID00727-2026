@@ -1,0 +1,233 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.skeleton-dashboard {
+  @include flex-box($direction: column);
+
+  gap: $space-16;
+  padding: $space-24;
+
+  &__skeleton {
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius-sm;
+    background-color: $lilac-murmur;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+      background: linear-gradient(90deg, transparent, #ffffff99, transparent);
+      animation: skeleton-loading 1.5s infinite;
+      transform: translateX(-100%);
+    }
+
+    &--title {
+      width: pxToRem(440);
+      height: pxToRem(42);
+    }
+
+    &--select {
+      width: pxToRem(225);
+      height: pxToRem(42);
+    }
+
+    &--subtitle {
+      max-width: pxToRem(380);
+      height: pxToRem(14);
+    }
+
+    &--icon {
+      width: pxToRem(40);
+      height: pxToRem(40);
+      border-radius: $radius-sm;
+    }
+
+    &--label {
+      width: pxToRem(80);
+      height: pxToRem(10);
+    }
+
+    &--value {
+      width: pxToRem(100);
+      height: pxToRem(20);
+    }
+
+    &--report-title {
+      width: pxToRem(180);
+      height: pxToRem(18);
+    }
+
+    &--report-description {
+      max-width: pxToRem(300);
+      height: pxToRem(12);
+      margin-top: $space-8;
+    }
+
+    &--button {
+      flex: 1;
+      min-width: pxToRem(170);
+      min-height: pxToRem(32);
+    }
+
+    &--panel-title {
+      width: pxToRem(180);
+      height: pxToRem(20);
+      margin-bottom: pxToRem(20);
+    }
+
+    &--avatar {
+      width: pxToRem(34);
+      height: pxToRem(34);
+      border-radius: $radius-full;
+    }
+
+    &--name {
+      width: pxToRem(120);
+      height: pxToRem(14);
+    }
+
+    &--email {
+      width: pxToRem(160);
+      height: pxToRem(10);
+      margin-top: $space-8;
+    }
+
+    &--amount {
+      width: pxToRem(40);
+      height: pxToRem(16);
+    }
+
+    &--dish-name {
+      width: pxToRem(150);
+      height: pxToRem(14);
+    }
+
+    &--restaurant {
+      width: pxToRem(90);
+      height: pxToRem(10);
+      margin-top: $space-8;
+    }
+
+    &--orders {
+      width: pxToRem(60);
+      height: pxToRem(14);
+    }
+
+    &--footer-text {
+      width: pxToRem(300);
+      height: pxToRem(14);
+    }
+
+    &--social-icon {
+      width: pxToRem(20);
+      height: pxToRem(20);
+      border-radius: $radius-full;
+    }
+  }
+
+  &__header {
+    @include flex-box(space-between, center);
+
+    gap: $space-20;
+  }
+
+  &__stats {
+    @include flex-box(space-between, $wrap: wrap);
+
+    gap: $space-16;
+  }
+
+  &__card {
+    @include flex-box($align-items: center);
+
+    flex: 1 1 pxToRem(300);
+    gap: $space-16;
+    height: pxToRem(64);
+    padding: $space-12;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+  }
+
+  &__card-content {
+    @include flex-box($direction: column);
+
+    gap: $space-8;
+  }
+
+  &__report {
+    @include flex-box(space-between, center, $wrap: wrap);
+
+    gap: $space-20;
+    min-height: pxToRem(78);
+    padding: $space-16;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+  }
+
+  &__report-buttons {
+    @include flex-box($wrap: wrap);
+
+    width: 100%;
+    gap: $space-16;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $space-16;
+  }
+
+  &__panel {
+    padding: $space-24;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+  }
+
+  &__list-item {
+    @include flex-box($align-items: center);
+
+    gap: $space-12;
+    min-height: pxToRem(60);
+    border-bottom: 1px solid $border;
+  }
+
+  &__list-item-details {
+    flex: 1;
+  }
+
+  &__dish {
+    @include flex-box(space-between, center);
+
+    min-height: pxToRem(60);
+    border-bottom: 1px solid $border;
+  }
+
+  &__footer {
+    @include flex-box(space-between, center);
+
+    min-height: pxToRem(100);
+    padding: $space-24;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+  }
+
+  &__footer-icons {
+    @include flex-box();
+
+    gap: $space-16;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  100% {
+    transform: translateX(100%);
+  }
+}

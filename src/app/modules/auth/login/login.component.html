@@ -1,64 +1,47 @@
 <main class="login">
   <div class="login__container">
     <hgroup class="login__header">
-      <h1 class="text-heading login__title">
-        {{ ui.title }}
-      </h1>
-
-      <p class="text-subtitle login__subtitle">
-        {{ ui.subtitle }}
-      </p>
+      <h1 class="text-heading login__title">Restaurant Portal</h1>
+      <p class="text-subtitle login__subtitle">Log in to manage orders, menus, and stats.</p>
     </hgroup>
-
     <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onLogInFormSubmit()">
-      <mat-form-field appearance="outline" class="login__input-group">
-        <mat-label>{{ ui.emailLabel }}</mat-label>
-
+      <mat-form-field subscriptSizing="dynamic" appearance="outline" class="login__input-group">
+        <mat-label>Email Address</mat-label>
         <input matInput type="email" formControlName="email" autocomplete="email" />
-
         <mat-error *ngIf="email.touched && email.invalid">
           {{ emailError }}
         </mat-error>
       </mat-form-field>
-
-      <mat-form-field appearance="outline" class="login__input-group">
-        <mat-label>{{ ui.passwordLabel }}</mat-label>
-
+      <mat-form-field subscriptSizing="dynamic" appearance="outline" class="login__input-group">
+        <mat-label>Password</mat-label>
         <input
           matInput
           formControlName="password"
           autocomplete="current-password"
-          [type]="hidePassword() ? 'password' : 'text'"
+          [type]="$hidePassword() ? 'password' : 'text'"
         />
-
         <button
           mat-icon-button
           matSuffix
           type="button"
           (click)="togglePasswordVisibility()"
-          [attr.aria-label]="hidePassword() ? 'Show password' : 'Hide password'"
+          [attr.aria-label]="$hidePassword() ? 'Show password' : 'Hide password'"
         >
           <mat-icon>
-            {{ hidePassword() ? 'visibility_off' : 'visibility' }}
+            {{ $hidePassword() ? 'visibility_off' : 'visibility' }}
           </mat-icon>
         </button>
-
         <mat-error *ngIf="password.touched && password.invalid">
           {{ passwordError }}
         </mat-error>
       </mat-form-field>
-
-      <p class="login__error" *ngIf="serverError()">
-        {{ serverError() }}
-      </p>
-
       <button
         mat-raised-button
         color="primary"
         class="login__btn"
-        [disabled]="loginForm.invalid || isLoading()"
+        [disabled]="loginForm.invalid || $isLoading()"
       >
-        {{ isLoading() ? ui.loadingButton : ui.submitButton }}
+        {{ $isLoading() ? 'Signing in...' : 'Login' }}
       </button>
     </form>
   </div>

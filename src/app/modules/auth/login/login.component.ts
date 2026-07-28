@@ -1,16 +1,16 @@
-import { Component, inject, signal } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, inject, DestroyRef, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@app/core/services/auth.service';
-import { APP_ROUTES } from '@shared/constants/routes.constants';
+import { FormBuilder, Validators } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { finalize } from 'rxjs/operators';
 
-import {
-  AUTH_FORM,
-  AUTH_SUBMIT_MESSAGES,
-  AUTH_UI,
-  AUTH_VALIDATION_MESSAGES,
-} from '../auth.constants';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { AuthService } from '@core/services/auth/auth.service';
+import { APP_ROUTES } from '@shared/constants/routes.constants';
+import { MAT_ACTION_CLOSE, MAT_SNACK_BAR_CONFIG } from '@shared/constants/app.constants';
+import { AUTH_FORM, AUTH_SUBMIT_MESSAGES, AUTH_VALIDATION_MESSAGES } from '../auth.constants';
 
 @Component({
   selector: 'app-login',
@@ -18,20 +18,19 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  private readonly fb = inject(FormBuilder);
+  private matSnackBar = inject(MatSnackBar);
+
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly loginFormBuilder = inject(FormBuilder);
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
 
-  readonly isLoading = signal(false);
-  readonly serverError = signal('');
-  readonly hidePassword = signal(true);
+  readonly $isLoading = signal(false);
+  readonly $hidePassword = signal(true);
 
-  readonly ui = AUTH_UI.login;
-
-  readonly loginForm = this.fb.nonNullable.group({
+  readonly loginForm = this.loginFormBuilder.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
-
-    password: ['', [Validators.required, Validators.minLength(AUTH_FORM.passwordMinLength)]],
+    password: ['', [Validators.required, Validators.minLength(AUTH_FORM.PASSWORD_MINIMUM_LENGTH)]],
   });
 
   get email() {
@@ -42,32 +41,32 @@ export class LoginComponent {
     return this.loginForm.controls.password;
   }
 
-  get emailError(): string {
+  get emailError() {
     if (this.email.hasError('required')) {
-      return AUTH_VALIDATION_MESSAGES.email.required;
+      return AUTH_VALIDATION_MESSAGES.EMAIL.REQUIRED;
     }
 
     if (this.email.hasError('email')) {
-      return AUTH_VALIDATION_MESSAGES.email.email;
+      return AUTH_VALIDATION_MESSAGES.EMAIL.INVALID_EMAIL;
     }
 
     return '';
   }
 
-  get passwordError(): string {
+  get passwordError() {
     if (this.password.hasError('required')) {
-      return AUTH_VALIDATION_MESSAGES.password.required;
+      return AUTH_VALIDATION_MESSAGES.PASSWORD.REQUIRED;
     }
 
     if (this.password.hasError('minlength')) {
-      return AUTH_VALIDATION_MESSAGES.password.minlength;
+      return AUTH_VALIDATION_MESSAGES.PASSWORD.INVALID_PASSWORD;
     }
 
     return '';
   }
 
   togglePasswordVisibility(): void {
-    this.hidePassword.update((value) => !value);
+    this.$hidePassword.update((value) => !value);
   }
 
   onLogInFormSubmit(): void {
@@ -77,31 +76,37 @@ export class LoginComponent {
       return;
     }
 
-    this.isLoading.set(true);
-    this.serverError.set('');
+    this.$isLoading.set(true);
 
     const { email, password } = this.loginForm.getRawValue();
 
     this.authService
       .login(email, password)
       .pipe(
+        takeUntilDestroyed(this.destroyRef),
         finalize(() => {
-          this.isLoading.set(false);
+          this.$isLoading.set(false);
         }),
       )
       .subscribe({
         next: (success) => {
           if (!success) {
-            this.serverError.set(AUTH_SUBMIT_MESSAGES.invalidCredentials);
-
+            this.matSnackBar.open(
+              AUTH_SUBMIT_MESSAGES.INVALID_CREDENTIALS,
+              MAT_ACTION_CLOSE,
+              MAT_SNACK_BAR_CONFIG,
+            );
             return;
           }
 
           this.router.navigate([APP_ROUTES.DASHBOARD]);
         },
-
         error: () => {
-          this.serverError.set(AUTH_SUBMIT_MESSAGES.serverError);
+          this.matSnackBar.open(
+            AUTH_SUBMIT_MESSAGES.SERVER_ERROR,
+            MAT_ACTION_CLOSE,
+            MAT_SNACK_BAR_CONFIG,
+          );
         },
       });
   }
