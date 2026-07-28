@@ -10,6 +10,7 @@ export class UserService {
 
   readonly $isLoggedIn = computed(() => this.$userSignal() !== null);
   readonly $role = computed(() => this.$userSignal()?.role ?? null);
+  readonly $user = computed(() => this.$userSignal());
 
   setUser(user: AuthUser): void {
     this.$userSignal.set(user);

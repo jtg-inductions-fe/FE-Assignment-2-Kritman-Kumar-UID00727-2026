@@ -4,7 +4,7 @@
 .login {
   @include flex-box(center, center);
 
-  height: 100dvh;
+  height: 100%;
 
   &__container {
     @include flex-box($direction: column);

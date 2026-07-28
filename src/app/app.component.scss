@@ -1,0 +1,12 @@
+@use 'abstracts' as *;
+
+.app {
+  @include flex-box($direction: column);
+
+  min-width: pxToRem(280);
+  height: 100dvh;
+
+  &__body {
+    flex: 1;
+  }
+}

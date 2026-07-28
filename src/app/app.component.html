@@ -1,2 +1,7 @@
-<app-skeleton-loader *ngIf="loadingService.$isAppLoading()"></app-skeleton-loader>
-<router-outlet *ngIf="!loadingService.$isAppLoading()"></router-outlet>
+<div class="app">
+  <app-header></app-header>
+  <div class="app__body">
+    <app-skeleton-loader *ngIf="loadingService.$isAppLoading()"></app-skeleton-loader>
+    <router-outlet *ngIf="!loadingService.$isAppLoading()"></router-outlet>
+  </div>
+</div>

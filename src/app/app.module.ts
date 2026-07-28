@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { SkeletonLoaderComponent } from './shared/components/skeleton-loader/skeleton-loader.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SkeletonLoaderComponent } from './shared/components/skeleton-loader/ske
     BrowserAnimationsModule,
     AppRoutingModule,
     SkeletonLoaderComponent,
+    SharedModule,
   ],
   bootstrap: [AppComponent],
 })
