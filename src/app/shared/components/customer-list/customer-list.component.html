@@ -7,8 +7,8 @@
   </div>
   <ul class="customer-list__container">
     <li *ngFor="let user of customerList" class="customer-list__user">
-      <div class="customer-list__user-body">
-        <app-avatar [name]="user.name" [profileImgUrl]="user.profileImgUrl" />
+      <div *ngIf="user.profileImgUrl" class="customer-list__user-body">
+        <app-avatar [avatarUrl]="user.profileImgUrl" [label]="user.name" />
         <div class="customer-list__user-info">
           <h2 class="text-subtitle customer-list__user-name">{{ user.name }}</h2>
           <p class="text-caption customer-list__user-email">{{ user.email }}</p>

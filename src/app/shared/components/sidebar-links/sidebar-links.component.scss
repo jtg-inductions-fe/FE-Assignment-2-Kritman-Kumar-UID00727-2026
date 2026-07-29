@@ -1,25 +1,38 @@
-@use '../../../styles/abstracts/' as *;
-@use '../../../styles/utilities/' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .sidebar-links {
-  padding-top: $space-12;
-  padding-bottom: $space-4;
+  padding: $space-32 $space-12;
 
-  &__text {
-    @include flex-box(start, center);
+  &__item {
+    @include flex-box($align-items: center);
 
-    width: 100%;
+    flex: 1;
     gap: $space-16;
   }
 
+  &__item-wrapper {
+    border-radius: $radius-sm;
+    padding-right: $space-8;
+
+    &:hover {
+      background-color: $bg-secondary;
+    }
+  }
+
   &__link {
-    @include flex-box($justify-content: start, $align-items: center);
+    @include flex-box($align-items: center);
 
     width: 100%;
-    padding: $space-4 $space-16;
+    padding: $space-4 $space-8;
     border-radius: $radius-sm;
     color: $text-primary;
     text-transform: capitalize;
+
+    &--none {
+      border: none;
+      background: none;
+    }
   }
 
   &__link:hover {
@@ -32,14 +45,14 @@
 
   &__expand {
     border-radius: $radius-sm;
+    padding-right: $space-16;
   }
 
   &__badge {
     @include flex-box(center, center);
 
-    min-width: pxToRem(20);
-    height: pxToRem(20);
-    padding: 0 $space-8;
+    width: pxToRem(27);
+    aspect-ratio: 1/1;
     border-radius: $radius-full;
     background-color: $error-bg;
     color: $error;

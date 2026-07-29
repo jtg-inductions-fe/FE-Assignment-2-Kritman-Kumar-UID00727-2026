@@ -1,0 +1,12 @@
+<ul class="footer-action">
+  <li class="footer-action__item" *ngFor="let action of actions">
+    <button
+      [matTooltip]="action.name"
+      mat-icon-button
+      [ariaLabel]="action.name"
+      class="footer-action__icon"
+    >
+      <mat-icon>{{ action.name }}</mat-icon>
+    </button>
+  </li>
+</ul>

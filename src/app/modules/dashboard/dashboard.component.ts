@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject,OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -7,7 +7,7 @@ import { CustomerService } from '@core/services/customer/customer.service';
 import { MenuItemService } from '@core/services/menu-item/menu-item.service';
 import { OrderService } from '@core/services/order/order.service';
 import { RestaurantService } from '@core/services/restaurant/restaurant.service';
-import { UserService } from '@core/services/user.service';
+import { UserService } from '@core/services/user/user.service';
 import { ORDER_STATUS, SERVICE_ERROR, USER_ROLE } from '@shared/constants/app.constants';
 import { AuthUser } from '@shared/models/auth.model';
 import { Customer } from '@shared/models/customer.model';
@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
   private allMenuItems: MenuItem[] = [];
   private allOrders: Order[] = [];
 
-  protected readonly userRole = this.userService.role;
+  protected readonly userRole = this.userService.$role;
   protected readonly USER_ROLE = USER_ROLE;
   protected readonly DASHBOARD = DASHBOARD;
 
@@ -65,7 +65,9 @@ export class DashboardComponent implements OnInit {
   }
 
   private configureFilter(): void {
-    if (this.userRole() !== USER_ROLE.ADMIN) {return;}
+    if (this.userRole() !== USER_ROLE.ADMIN) {
+      return;
+    }
 
     this.restaurantsFilterControl.setValue(this.DASHBOARD.DEFAULT_RESTAURANT_FILTER);
 

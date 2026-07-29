@@ -1,9 +1,9 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { SidebarService } from '@core/services/sidebar.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
-import { BREAKPOINT } from './break-point.constant';
+import { SidebarService } from '@core/services/sidebar/sidebar.service';
+import { BREAKPOINT } from '@shared/constants/app.constants';
 
 @Component({
   selector: 'app-main-layout',
@@ -13,19 +13,21 @@ import { BREAKPOINT } from './break-point.constant';
 export class MainLayoutComponent {
   private readonly sidebarService = inject(SidebarService);
   private readonly breakpointObserver = inject(BreakpointObserver);
-  private readonly destroyRef = inject(DestroyRef);
 
-  readonly sidebarState = computed(() => this.sidebarService.isSidebarOpen());
+  isTabletOrBelow = signal(false);
 
-  readonly isMobile = signal(false);
+  readonly sidebarState = computed(() => this.sidebarService.$isSidebarOpen());
+
+  toggleSideBar() {
+    this.sidebarService.toggleSideBar();
+  }
 
   constructor() {
     this.breakpointObserver
-      .observe(`(max-width: ${BREAKPOINT.DESKTOP_BREAKPOINT})`)
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .observe(`(max-width: ${BREAKPOINT.DESKTOP})`)
+      .pipe(takeUntilDestroyed())
       .subscribe(({ matches }) => {
-        this.isMobile.set(matches);
-
+        this.isTabletOrBelow.set(matches);
         this.sidebarService.setSidebarState(!matches);
       });
   }

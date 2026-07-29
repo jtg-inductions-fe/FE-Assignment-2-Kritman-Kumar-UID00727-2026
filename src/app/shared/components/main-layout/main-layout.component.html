@@ -1,14 +1,13 @@
-<mat-drawer-container class="main-layout">
+<mat-drawer-container class="main-layout" (backdropClick)="toggleSideBar()">
   <mat-drawer
-    [mode]="isMobile() ? 'over' : 'side'"
-    [opened]="sidebarState()"
     class="main-layout__drawer"
+    [mode]="isTabletOrBelow() ? 'over' : 'side'"
+    [opened]="sidebarState()"
   >
-    <app-sidebar />
+    <app-sidebar-nav-group />
   </mat-drawer>
-
   <mat-drawer-content class="main-layout__content">
-    <main class="main-layout__main">
+    <main class="container main-layout__main">
       <router-outlet></router-outlet>
     </main>
   </mat-drawer-content>

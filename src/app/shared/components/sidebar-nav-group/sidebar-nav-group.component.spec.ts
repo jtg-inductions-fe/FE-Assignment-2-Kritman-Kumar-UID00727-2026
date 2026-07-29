@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidebarComponent } from './sidebar.component';
+import { SidebarNavGroupComponent } from './sidebar-nav-group.component';
 
 describe('SidebarComponent', () => {
-  let component: SidebarComponent;
-  let fixture: ComponentFixture<SidebarComponent>;
+  let component: SidebarNavGroupComponent;
+  let fixture: ComponentFixture<SidebarNavGroupComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarComponent],
+      declarations: [SidebarNavGroupComponent],
     });
-    fixture = TestBed.createComponent(SidebarComponent);
+    fixture = TestBed.createComponent(SidebarNavGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,14 @@
+@use 'abstracts/' as *;
+@use 'utilities/' as *;
+
+.footer-action {
+  @include flex-box($justify-content: center, $align-items: center);
+
+  width: 100%;
+  padding: $space-8 $space-16;
+
+  &__icon:hover {
+    background-color: $primary;
+    color: $lilac-murmur;
+  }
+}

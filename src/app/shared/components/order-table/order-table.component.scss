@@ -1,5 +1,5 @@
-@use '../../../styles/abstracts/' as *;
-@use '../../../styles/utilities/' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .order-table {
   box-shadow: $shadow-sm;

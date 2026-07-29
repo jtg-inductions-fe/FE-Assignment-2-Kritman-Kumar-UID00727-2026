@@ -8,62 +8,84 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { AvatarComponent } from './components/avatar/avatar.component';
-import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { DishesListComponent } from './components/dish-list/dishes-list.component';
-import { FooterIconsComponent } from './components/footer-icons/footer-icons.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { OrderTableComponent } from './components/order-table/order-table.component';
-import { ProfileCartComponent } from './components/profile-card/profile-card.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
+import { SidebarNavGroupComponent } from './components/sidebar-nav-group/sidebar-nav-group.component';
+import { FooterActionsComponent } from './components/footer-actions/footer-icons.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
-    AvatarComponent,
-    ButtonComponent,
     HeaderComponent,
-    LogoComponent,
+    AvatarComponent,
     MainLayoutComponent,
-    ProfileCartComponent,
-    SidebarComponent,
+    LogoComponent,
+    SidebarNavGroupComponent,
     SidebarLinksComponent,
-    FooterIconsComponent,
+    FooterActionsComponent,
     CardComponent,
     CustomerListComponent,
     DishesListComponent,
     OrderTableComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
-    RouterLink,
-    RouterLinkActive,
-    RouterOutlet,
     MatButtonModule,
     MatChipsModule,
     MatDividerModule,
+    MatFormFieldModule,
     MatIconModule,
-    MatSidenavModule,
-    MatTreeModule,
-    MatRippleModule,
-    MatListModule,
     MatTableModule,
+    MatListModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatTreeModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+    MatRippleModule,
+    MatMenuModule,
+    RouterLinkActive,
+    MatTooltipModule,
   ],
   exports: [
-    HeaderComponent,
     AvatarComponent,
-    ButtonComponent,
-    CardComponent,
+    CommonModule,
+    HeaderComponent,
+    MatButtonModule,
+    MatChipsModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    ReactiveFormsModule,
     CustomerListComponent,
     DishesListComponent,
     OrderTableComponent,
+    MatMenuModule,
+    MatTooltipModule,
+    CardComponent,
   ],
 })
 export class SharedModule {}
