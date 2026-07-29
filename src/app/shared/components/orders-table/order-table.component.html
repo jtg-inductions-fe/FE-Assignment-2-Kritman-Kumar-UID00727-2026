@@ -7,41 +7,41 @@
   </hgroup>
   <div class="order-table__table-container">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[0]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[0]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
-          {{ TABLE.COLUMNS_NAME[0] }}
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[0] | uppercase }}
         </mat-header-cell>
         <mat-cell *matCellDef="let order" class="text-caption-semibold order-table__order-id">
           {{ order.id }}
         </mat-cell>
       </ng-container>
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[1]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[1]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
-          {{ TABLE.COLUMNS_NAME[1] }}
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[1] | uppercase }}
         </mat-header-cell>
         <mat-cell *matCellDef="let order"> {{ order.restaurantName }} </mat-cell>
       </ng-container>
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[2]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[2]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
-          {{ TABLE.COLUMNS_NAME[2] }}
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[2] | uppercase }}
         </mat-header-cell>
         <mat-cell *matCellDef="let order"> {{ order.customerName }} </mat-cell>
       </ng-container>
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[3]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[3]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
-          {{ TABLE.COLUMNS_NAME[3] }}
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[3] | uppercase }}
         </mat-header-cell>
         <mat-cell *matCellDef="let order">
           <span class="text-caption order-table__items">
@@ -49,21 +49,21 @@
           </span>
         </mat-cell>
       </ng-container>
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[4]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[4]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
-          {{ TABLE.COLUMNS_NAME[4] }}
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[4] | uppercase }}
         </mat-header-cell>
         <mat-cell *matCellDef="let order">{{ order.amount }} </mat-cell>
       </ng-container>
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[5]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[5]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
-          {{ TABLE.COLUMNS_NAME[5] }}
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[5] | uppercase }}
         </mat-header-cell>
         <mat-cell *matCellDef="let order">
           <span class="text-caption-semibold order-table__order-status">
@@ -71,13 +71,13 @@
           </span>
         </mat-cell>
       </ng-container>
-      <ng-container [matColumnDef]="TABLE.COLUMNS_NAME[6]">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[6]">
         <mat-header-cell
           *matHeaderCellDef
           class="text-caption-semibold order-table__column-heading"
         >
           <span class="order-table__action-title">
-            {{ TABLE.COLUMNS_NAME[6] }}
+            {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[6] | uppercase }}
           </span>
         </mat-header-cell>
         <mat-cell *matCellDef="let order">
@@ -105,7 +105,7 @@
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
   </div>
-  <div *ngIf="!dataSource || !dataSource.length" class="order-table__not-found">
+  <div *ngIf="!dataSource.length" class="order-table__not-found">
     <p class="text-body order-table__not-found-message">
       There are no active orders at this moment.
     </p>

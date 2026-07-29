@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '@app/shared/shared.module';
 
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 
@@ -16,15 +13,6 @@ import { AddRestaurantComponent } from './add-restaurant/add-restaurant.componen
 
 @NgModule({
   declarations: [ViewAllRestaurantsComponent, EditRestaurantComponent, AddRestaurantComponent],
-  imports: [
-    CommonModule,
-    RestaurantsRoutingModule,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule,
-    MatChipsModule,
-    SharedModule,
-    MatCardModule,
-  ],
+  imports: [RestaurantsRoutingModule, MatTableModule, MatChipsModule, SharedModule, MatCardModule],
 })
 export class RestaurantsModule {}

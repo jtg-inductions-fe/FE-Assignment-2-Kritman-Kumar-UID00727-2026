@@ -1,7 +1,8 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateFn, Router } from '@angular/router';
+
 import { UserService } from '@core/services/user/user.service';
-import { APP_ROUTES } from '@app/shared/constants/routes.constants';
+import { APP_ROUTES } from '@shared/constants/routes.constants';
 import { AUTH_ROUTS } from '@app/modules/auth/auth.constants';
 
 export const roleGuard: CanActivateFn = (route: ActivatedRouteSnapshot) => {

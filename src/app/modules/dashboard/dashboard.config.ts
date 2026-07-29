@@ -34,7 +34,7 @@ export const defaultRestaurantStats = {
 
 export const defaultOrderStats = {
   totalOrdersStats: {
-    title: 'Completed Orders',
+    title: 'Total Orders',
     description: 'NA',
     icon: 'check_circle',
     color: CARD_COLOR.WARNING,

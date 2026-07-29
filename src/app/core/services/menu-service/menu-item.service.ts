@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject,Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { MENU_ITEMS_URL } from '@shared/constants/api.constants';
 import { MenuItem } from '@shared/models/order.model';
 import { Observable } from 'rxjs';
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class MenuItemService {
+export class MenuService {
   private readonly http = inject(HttpClient);
 
   getAllMenuItems(): Observable<MenuItem[]> {

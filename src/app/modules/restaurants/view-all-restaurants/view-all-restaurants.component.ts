@@ -5,7 +5,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { RestaurantService } from '@core/services/restaurant/restaurant.service';
-import { Restaurant } from '@shared/models/restaurants.model';
+import { Restaurant } from '@app/shared/models/restaurant.model';
 import { RESTAURANT_CONFIG, RESTAURANT_ROUTS } from '../restaurants.constant';
 
 @Component({

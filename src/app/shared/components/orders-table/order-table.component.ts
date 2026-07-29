@@ -3,8 +3,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MenuItem, Order } from '@shared/models/order.model';
 import { Status } from '@shared/types/status.type';
 
-import { TABLE } from './order-table.consent';
-import { TableOrderItem } from './order-table.model';
+import { ORDER_TABLE_CONFIG } from './order-table.consent';
+import { OrderDetails } from './order-table.model';
 
 @Component({
   selector: 'app-order-table',
@@ -14,10 +14,10 @@ import { TableOrderItem } from './order-table.model';
 export class OrderTableComponent implements OnChanges {
   @Input() ActiveOrderTableList: Order[] = [];
 
-  readonly TABLE = TABLE;
+  readonly ORDER_TABLE_CONFIG = ORDER_TABLE_CONFIG;
 
-  dataSource: TableOrderItem[] = [];
-  displayedColumns: string[] = TABLE.COLUMNS_NAME;
+  dataSource: OrderDetails[] = [];
+  displayedColumns: string[] = ORDER_TABLE_CONFIG.COLUMN_NAMES;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['ActiveOrderTableList'] && this.ActiveOrderTableList) {

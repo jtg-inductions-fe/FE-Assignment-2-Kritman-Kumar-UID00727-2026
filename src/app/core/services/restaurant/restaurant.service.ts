@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { RESTAURANTS_URL } from '@shared/constants/api.constants';
-import { Restaurant } from '@shared/models/restaurants.model';
+import { Restaurant } from '@app/shared/models/restaurant.model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,13 +27,10 @@ export class RestaurantService {
         next: (restaurants) => {
           this.restaurants$.next(restaurants);
         },
-        error: (error) => {
-          console.error('Failed to fetch restaurants:', error);
-        },
       });
   }
 
-  getAllRestaurant(): Observable<Restaurant[]> {
+  getAllRestaurants(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(RESTAURANTS_URL);
   }
 
@@ -50,10 +47,10 @@ export class RestaurantService {
   }
 
   // TODO : setup http post method
-  addNewRestaurant(newRestaurant: Restaurant): void {
+  addNewRestaurant(restaurant: Restaurant): void {
     const currentList = this.getRestaurantsSnapshot();
 
-    this.restaurants$.next([...currentList, newRestaurant]);
+    this.restaurants$.next([...currentList, restaurant]);
   }
 
   editRestaurant(updatedRestaurant: Restaurant): void {

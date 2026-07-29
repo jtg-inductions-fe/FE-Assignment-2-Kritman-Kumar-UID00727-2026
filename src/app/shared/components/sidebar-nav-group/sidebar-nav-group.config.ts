@@ -28,9 +28,9 @@ export const sidebarLinks: SidebarConfig = {
       icon: 'lock',
       children: [
         {
-          id: 'login',
-          label: 'login',
-          icon: 'login',
+          id: 'logout',
+          label: 'logout',
+          icon: 'logout',
           route: APP_ROUTES.AUTH,
         },
         {

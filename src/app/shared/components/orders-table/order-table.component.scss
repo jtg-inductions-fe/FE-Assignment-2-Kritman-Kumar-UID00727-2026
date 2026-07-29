@@ -15,10 +15,10 @@
 
     min-height: pxToRem(180);
     padding: $space-24;
-    text-align: center;
     background-color: $surface;
     border: 1px dashed $border;
     border-radius: $radius-sm;
+    text-align: center;
   }
 
   &__not-found-message {
@@ -77,7 +77,7 @@
   overflow-y: auto;
 }
 
-.mat-column-ACTIONS {
+.mat-column-action {
   min-width: pxToRem(300);
 }
 

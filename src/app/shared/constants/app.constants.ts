@@ -1,3 +1,5 @@
+import { MatSnackBarConfig } from '@angular/material/snack-bar';
+
 export const appUi = {
   appLogUrl: 'assets/logos/logo.png',
 } as const;
@@ -19,7 +21,6 @@ export const SERVICE_ERROR = {
   RESTAURANT_MESSAGE: 'Failed to load Restaurants. Please try again.',
   MENU_ITEM: 'Failed to load menu items. Please try again.',
 };
-import { MatSnackBarConfig } from '@angular/material/snack-bar';
 
 export const MAT_SNACK_BAR_CONFIG: MatSnackBarConfig = {
   duration: 3000,

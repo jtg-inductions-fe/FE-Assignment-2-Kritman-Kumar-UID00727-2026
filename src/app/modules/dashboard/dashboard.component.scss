@@ -1,5 +1,5 @@
-@use '../../styles/abstracts/' as *;
-@use '../../styles/utilities/' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .dashboard {
   @include flex-box($direction: column);
@@ -74,6 +74,10 @@
 
   &__customer-list {
     flex: 1;
+
+    box-shadow: $shadow-sm;
+    border-radius: $radius-md;
+    border-radius: $radius-md;
   }
 
   &__dishes-list {

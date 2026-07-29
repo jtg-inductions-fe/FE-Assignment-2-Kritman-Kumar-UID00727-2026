@@ -1,5 +1,5 @@
-@use '../../../styles/abstracts/' as *;
-@use '../../../styles/utilities/' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .restaurant-form {
   @include flex-box($direction: column);

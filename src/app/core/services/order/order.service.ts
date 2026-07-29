@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ORDERS_URL } from '@shared/constants/api.constants';
-import { Order } from '@shared/models/order.model';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { ORDERS_URL } from '@shared/constants/api.constants';
+import { Order } from '@shared/models/order.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +20,7 @@ export class OrderService {
   }
 
   getAllOrdersByRestaurantId(restaurantId: string): Observable<Order[]> {
-    // TODO: we will change the url when real api is available
+    // TODO: Replace the mock URL with the real API endpoint once available. Include the filtering logic here using the dynamic route order/:id.
 
     return this.http.get<Order[]>(ORDERS_URL).pipe(
       takeUntilDestroyed(this.destroyRef),
@@ -26,6 +28,6 @@ export class OrderService {
     );
   }
 
-  // TODO: setup http get method .
+  // TODO: Replace mock URL with real API endpoint once available.
   // updateOrderStatusById(orderId: string, status: Status) {}
 }

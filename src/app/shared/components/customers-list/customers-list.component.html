@@ -1,0 +1,22 @@
+<div class="customers-list">
+  <h1 class="text-heading customer-list__title">Top Customers</h1>
+  <div *ngIf="!customerList || !customerList.length" class="customer-list__not-found">
+    <p class="text-body customer-list__not-found-message">
+      No top customers available at the moment.
+    </p>
+  </div>
+  <ul class="customers-list__containerr">
+    <li *ngFor="let user of customerList" class="customers-list__user">
+      <div *ngIf="user.profileImgUrl" class="customers-list__user-body">
+        <app-avatar [avatarUrl]="user.profileImgUrl" [label]="user.name" />
+        <div class="customers-list__user-info">
+          <h2 class="text-subtitle customers-list__user-name">{{ user.name }}</h2>
+          <p class="text-caption customers-list__user-email">{{ user.email }}</p>
+        </div>
+      </div>
+      <div>
+        <span class="text-subtitle customers-list__amount"> {{ user.totalSpend | currency }} </span>
+      </div>
+    </li>
+  </ul>
+</div>

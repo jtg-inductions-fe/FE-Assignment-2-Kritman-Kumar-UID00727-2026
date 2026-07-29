@@ -10,7 +10,7 @@ import {
 import { FormBuilder, Validators } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
-import { RestaurantView } from '@shared/models/restaurants.model';
+import { RestaurantView } from '@app/shared/models/restaurant.model';
 
 import { RESTAURANT_FORM, RESTAURANT_VALIDATION_MESSAGES } from './restaurant-form.constants';
 

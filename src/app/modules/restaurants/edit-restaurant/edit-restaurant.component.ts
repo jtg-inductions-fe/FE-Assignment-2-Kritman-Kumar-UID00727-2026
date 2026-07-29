@@ -3,7 +3,7 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { RestaurantService } from '@core/services/restaurant/restaurant.service';
-import { Restaurant, RestaurantView } from '@shared/models/restaurants.model';
+import { Restaurant, RestaurantView } from '@app/shared/models/restaurant.model';
 
 import { RESTAURANT_ROUTS } from '../restaurants.constant';
 

@@ -16,20 +16,20 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { CardComponent } from './components/card/card.component';
-import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { CustomerListComponent } from './components/customers-list/customers-list.component';
 import { DishesListComponent } from './components/dish-list/dishes-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { OrderTableComponent } from './components/order-table/order-table.component';
+import { OrderTableComponent } from './components/orders-table/order-table.component';
 import { SidebarLinksComponent } from './components/sidebar-links/sidebar-links.component';
 import { SidebarNavGroupComponent } from './components/sidebar-nav-group/sidebar-nav-group.component';
 import { FooterActionsComponent } from './components/footer-actions/footer-icons.component';
 
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';

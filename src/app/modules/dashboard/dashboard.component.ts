@@ -4,21 +4,27 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomerService } from '@core/services/customer/customer.service';
-import { MenuItemService } from '@core/services/menu-item/menu-item.service';
+import { MenuService } from '@app/core/services/menu-service/menu-item.service';
 import { OrderService } from '@core/services/order/order.service';
 import { RestaurantService } from '@core/services/restaurant/restaurant.service';
 import { UserService } from '@core/services/user/user.service';
-import { ORDER_STATUS, SERVICE_ERROR, USER_ROLE } from '@shared/constants/app.constants';
+import {
+  MAT_ACTION_CLOSE,
+  MAT_SNACK_BAR_CONFIG,
+  ORDER_STATUS,
+  SERVICE_ERROR,
+  USER_ROLE,
+} from '@shared/constants/app.constants';
 import { AuthUser } from '@shared/models/auth.model';
 import { Customer } from '@shared/models/customer.model';
 import { MenuItem, Order } from '@shared/models/order.model';
-import { Restaurant } from '@shared/models/restaurants.model';
-import { formatCurrency } from '@shared/utils/helpers';
+import { Restaurant } from '@app/shared/models/restaurant.model';
+import { formatCompactCurrency } from '@shared/utils/helpers';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 import { DASHBOARD, defaultOrderStats, defaultRestaurantStats } from './dashboard.config';
-import { Stats } from './dashboard.model';
+import { DashboardStats } from './dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +36,7 @@ export class DashboardComponent implements OnInit {
   private readonly restaurantService = inject(RestaurantService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly customerService = inject(CustomerService);
-  private readonly menuItemService = inject(MenuItemService);
+  private readonly menuItemService = inject(MenuService);
   private readonly orderService = inject(OrderService);
   private readonly matSnackBar = inject(MatSnackBar);
 
@@ -52,7 +58,7 @@ export class DashboardComponent implements OnInit {
   protected topCustomersList: Customer[] = [];
   protected topMenuItems: MenuItem[] = [];
   protected activeOrders: Order[] = [];
-  protected stats: Stats[] = [];
+  protected stats: DashboardStats[] = [];
   protected currRestaurantId: string = DASHBOARD.ADMIN_RESTAURANT_ID;
 
   ngOnInit() {
@@ -101,7 +107,7 @@ export class DashboardComponent implements OnInit {
 
   private getAllRestaurants(): void {
     this.restaurantService
-      .getAllRestaurant()
+      .getAllRestaurants()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (restaurantsList) => {
@@ -114,12 +120,11 @@ export class DashboardComponent implements OnInit {
           this.getStats();
         },
         error: () => {
-          this.matSnackBar.open(SERVICE_ERROR.RESTAURANT_MESSAGE, 'Close', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-            panelClass: ['error-snackbar'],
-          });
+          this.matSnackBar.open(
+            SERVICE_ERROR.RESTAURANT_MESSAGE,
+            MAT_ACTION_CLOSE,
+            MAT_SNACK_BAR_CONFIG,
+          );
         },
       });
   }
@@ -142,12 +147,11 @@ export class DashboardComponent implements OnInit {
           this.getStats();
         },
         error: () => {
-          this.matSnackBar.open(SERVICE_ERROR.CUSTOMER_MESSAGE, 'Close', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-            panelClass: ['error-snackbar'],
-          });
+          this.matSnackBar.open(
+            SERVICE_ERROR.CUSTOMER_MESSAGE,
+            MAT_ACTION_CLOSE,
+            MAT_SNACK_BAR_CONFIG,
+          );
         },
       });
   }
@@ -177,12 +181,7 @@ export class DashboardComponent implements OnInit {
           this.updateTopMenuItems();
         },
         error: () => {
-          this.matSnackBar.open(SERVICE_ERROR.MENU_ITEM, 'Close', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-            panelClass: ['error-snackbar'],
-          });
+          this.matSnackBar.open(SERVICE_ERROR.MENU_ITEM, MAT_ACTION_CLOSE, MAT_SNACK_BAR_CONFIG);
         },
       });
   }
@@ -213,12 +212,11 @@ export class DashboardComponent implements OnInit {
           this.getStats();
         },
         error: () => {
-          this.matSnackBar.open(SERVICE_ERROR.ORDER_MESSAGE, 'Close', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-            panelClass: ['error-snackbar'],
-          });
+          this.matSnackBar.open(
+            SERVICE_ERROR.ORDER_MESSAGE,
+            MAT_ACTION_CLOSE,
+            MAT_SNACK_BAR_CONFIG,
+          );
         },
       });
   }
@@ -240,13 +238,20 @@ export class DashboardComponent implements OnInit {
     this.stats = [];
 
     this.getRevenueStats();
-    this.getOrdersStats();
+    this.getCompletedOrdersStats();
     this.getCompletedOrdersStat();
 
-    if (this.userRole() === USER_ROLE.ADMIN) {
-      this.getActiveRestaurantsStats();
-    } else {
-      this.getRestaurantOwnersStats();
+    switch (this.userRole()) {
+      case USER_ROLE.ADMIN:
+        this.getActiveRestaurantsStats();
+        break;
+
+      case USER_ROLE.OWNER:
+        this.getRestaurantOwnersStats();
+        break;
+
+      default:
+        break;
     }
   }
 
@@ -259,19 +264,19 @@ export class DashboardComponent implements OnInit {
         0,
       );
 
-      revenueStats.description = formatCurrency(totalRevenue);
+      revenueStats.description = formatCompactCurrency(totalRevenue);
     } else {
       const totalRevenue = this.allOrders
         .filter((order) => order.restaurantId === this.currRestaurantId)
         .reduce((revenueAccumulator, currentOrder) => revenueAccumulator + currentOrder.amount, 0);
 
-      revenueStats.description = formatCurrency(totalRevenue);
+      revenueStats.description = formatCompactCurrency(totalRevenue);
     }
 
     this.stats.push(revenueStats);
   }
 
-  private getOrdersStats(): void {
+  private getCompletedOrdersStats(): void {
     const { totalOrdersStats } = defaultOrderStats;
 
     if (this.currRestaurantId === DASHBOARD.ADMIN_RESTAURANT_ID) {
@@ -325,7 +330,7 @@ export class DashboardComponent implements OnInit {
     this.stats.push(restaurantOwnersStats);
   }
 
-  handleFilterValueChanged(selectionEvent: MatAutocompleteSelectedEvent): void {
+  handleFilterValueChange(selectionEvent: MatAutocompleteSelectedEvent): void {
     const currentSelectedOption = selectionEvent.option.value;
 
     if (currentSelectedOption === DASHBOARD.DEFAULT_RESTAURANT_FILTER) {

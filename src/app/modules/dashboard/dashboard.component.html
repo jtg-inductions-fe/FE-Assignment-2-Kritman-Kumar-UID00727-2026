@@ -27,7 +27,7 @@
         <mat-autocomplete
           autoActiveFirstOption
           #auto="matAutocomplete"
-          (optionSelected)="handleFilterValueChanged($event)"
+          (optionSelected)="handleFilterValueChange($event)"
         >
           <mat-option *ngFor="let option of restaurantsFilteredOptions | async" [value]="option">
             {{ option }}
@@ -67,13 +67,11 @@
     </div>
   </section>
   <section class="dashboard__list-container">
-    <app-customer-list [customerList]="topCustomersList" class="dashboard__customer-list" />
+    <app-customers-list [customerList]="topCustomersList" class="dashboard__customer-list" />
     <app-dishes-list [topDishes]="topMenuItems" class="dashboard__dishes-list" />
   </section>
-
-  <section *ngIf="userRole() === USER_ROLE.OWNER">
+  <section *ngIf="userRole() === USER_ROLE.OWNER" class="dashboard__order-table">
     <app-order-table [ActiveOrderTableList]="activeOrders" />
   </section>
 </div>
-
 <app-footer></app-footer>

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { Restaurant, RestaurantView } from '@shared/models/restaurants.model';
+import { Restaurant, RestaurantView } from '@app/shared/models/restaurant.model';
 import { RestaurantService } from '@core/services/restaurant/restaurant.service';
 import { RESTAURANT_ROUTS } from '../restaurants.constant';
 
