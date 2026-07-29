@@ -1,0 +1,64 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.sidebar-links {
+  padding: $space-32 $space-12;
+
+  &__item {
+    @include flex-box($align-items: center);
+
+    flex: 1;
+    gap: $space-16;
+  }
+
+  &__item-wrapper {
+    border-radius: $radius-sm;
+    padding-right: $space-8;
+
+    &:hover {
+      background-color: $bg-secondary;
+    }
+  }
+
+  &__link {
+    @include flex-box($align-items: center);
+
+    width: 100%;
+    padding: $space-4 $space-8;
+    border-radius: $radius-sm;
+    color: $text-primary;
+    text-transform: capitalize;
+
+    &--none {
+      border: none;
+      background: none;
+    }
+  }
+
+  &__link:hover {
+    color: $link-hover;
+  }
+
+  &__link--active {
+    color: $link-active;
+  }
+
+  &__expand {
+    border-radius: $radius-sm;
+    padding-right: $space-16;
+  }
+
+  &__badge {
+    @include flex-box(center, center);
+
+    width: pxToRem(27);
+    aspect-ratio: 1/1;
+    border-radius: $radius-full;
+    background-color: $error-bg;
+    color: $error;
+  }
+
+  &__tree .mat-nested-tree-node div[role='group'] {
+    padding-left: $space-20;
+  }
+}

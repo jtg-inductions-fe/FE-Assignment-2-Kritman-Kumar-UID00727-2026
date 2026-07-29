@@ -1,0 +1,103 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.dashboard {
+  @include flex-box($direction: column);
+
+  gap: $space-16;
+
+  &__toolbar {
+    @include flex-box(space-between, center);
+
+    gap: $space-20;
+  }
+
+  &__title {
+    color: $text-primary;
+  }
+
+  &__description {
+    color: $text-secondary;
+  }
+
+  &__filter {
+    @include flex-box($align-items: center, $direction: column);
+
+    flex: 1;
+  }
+
+  &__stats {
+    @include flex-box($justify-content: space-between, $wrap: wrap);
+
+    gap: pxToRem(10);
+  }
+
+  &__stats-item {
+    flex: 1 1 pxToRem(300);
+    border-radius: $radius-md;
+    border: 1px solid $border;
+  }
+
+  &__report {
+    @include flex-box(space-between, center, $wrap: wrap);
+
+    padding: $space-12;
+    gap: $space-8;
+    border-radius: $radius-md;
+    border: 1px solid $border;
+  }
+
+  &__report-title {
+    color: $text-primary;
+  }
+
+  &__report-heading {
+    min-width: pxToRem(200);
+    flex: 1;
+  }
+
+  &__report-description {
+    color: $text-secondary;
+  }
+
+  &__report-action {
+    @include flex-box($wrap: wrap);
+
+    gap: $space-8;
+  }
+
+  &__list-container {
+    @include flex-box($direction: column);
+
+    gap: $space-16;
+  }
+
+  &__customer-list {
+    flex: 1;
+
+    box-shadow: $shadow-sm;
+    border-radius: $radius-md;
+    border-radius: $radius-md;
+  }
+
+  &__dishes-list {
+    flex: 1;
+    box-shadow: $shadow-sm;
+    border-radius: $radius-md;
+    padding: $space-16;
+  }
+
+  @include media-down($breakpoint: $breakpoint-tablet) {
+    &__toolbar {
+      @include flex-box($direction: column);
+
+      max-width: pxToRem(576);
+    }
+  }
+
+  @include media-up($breakpoint: $breakpoint-desktop) {
+    &__list-container {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<section class="add-restaurant">
+  <button mat-stroked-button color="primary" class="add-restaurant__back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    BACK
+  </button>
+  <header class="add-restaurant__header">
+    <h1 class="text-display add-restaurant__title">Add Restaurant</h1>
+    <p class="text-caption add-restaurant__description">
+      Add a new partner restaurant to the portal.
+    </p>
+  </header>
+  <mat-card class="add-restaurant__card">
+    <app-restaurant-form (formSubmit)="createRestaurant($event)" (cancel)="goBack()" />
+  </mat-card>
+</section>

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "501",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "101",
+    "customerName": "Albert Wright",
+    "amount": 38884.5,
+    "status": "pending",
+    "items": [
+      {
+        "id": "1001",
+        "name": "Margherita Pizza",
+        "TotalOrder": "1",
+        "isVeg": true
+      },
+      {
+        "id": "1002",
+        "name": "Garlic Bread",
+        "TotalOrder": "1",
+        "isVeg": true
+      },
+      {
+        "id": "1010",
+        "name": "Coca-Cola",
+        "TotalOrder": "2",
+        "isVeg": true
+      }
+    ]
+  },
+  {
+    "id": "502",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "103",
+    "customerName": "Neil Sims",
+    "amount": 1203.0,
+    "status": "Completed",
+    "items": [
+      {
+        "id": "1003",
+        "name": "Pepperoni Pizza",
+        "TotalOrder": "1",
+        "isVeg": false
+      },
+      {
+        "id": "1011",
+        "name": "Diet Soda",
+        "TotalOrder": "1",
+        "isVeg": true
+      }
+    ]
+  },
+  {
+    "id": "503",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "104",
+    "customerName": "Bonnie Green",
+    "amount": 12203.5,
+    "status": "Completed",
+    "items": [
+      {
+        "id": "1004",
+        "name": "Truffle Pasta",
+        "TotalOrder": "1",
+        "isVeg": true
+      },
+      {
+        "id": "1005",
+        "name": "Chicken Alfredo",
+        "TotalOrder": "1",
+        "isVeg": false
+      },
+      {
+        "id": "1012",
+        "name": "Sprite",
+        "TotalOrder": "2",
+        "isVeg": true
+      }
+    ]
+  },
+  {
+    "id": "504",
+    "restaurantId": "3",
+    "restaurantName": "Sushi Zen",
+    "customerId": "102",
+    "customerName": "Dave Miller",
+    "amount": 3210,
+    "status": "pending",
+    "items": [
+      {
+        "id": "1006",
+        "name": "Veggie Burger",
+        "TotalOrder": "2",
+        "isVeg": true
+      },
+      {
+        "id": "1007",
+        "name": "Crispy Chicken Slider",
+        "TotalOrder": "1",
+        "isVeg": false
+      },
+      {
+        "id": "1013",
+        "name": "Iced Tea",
+        "TotalOrder": "3",
+        "isVeg": true
+      }
+    ]
+  },
+  {
+    "id": "505",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "110",
+    "customerName": "Marco Esposito",
+    "amount": 3210,
+    "status": "pending",
+    "items": [
+      {
+        "id": "1003",
+        "name": "Pepperoni Pizza",
+        "TotalOrder": "1",
+        "isVeg": false
+      },
+      {
+        "id": "1010",
+        "name": "Coca-Cola",
+        "TotalOrder": "1",
+        "isVeg": true
+      }
+    ]
+  },
+  {
+    "id": "506",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "111",
+    "customerName": "Austin Miller",
+    "amount": 322310,
+    "status": "cancelled",
+    "items": [
+      {
+        "id": "1008",
+        "name": "BBQ Chicken Wings",
+        "TotalOrder": "2",
+        "isVeg": false
+      },
+      {
+        "id": "1012",
+        "name": "Sprite",
+        "TotalOrder": "1",
+        "isVeg": true
+      }
+    ]
+  }
+]

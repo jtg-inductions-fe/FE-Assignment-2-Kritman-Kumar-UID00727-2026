@@ -1,0 +1,6 @@
+@use 'abstracts' as *;
+
+.logo {
+  width: pxToRem(40);
+  height: pxToRem(40);
+}

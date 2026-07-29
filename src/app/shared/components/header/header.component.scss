@@ -1,0 +1,51 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.header {
+  @include flex-box(space-between);
+
+  padding: $space-16;
+  border: 1px solid $border;
+
+  &__logo-link {
+    display: none;
+  }
+
+  &__avatar {
+    @include flex-box(center, center, column);
+
+    border: $radius-full;
+  }
+
+  &__profile {
+    @include flex-box($direction: column);
+
+    gap: $space-12;
+    padding-inline: $space-16;
+    border-radius: $radius-sm;
+  }
+
+  &__user {
+    @include flex-box($align-items: center);
+
+    gap: $space-16;
+  }
+
+  &__user-name {
+    color: $text-primary;
+  }
+
+  &__user-email {
+    color: $text-secondary;
+  }
+
+  @include media-up($breakpoint-desktop) {
+    &__logo-link {
+      display: block;
+    }
+
+    &__hamburger-btn {
+      display: none;
+    }
+  }
+}

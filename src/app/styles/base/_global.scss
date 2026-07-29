@@ -1,0 +1,25 @@
+@use 'abstracts/' as *;
+@use 'utilities/' as *;
+
+html {
+  font-family: $font-family-primary;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+  width: $scrollbar-thin;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $charcoal;
+  border-radius: $radius-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

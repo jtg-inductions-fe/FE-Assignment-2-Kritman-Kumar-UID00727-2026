@@ -1,0 +1,154 @@
+[
+  {
+    "id": "101",
+    "name": "Albert Wright",
+    "email": "albertwright@demo.com",
+    "profileImgUrl": "assets/profile-image/user-4.jpg",
+    "restaurantId": "1",
+    "totalSpend": 200
+  },
+  {
+    "id": "102",
+    "name": "Dave Miller",
+    "email": "davemiller@demo.com",
+    "profileImgUrl": "assets/profile-image/user-2.jpg",
+    "restaurantId": "3",
+    "totalSpend": 60
+  },
+  {
+    "id": "103",
+    "name": "Neil Sims",
+    "email": "neilsims@demo.com",
+    "profileImgUrl": "assets/profile-image/user-1.jpg",
+    "restaurantId": "1",
+    "totalSpend": 30
+  },
+  {
+    "id": "104",
+    "name": "Bonnie Green",
+    "email": "bonniegreen@demo.com",
+    "profileImgUrl": "assets/profile-image/user-5.jpg",
+    "restaurantId": "2",
+    "totalSpend": 23
+  },
+  {
+    "id": "105",
+    "name": "Alice Johnson",
+    "email": "alicejohnson@demo.com",
+    "profileImgUrl": "assets/profile-image/user-4.jpg",
+    "restaurantId": "1",
+    "totalSpend": 76
+  },
+  {
+    "id": "106",
+    "name": "Karen Nelson",
+    "email": "karennelson@demo.com",
+    "profileImgUrl": "assets/profile-image/user-2.jpg",
+    "restaurantId": "3",
+    "totalSpend": 27
+  },
+  {
+    "id": "106",
+    "name": "Lana Byrd",
+    "email": "lanabyrd@demo.com",
+    "profileImgUrl": "assets/profile-image/user-3.jpg",
+    "restaurantId": "3",
+    "totalSpend": 324
+  },
+  {
+    "id": "106",
+    "name": "John Soa",
+    "email": "json.@gmail.com",
+    "profileImgUrl": "assets/profile-image/user-2.jpg",
+    "restaurantId": "2",
+    "totalSpend": 463
+  },
+  {
+    "id": "108",
+    "name": "Emily Davis",
+    "email": "emilydavis@demo.com",
+    "profileImgUrl": "assets/profile-image/user-1.jpg",
+    "restaurantId": "2",
+    "totalSpend": 20
+  },
+  {
+    "id": "109",
+    "name": "Kenji Takahashi",
+    "email": "kenjitakahashi@demo.com",
+    "profileImgUrl": "assets/profile-image/user-5.jpg",
+    "restaurantId": "3",
+    "totalSpend": 80
+  },
+  {
+    "id": "110",
+    "name": "Marco Esposito",
+    "email": "marcoesposito@demo.com",
+    "profileImgUrl": "assets/profile-image/user-4.jpg",
+    "restaurantId": "1",
+    "totalSpend": 20
+  },
+  {
+    "id": "111",
+    "name": "Austin Miller",
+    "email": "austinmiller@demo.com",
+    "profileImgUrl": "assets/profile-image/user-1.jpg",
+    "restaurantId": "2",
+    "totalSpend": 47
+  },
+  {
+    "id": "112",
+    "name": "Yuki Sato",
+    "email": "yukisato@demo.com",
+    "profileImgUrl": "assets/profile-image/user-2.jpg",
+    "restaurantId": "3",
+    "totalSpend": 121
+  },
+  {
+    "id": "113",
+    "name": "Lucia Rizzo",
+    "email": "luciarizzo@demo.com",
+    "profileImgUrl": "assets/profile-image/user-3.jpg",
+    "restaurantId": "1",
+    "totalSpend": 49
+  },
+  {
+    "id": "114",
+    "name": "Jordan Smith",
+    "email": "jordansmith@demo.com",
+    "profileImgUrl": "assets/profile-image/user-5.jpg",
+    "restaurantId": "2",
+    "totalSpend": 283
+  },
+  {
+    "id": "115",
+    "name": "Aoi Watanabe",
+    "email": "aoiwatanabe@demo.com",
+    "profileImgUrl": "assets/profile-image/user-4.jpg",
+    "restaurantId": "3",
+    "totalSpend": 290
+  },
+  {
+    "id": "116",
+    "name": "Antonio Gallo",
+    "email": "antoniogallo@demo.com",
+    "profileImgUrl": "assets/profile-image/user-3.jpg",
+    "restaurantId": "1",
+    "totalSpend": 199
+  },
+  {
+    "id": "117",
+    "name": "Taylor Reed",
+    "email": "taylorreed@demo.com",
+    "profileImgUrl": "assets/profile-image/user-2.jpg",
+    "restaurantId": "2",
+    "totalSpend": 159
+  },
+  {
+    "id": "118",
+    "name": "Haruto Kuroki",
+    "email": "harutokuroki@demo.com",
+    "profileImgUrl": "assets/profile-image/user-1.jpg",
+    "restaurantId": "3",
+    "totalSpend": 129
+  }
+]

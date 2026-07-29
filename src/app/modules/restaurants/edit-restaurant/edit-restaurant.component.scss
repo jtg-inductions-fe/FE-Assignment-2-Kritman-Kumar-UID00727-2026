@@ -1,0 +1,24 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.edit-restaurant {
+  padding: $space-16;
+
+  &__header {
+    margin: $space-16 0;
+  }
+
+  &__title {
+    color: $text-primary;
+    margin-bottom: $space-4;
+  }
+
+  &__description {
+    color: $text-secondary;
+  }
+
+  &__card {
+    padding: $space-16;
+    border-radius: $radius-lg;
+  }
+}

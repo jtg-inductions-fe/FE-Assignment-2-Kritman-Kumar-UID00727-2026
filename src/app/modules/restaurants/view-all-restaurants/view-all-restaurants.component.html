@@ -1,0 +1,86 @@
+<section class="restaurants-list">
+  <div class="restaurants-list__header-container">
+    <hgroup class="restaurants-list__header">
+      <h2 class="text-display restaurants-list__title">Restaurants</h2>
+      <p class="text-label-semibold restaurants-list__description">
+        Manage partner restaurants and ownership list.
+      </p>
+    </hgroup>
+    <div class="restaurants-list__actions">
+      <button
+        mat-flat-button
+        color="primary"
+        class="restaurants-list__add-button"
+        (click)="addNewRestaurant()"
+      >
+        <mat-icon>add</mat-icon>
+        Add Restaurant
+      </button>
+    </div>
+  </div>
+  <div class="restaurants-list__table-container">
+    <table mat-table [dataSource]="restaurantsList" class="restaurants-list__table">
+      <ng-container [matColumnDef]="restaurantsColumns[0]">
+        <th mat-header-cell *matHeaderCellDef class="text-caption-semibold">Restaurant Name</th>
+        <td mat-cell *matCellDef="let restaurant">
+          <strong class="text-subtitle restaurants-list__restaurant-name">
+            {{ restaurant.name }}
+          </strong>
+        </td>
+      </ng-container>
+      <ng-container [matColumnDef]="restaurantsColumns[1]"
+        >>
+        <th mat-header-cell *matHeaderCellDef class="text-caption-semibold">Address</th>
+        <td mat-cell *matCellDef="let restaurant" class="text-caption">
+          {{ restaurant.address }}
+        </td>
+      </ng-container>
+      <ng-container [matColumnDef]="restaurantsColumns[2]"
+        >>
+        <th mat-header-cell *matHeaderCellDef class="text-caption-semibold">Owners</th>
+
+        <td mat-cell *matCellDef="let restaurant">
+          <mat-chip-set>
+            <mat-chip
+              *ngFor="let owner of restaurant.owners"
+              class="text-caption-semibold restaurants-list__owner"
+            >
+              {{ owner }}
+            </mat-chip>
+          </mat-chip-set>
+        </td>
+      </ng-container>
+      <ng-container [matColumnDef]="restaurantsColumns[3]">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold restaurants-list__actions-header"
+        >
+          Actions
+        </th>
+        <td mat-cell *matCellDef="let restaurant" class="restaurants-list__actions-cell">
+          <button
+            mat-stroked-button
+            color="primary"
+            class="restaurants-list__edit-button"
+            (click)="editRestaurant(restaurant)"
+          >
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="restaurantsColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: restaurantsColumns"></tr>
+    </table>
+  </div>
+  <ng-template #noRestaurants>
+    <div class="restaurants-list__empty-state">
+      <mat-icon>restaurant</mat-icon>
+      <p class="text-heading restaurants-list__empty-title">No restaurants currently available</p>
+      <p class="text-body restaurants-list__empty-description">
+        There are no restaurants to display at the moment.
+      </p>
+    </div>
+  </ng-template>
+</section>

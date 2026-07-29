@@ -1,0 +1,47 @@
+/// Responsive media query for widths from the specified breakpoint and larger.
+/// @param { Number} $breakpoint - Minimum width (e.g., 'md' or 768px).
+/// @content CSS rules applied at or above the breakpoint width.
+@mixin media-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+/// Applies styles to screens smaller than or equal to a specific size.
+/// @param { Number} $breakpoint - Maximum screen width (e.g., 'sm' or 320px).
+/// @content The CSS styles to show on smaller screens.
+@mixin media-down($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/// Simple flexbox setup.
+/// @param {String} $justify-content [flex-start] - Main alignment (center, space-between).
+/// @param {String} $align-items [stretch] - Cross alignment (center, stretch).
+/// @param {String} $direction [row] - Direction (row, column).
+/// @param {String} $wrap [nowrap] - Wrap items (wrap, nowrap).
+@mixin flex-box(
+  $justify-content: flex-start,
+  $align-items: stretch,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $wrap;
+}
+
+/// Dynamic mixin for multi-line text truncation
+/// @param {Number} $lines [2] - Number of visible lines before truncation
+/// @param {Number} $line-height [1.4] - Optional line height multiplier
+@mixin text-ellipsis($lines: 2, $line-height: 1.4) {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  line-height: $line-height;
+  height: auto;
+}

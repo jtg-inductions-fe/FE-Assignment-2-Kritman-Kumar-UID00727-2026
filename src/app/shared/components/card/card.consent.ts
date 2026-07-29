@@ -1,0 +1,6 @@
+export enum CARD_COLOR {
+  PRIMARY,
+  SECONDARY,
+  WARNING,
+  INFO,
+}

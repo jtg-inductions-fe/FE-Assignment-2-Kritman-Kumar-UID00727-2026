@@ -1,0 +1,49 @@
+@use '../abstracts/' as *;
+@use 'spacing' as *;
+
+.container {
+  margin: 0 auto;
+  padding-inline: $space-8;
+
+  @include media-up($breakpoint-desktop-xl) {
+    max-width: $breakpoint-desktop-xxl;
+  }
+}
+
+@each $key, $value in $spacers {
+  .p-#{$key} {
+    padding: $value;
+  }
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .m-#{$key} {
+    margin: $value;
+  }
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+  .mx-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+}
