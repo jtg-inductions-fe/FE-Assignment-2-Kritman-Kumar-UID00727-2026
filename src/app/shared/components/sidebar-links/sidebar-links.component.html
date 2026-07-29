@@ -1,0 +1,57 @@
+<nav class="sidebar-links">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="sidebar-links__tree">
+    <mat-tree-node
+      *matTreeNodeDef="let node"
+      matTreeNodeToggle
+      matRipple
+      class="sidebar-links__item-wrapper"
+    >
+      <a
+        class="text-body-medium sidebar-links__link"
+        routerLinkActive="sidebar-links__link--active"
+        [routerLink]="node.route"
+      >
+        <div class="sidebar-links__item">
+          <mat-icon class="sidebar-links__item-icon">
+            {{ node.icon }}
+          </mat-icon>
+          <span class="sidebar-links__label">
+            {{ node.label }}
+          </span>
+        </div>
+        <span *ngIf="node.badge" class="sidebar-links__badge">
+          {{ node.badge }}
+        </span>
+      </a>
+    </mat-tree-node>
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <div class="mat-tree-node sidebar-links__expand" matRipple>
+        <button
+          matTreeNodeToggle
+          [routerLink]="node.route"
+          class="text-body-medium sidebar-links__link sidebar-links__link--none"
+        >
+          <div class="sidebar-links__item">
+            <mat-icon class="sidebar-links__item-icon">
+              {{ node.icon }}
+            </mat-icon>
+            <span class="sidebar-links__label">
+              {{ node.label }}
+            </span>
+          </div>
+        </button>
+        <div
+          matTreeNodeToggle
+          [attr.aria-label]="(treeControl.isExpanded(node) ? 'Collapse ' : 'Expand ') + node.label"
+        >
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{ treeControl.isExpanded(node) ? 'expand_less' : 'expand_more' }}
+          </mat-icon>
+        </div>
+      </div>
+      <div *ngIf="treeControl.isExpanded(node)" role="group">
+        <ng-container matTreeNodeOutlet></ng-container>
+      </div>
+    </mat-nested-tree-node>
+  </mat-tree>
+</nav>

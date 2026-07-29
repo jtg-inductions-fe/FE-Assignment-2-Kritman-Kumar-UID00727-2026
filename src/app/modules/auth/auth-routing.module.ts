@@ -7,8 +7,8 @@ import { AUTH_ROUT } from './auth.constants';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: AUTH_ROUT.LOGIN,
     pathMatch: 'full',
+    redirectTo: AUTH_ROUT.LOGIN,
   },
   {
     path: AUTH_ROUT.LOGIN,

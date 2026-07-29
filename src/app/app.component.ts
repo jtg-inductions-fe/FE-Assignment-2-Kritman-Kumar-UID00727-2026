@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
 
 import { LoadingService } from '@core/services/loading/loadings.service';
@@ -14,7 +15,7 @@ export class AppComponent {
   readonly loadingService = inject(LoadingService);
 
   constructor() {
-    this.router.events.subscribe((event) => {
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (event instanceof RouteConfigLoadStart) {
         this.loadingService.showAppLoading();
       }

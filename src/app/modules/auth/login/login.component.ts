@@ -8,8 +8,8 @@ import { finalize } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '@core/services/auth/auth.service';
-import { MAT_ACTION_CLOSE, MAT_SNACK_BAR_CONFIG } from '@shared/constants/app.constants';
 import { APP_ROUTES } from '@shared/constants/routes.constants';
+import { MAT_ACTION_CLOSE, MAT_SNACK_BAR_CONFIG } from '@shared/constants/app.constants';
 import { AUTH_FORM, AUTH_SUBMIT_MESSAGES, AUTH_VALIDATION_MESSAGES } from '../auth.constants';
 
 @Component({

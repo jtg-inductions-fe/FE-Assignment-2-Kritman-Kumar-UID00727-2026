@@ -2,7 +2,12 @@
   <a routerLink="/" class="header__logo-link">
     <app-logo class="header__logo" />
   </a>
-  <button mat-icon-button class="header__hamburger-btn" aria-label="hamburger menu">
+  <button
+    mat-icon-button
+    class="header__hamburger-btn"
+    aria-label="hamburger menu"
+    (click)="toggleSidebar()"
+  >
     <mat-icon>menu</mat-icon>
   </button>
   <button
