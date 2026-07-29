@@ -78,6 +78,9 @@
 
   &__dishes-list {
     flex: 1;
+    box-shadow: $shadow-sm;
+    border-radius: $radius-md;
+    padding: $space-16;
   }
 
   @include media-down($breakpoint: $breakpoint-tablet) {

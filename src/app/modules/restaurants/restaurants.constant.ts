@@ -5,5 +5,5 @@ export const RESTAURANT_CONFIG = {
 export const RESTAURANT_ROUTS = {
   ADD_RESTAURANT: 'add',
   EDIT_RESTAURANT: 'edit',
-  RESTAURANTS: 'restaurants',
+  RESTAURANTS: 'restaurant',
 };
