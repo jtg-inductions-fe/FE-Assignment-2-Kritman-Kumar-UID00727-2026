@@ -11,26 +11,20 @@
       {
         "id": "1001",
         "name": "Margherita Pizza",
-        "restaurantId": "1",
-        "customerId": "101",
         "TotalOrder": "1",
-        "idVeg": true
+        "isVeg": true
       },
       {
         "id": "1002",
         "name": "Garlic Bread",
-        "restaurantId": "1",
-        "customerId": "101",
         "TotalOrder": "1",
-        "idVeg": true
+        "isVeg": true
       },
       {
         "id": "1010",
         "name": "Coca-Cola",
-        "restaurantId": "1",
-        "customerId": "101",
         "TotalOrder": "2",
-        "idVeg": true
+        "isVeg": true
       }
     ]
   },
@@ -46,18 +40,14 @@
       {
         "id": "1003",
         "name": "Pepperoni Pizza",
-        "restaurantId": "1",
-        "customerId": "103",
         "TotalOrder": "1",
-        "idVeg": false
+        "isVeg": false
       },
       {
         "id": "1011",
         "name": "Diet Soda",
-        "restaurantId": "1",
-        "customerId": "103",
         "TotalOrder": "1",
-        "idVeg": true
+        "isVeg": true
       }
     ]
   },
@@ -73,26 +63,20 @@
       {
         "id": "1004",
         "name": "Truffle Pasta",
-        "restaurantId": "2",
-        "customerId": "104",
         "TotalOrder": "1",
-        "idVeg": true
+        "isVeg": true
       },
       {
         "id": "1005",
         "name": "Chicken Alfredo",
-        "restaurantId": "2",
-        "customerId": "104",
         "TotalOrder": "1",
-        "idVeg": false
+        "isVeg": false
       },
       {
         "id": "1012",
         "name": "Sprite",
-        "restaurantId": "2",
-        "customerId": "104",
         "TotalOrder": "2",
-        "idVeg": true
+        "isVeg": true
       }
     ]
   },
@@ -108,26 +92,20 @@
       {
         "id": "1006",
         "name": "Veggie Burger",
-        "restaurantId": "3",
-        "customerId": "102",
         "TotalOrder": "2",
-        "idVeg": true
+        "isVeg": true
       },
       {
         "id": "1007",
         "name": "Crispy Chicken Slider",
-        "restaurantId": "3",
-        "customerId": "102",
         "TotalOrder": "1",
-        "idVeg": false
+        "isVeg": false
       },
       {
         "id": "1013",
         "name": "Iced Tea",
-        "restaurantId": "3",
-        "customerId": "102",
         "TotalOrder": "3",
-        "idVeg": true
+        "isVeg": true
       }
     ]
   },
@@ -143,18 +121,14 @@
       {
         "id": "1003",
         "name": "Pepperoni Pizza",
-        "restaurantId": "1",
-        "customerId": "110",
         "TotalOrder": "1",
-        "idVeg": false
+        "isVeg": false
       },
       {
         "id": "1010",
         "name": "Coca-Cola",
-        "restaurantId": "1",
-        "customerId": "110",
         "TotalOrder": "1",
-        "idVeg": true
+        "isVeg": true
       }
     ]
   },
@@ -170,18 +144,14 @@
       {
         "id": "1008",
         "name": "BBQ Chicken Wings",
-        "restaurantId": "2",
-        "customerId": "111",
         "TotalOrder": "2",
-        "idVeg": false
+        "isVeg": false
       },
       {
         "id": "1012",
         "name": "Sprite",
-        "restaurantId": "2",
-        "customerId": "111",
         "TotalOrder": "1",
-        "idVeg": true
+        "isVeg": true
       }
     ]
   }

@@ -6,7 +6,7 @@
     "restaurantName": "Pizza Palace",
     "customerId": "101",
     "TotalOrder": 15,
-    "idVeg": true
+    "isVeg": true
   },
   {
     "id": "1002",
@@ -15,7 +15,7 @@
     "restaurantName": "Pizza Palace",
     "customerId": "102",
     "TotalOrder": 8,
-    "idVeg": false
+    "isVeg": false
   },
   {
     "id": "1003",
@@ -24,7 +24,7 @@
     "restaurantName": "Burger Bistro",
     "customerId": "103",
     "TotalOrder": 22,
-    "idVeg": true
+    "isVeg": true
   },
   {
     "id": "1004",
@@ -33,7 +33,7 @@
     "restaurantName": "Burger Bistro",
     "customerId": "101",
     "TotalOrder": 5,
-    "idVeg": false
+    "isVeg": false
   },
   {
     "id": "1005",
@@ -42,7 +42,7 @@
     "restaurantName": "Sushi Zen",
     "customerId": "104",
     "TotalOrder": 12,
-    "idVeg": true
+    "isVeg": true
   },
   {
     "id": "1006",
@@ -51,7 +51,7 @@
     "restaurantName": "Sushi Zen",
     "customerId": "105",
     "TotalOrder": 19,
-    "idVeg": false
+    "isVeg": false
   },
   {
     "id": "1007",
@@ -60,7 +60,7 @@
     "restaurantName": "Pizza Palace",
     "customerId": "104",
     "TotalOrder": "3",
-    "idVeg": true
+    "isVeg": true
   },
   {
     "id": "1008",
@@ -69,7 +69,7 @@
     "restaurantName": "Burger Bistro",
     "customerId": "106",
     "TotalOrder": 14,
-    "idVeg": false
+    "isVeg": false
   },
   {
     "id": "1009",
@@ -78,6 +78,6 @@
     "restaurantName": "Sushi Zen",
     "customerId": "101",
     "TotalOrder": 7,
-    "idVeg": true
+    "isVeg": true
   }
 ]

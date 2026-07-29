@@ -3,11 +3,10 @@ import { Status } from '../types/status.type';
 export interface MenuItem {
   id: string;
   name: string;
-  restaurantId: string;
+  restaurantId?: string;
   restaurantName?: string;
-  customerId: number;
   TotalOrder: number;
-  idVeg?: boolean;
+  isVeg?: boolean;
 }
 
 export interface Order {

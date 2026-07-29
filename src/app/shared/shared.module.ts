@@ -15,7 +15,7 @@ import { AvatarComponent } from './components/avatar/avatar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
-import { DishesListComponent } from './components/dishes-list/dishes-list.component';
+import { DishesListComponent } from './components/dish-list/dishes-list.component';
 import { FooterIconsComponent } from './components/footer-icons/footer-icons.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';

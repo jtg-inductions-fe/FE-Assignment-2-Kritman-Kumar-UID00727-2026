@@ -43,6 +43,8 @@
   }
 
   &__items {
+    @include text-ellipsis();
+
     color: $text-secondary;
     max-width: pxToRem(200);
     padding: $space-2;
