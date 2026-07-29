@@ -3,6 +3,7 @@
     <app-logo class="header__logo" />
   </a>
   <button
+    *ngIf="$isUserLoggedIn()"
     mat-icon-button
     class="header__hamburger-btn"
     aria-label="hamburger menu"

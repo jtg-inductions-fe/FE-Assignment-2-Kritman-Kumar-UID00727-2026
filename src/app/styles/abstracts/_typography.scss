@@ -9,7 +9,7 @@
   line-height: $line-height-tightest;
   letter-spacing: 0;
 
-  @include media-up($breakpoint: $breakpoint-desktop) {
+  @include media-up($breakpoint: $breakpoint-desktop-xl) {
     font-size: $font-size-display-desktop;
     line-height: $line-height-tightest;
   }
@@ -73,7 +73,7 @@
 
 .text-caption-semibold {
   font-size: $font-size-sm;
-  font-weight: $font-weight-semi-Bold;
+  font-weight: $font-weight-bold;
   line-height: $line-height-tight;
   letter-spacing: 0;
 }

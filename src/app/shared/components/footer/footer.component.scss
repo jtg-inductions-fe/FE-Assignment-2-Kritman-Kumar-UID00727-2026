@@ -1,0 +1,39 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.footer {
+  @include flex-box(space-between, center);
+
+  box-shadow: $shadow-sm;
+  border-radius: $radius-lg;
+  padding: $space-48 $space-32;
+  margin-top: $space-16;
+
+  &__text {
+    color: $text-secondary;
+  }
+
+  &__social-links {
+    @include flex-box(center, center);
+
+    gap: $space-24;
+  }
+
+  &__social-link {
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__social-link-logo {
+    height: pxToRem(24);
+    width: pxToRem(24);
+  }
+
+  @include media-down($breakpoint-tablet) {
+    @include flex-box($align-items: start, $direction: column);
+
+    gap: $space-16;
+    padding: $space-32;
+  }
+}

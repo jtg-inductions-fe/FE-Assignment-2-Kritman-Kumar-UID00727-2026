@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1001",
+    "name": "Margherita Pizza",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "101",
+    "TotalOrder": 15,
+    "isVeg": true
+  },
+  {
+    "id": "1002",
+    "name": "Pepperoni Pizza",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "102",
+    "TotalOrder": 8,
+    "isVeg": false
+  },
+  {
+    "id": "1003",
+    "name": "Truffle Pasta",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "103",
+    "TotalOrder": 22,
+    "isVeg": true
+  },
+  {
+    "id": "1004",
+    "name": "Chicken Alfredo",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "101",
+    "TotalOrder": 5,
+    "isVeg": false
+  },
+  {
+    "id": "1005",
+    "name": "Veggie Burger",
+    "restaurantId": "3",
+    "restaurantName": "Sushi Zen",
+    "customerId": "104",
+    "TotalOrder": 12,
+    "isVeg": true
+  },
+  {
+    "id": "1006",
+    "name": "Crispy Chicken Slider",
+    "restaurantId": "3",
+    "restaurantName": "Sushi Zen",
+    "customerId": "105",
+    "TotalOrder": 19,
+    "isVeg": false
+  },
+  {
+    "id": "1007",
+    "name": "Garlic Bread",
+    "restaurantId": "1",
+    "restaurantName": "Pizza Palace",
+    "customerId": "104",
+    "TotalOrder": "3",
+    "isVeg": true
+  },
+  {
+    "id": "1008",
+    "name": "BBQ Chicken Wings",
+    "restaurantId": "2",
+    "restaurantName": "Burger Bistro",
+    "customerId": "106",
+    "TotalOrder": 14,
+    "isVeg": false
+  },
+  {
+    "id": "1009",
+    "name": "Paneer Tikka Roll",
+    "restaurantId": "3",
+    "restaurantName": "Sushi Zen",
+    "customerId": "101",
+    "TotalOrder": 7,
+    "isVeg": true
+  }
+]

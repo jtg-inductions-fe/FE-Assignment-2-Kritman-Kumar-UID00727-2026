@@ -1,3 +1,7 @@
+export const AUTH_ROUTS = {
+  LOGIN: 'login',
+};
+
 export const AUTH_VALIDATION_MESSAGES = {
   EMAIL: {
     REQUIRED: 'Email is required',

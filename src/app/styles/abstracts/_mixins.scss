@@ -28,8 +28,20 @@
   $wrap: nowrap
 ) {
   display: flex;
+  flex-direction: $direction;
   justify-content: $justify-content;
   align-items: $align-items;
-  flex-direction: $direction;
   flex-wrap: $wrap;
+}
+
+/// Dynamic mixin for multi-line text truncation
+/// @param {Number} $lines [2] - Number of visible lines before truncation
+/// @param {Number} $line-height [1.4] - Optional line height multiplier
+@mixin text-ellipsis($lines: 2, $line-height: 1.4) {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  line-height: $line-height;
+  height: auto;
 }

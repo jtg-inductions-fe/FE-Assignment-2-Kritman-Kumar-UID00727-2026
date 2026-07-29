@@ -1,14 +1,13 @@
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { SharedModule } from '@shared/shared.module';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-
-import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   declarations: [DashboardComponent],
-  imports: [CommonModule, DashboardRoutingModule, MatSidenavModule, MatButtonModule],
+  imports: [CommonModule, DashboardRoutingModule, MatAutocompleteModule, AsyncPipe, SharedModule],
 })
 export class DashboardModule {}

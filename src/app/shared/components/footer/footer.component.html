@@ -1,0 +1,19 @@
+<footer class="footer">
+  <p class="text-label footer__text">
+    &copy; {{ currentYear }}
+    {{ FOOTER_COPYRIGHT_TEXT }}
+  </p>
+
+  <ul class="footer__social-links">
+    <li *ngFor="let socialLink of SOCIAL_LINKS_CONFIG">
+      <a class="footer__social-link" [href]="socialLink.url">
+        <img
+          [matTooltip]="socialLink.name"
+          class="footer__social-link-logo"
+          [src]="socialLink.logoPath"
+          [alt]="socialLink.name"
+        />
+      </a>
+    </li>
+  </ul>
+</footer>

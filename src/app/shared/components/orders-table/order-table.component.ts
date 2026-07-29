@@ -1,0 +1,53 @@
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+import { MenuItem, Order } from '@shared/models/order.model';
+import { Status } from '@shared/types/status.type';
+
+import { ORDER_TABLE_CONFIG } from './order-table.consent';
+import { OrderDetails } from './order-table.model';
+
+@Component({
+  selector: 'app-order-table',
+  templateUrl: './order-table.component.html',
+  styleUrls: ['./order-table.component.scss'],
+})
+export class OrderTableComponent implements OnChanges {
+  @Input() ActiveOrderTableList: Order[] = [];
+
+  readonly ORDER_TABLE_CONFIG = ORDER_TABLE_CONFIG;
+
+  dataSource: OrderDetails[] = [];
+  displayedColumns: string[] = ORDER_TABLE_CONFIG.COLUMN_NAMES;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['ActiveOrderTableList'] && this.ActiveOrderTableList) {
+      this.transFromTableData();
+    }
+  }
+
+  private transFromTableData() {
+    this.dataSource = this.ActiveOrderTableList.map((order: any) => {
+      const itemsString = order.items
+        .map((item: MenuItem) => `${item.name} x${item.TotalOrder}`)
+        .join(', ');
+
+      return {
+        id: order.id,
+        restaurantName: order.restaurantName,
+        customerName: order.customerName,
+        items: itemsString,
+        amount: order.amount,
+        status: order.status,
+      };
+    });
+  }
+
+  private filterTableData(orderId: string) {
+    this.dataSource = this.dataSource.filter((order) => order.id !== orderId);
+  }
+
+  changeOrderStatus(orderId: string, status: Status) {
+    // for now i am just filter the updated list here.ActiveOrderTableList
+    this.filterTableData(orderId);
+  }
+}

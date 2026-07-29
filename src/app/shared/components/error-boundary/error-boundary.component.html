@@ -1,0 +1,18 @@
+<div class="error-boundary">
+  <figure class="error-boundary__illustration-wrapper">
+    <img
+      class="error-boundary__illustration"
+      [src]="errorBoundaryIllustrationPath"
+      alt="Page not found illustration"
+    />
+  </figure>
+  <div class="error-boundary__body">
+    <h2 class="text-display error-boundary__heading">Something has gone seriously wrong</h2>
+    <p class="text-body error-boundary__description">
+      It’s always time for a coffee break We should be back by the time you finish your coffee.
+    </p>
+    <a routerLink="/" mat-raised-button class="text-label error-boundary__button" color="primary">
+      Go back home
+    </a>
+  </div>
+</div>

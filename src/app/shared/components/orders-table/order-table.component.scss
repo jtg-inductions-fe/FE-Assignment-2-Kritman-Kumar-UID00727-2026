@@ -1,0 +1,86 @@
+@use 'abstracts' as *;
+@use 'utilities' as *;
+
+.order-table {
+  box-shadow: $shadow-sm;
+  border-radius: $radius-md;
+  padding: $space-16;
+
+  &__table {
+    padding-top: $space-8;
+  }
+
+  &__not-found {
+    @include flex-box(center, center, column);
+
+    min-height: pxToRem(180);
+    padding: $space-24;
+    background-color: $surface;
+    border: 1px dashed $border;
+    border-radius: $radius-sm;
+    text-align: center;
+  }
+
+  &__not-found-message {
+    margin: 0;
+    color: $text-secondary;
+  }
+
+  &__title {
+    color: $text-primary;
+  }
+
+  &__description {
+    color: $text-secondary;
+  }
+
+  &__column-heading {
+    color: $text-secondary;
+  }
+
+  &__order-id {
+    color: $text-primary;
+  }
+
+  &__items {
+    @include text-ellipsis();
+
+    color: $text-secondary;
+    max-width: pxToRem(200);
+    padding: $space-2;
+  }
+
+  &__actions-container {
+    @include flex-box(center, center);
+
+    width: 100%;
+    gap: $space-8;
+  }
+
+  &__action-title {
+    text-align: center;
+    width: 100%;
+  }
+
+  &__order-status {
+    padding: $space-2 $space-8;
+    background-color: $warning-bg;
+    color: $warning;
+    border-radius: $radius-sm;
+    text-transform: capitalize;
+  }
+}
+
+.mat-mdc-table {
+  box-shadow: none;
+  max-height: pxToRem(250);
+  overflow-y: auto;
+}
+
+.mat-column-action {
+  min-width: pxToRem(300);
+}
+
+.mat-mdc-row {
+  padding: $space-8 0;
+}

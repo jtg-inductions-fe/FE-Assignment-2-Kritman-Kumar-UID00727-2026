@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Pizza Palace",
+    "owners": ["owner1@restaurant.com", "pizza_guy@gmail.com"],
+    "address": "123 Pepperoni Rd, Naples",
+    "isActive": true
+  },
+  {
+    "id": "2",
+    "name": "Burger Bistro",
+    "owners": ["owner2@restaurant.com", "burger_queen@gmail.com"],
+    "address": "456 Patty Ave, Austin",
+    "isActive": true
+  },
+  {
+    "id": "3",
+    "name": "Sushi Zen",
+    "owners": ["owner3@restaurant.com", "sushi_master@gmail.com"],
+    "address": "789 Wasabi Way, Kyoto",
+    "isActive": true
+  }
+]

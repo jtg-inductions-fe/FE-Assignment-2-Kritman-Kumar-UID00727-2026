@@ -1,0 +1,113 @@
+<div class="order-table">
+  <hgroup class="order-table__heading">
+    <h3 class="text-heading order-table__title">Active Orders</h3>
+    <p class="text-label order-table__description">
+      Manage pending and accepted orders directly from your dashboard.
+    </p>
+  </hgroup>
+  <div class="order-table__table-container">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[0]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[0] | uppercase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order" class="text-caption-semibold order-table__order-id">
+          {{ order.id }}
+        </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[1]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[1] | uppercase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.restaurantName }} </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[2]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[2] | uppercase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.customerName }} </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[3]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[3] | uppercase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order">
+          <span class="text-caption order-table__items">
+            {{ order.items }}
+          </span>
+        </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[4]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[4] | uppercase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order">{{ order.amount }} </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[5]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[5] | uppercase }}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order">
+          <span class="text-caption-semibold order-table__order-status">
+            {{ order.status }}
+          </span>
+        </mat-cell>
+      </ng-container>
+      <ng-container [matColumnDef]="ORDER_TABLE_CONFIG.COLUMN_NAMES[6]">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="text-caption-semibold order-table__column-heading"
+        >
+          <span class="order-table__action-title">
+            {{ ORDER_TABLE_CONFIG.COLUMN_NAMES[6] | uppercase }}
+          </span>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let order">
+          <div class="order-table__actions-container">
+            <button
+              mat-stroked-button
+              color="accent"
+              class="reject-btn"
+              (click)="changeOrderStatus(order.id, 'cancelled')"
+            >
+              <mat-icon>close</mat-icon> Reject
+            </button>
+            <button
+              mat-flat-button
+              color="primary"
+              class="accept-btn"
+              (click)="changeOrderStatus(order.id, 'Completed')"
+            >
+              <mat-icon>check</mat-icon> Accept
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+  <div *ngIf="!dataSource.length" class="order-table__not-found">
+    <p class="text-body order-table__not-found-message">
+      There are no active orders at this moment.
+    </p>
+  </div>
+</div>

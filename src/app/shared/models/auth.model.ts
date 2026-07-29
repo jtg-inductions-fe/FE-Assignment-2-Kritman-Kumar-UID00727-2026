@@ -10,4 +10,5 @@ export interface BaseUser {
 export interface AuthUser extends BaseUser {
   password: string;
   role: USER_ROLE;
+  restaurantId?: string;
 }

@@ -1,5 +1,5 @@
-@use 'abstracts/' as *;
-@use 'utilities/' as *;
+@use 'abstracts' as *;
+@use 'utilities' as *;
 
 .footer-action {
   @include flex-box($justify-content: center, $align-items: center);
