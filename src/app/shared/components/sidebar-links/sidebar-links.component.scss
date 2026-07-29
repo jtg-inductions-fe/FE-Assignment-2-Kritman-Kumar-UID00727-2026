@@ -28,6 +28,11 @@
     border-radius: $radius-sm;
     color: $text-primary;
     text-transform: capitalize;
+
+    &--none {
+      border: none;
+      background: none;
+    }
   }
 
   &__link:hover {

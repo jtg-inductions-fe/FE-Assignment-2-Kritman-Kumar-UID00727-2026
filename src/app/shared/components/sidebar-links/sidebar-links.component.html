@@ -26,7 +26,11 @@
     </mat-tree-node>
     <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
       <div class="mat-tree-node sidebar-links__expand" matRipple>
-        <a matTreeNodeToggle [routerLink]="node.route" class="text-body-medium sidebar-links__link">
+        <button
+          matTreeNodeToggle
+          [routerLink]="node.route"
+          class="text-body-medium sidebar-links__link sidebar-links__link--none"
+        >
           <div class="sidebar-links__item">
             <mat-icon class="sidebar-links__item-icon">
               {{ node.icon }}
@@ -35,7 +39,7 @@
               {{ node.label }}
             </span>
           </div>
-        </a>
+        </button>
         <div
           matTreeNodeToggle
           [attr.aria-label]="(treeControl.isExpanded(node) ? 'Collapse ' : 'Expand ') + node.label"
